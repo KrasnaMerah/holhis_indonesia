@@ -1,0 +1,17 @@
+version="1.7.0 Palembang"
+tags={
+	"Alternative History"
+	"Events"
+	"Historical"
+	"Map"
+	"National Focuses"
+	"Gameplay"
+	"Fixes"
+	"Graphics"
+	"Sound"
+	"Indonesia"
+	"Dutch East Indies"
+}
+name="Hollandia Historica: East Indies Reworked"
+supported_version="1.17.*"
+remote_file_id="2898713030"
