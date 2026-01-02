@@ -1,7 +1,7 @@
 add_namespace = holhis_burma
 add_namespace = holhis_siam
 
-country_event = { #Burma 1 - British Burma? for Britain
+country_event = { #Burma 1 - British Burma? for Britain - Testo for Github webhook
 	id = holhis_burma.1
 	title = holhis_burma.1.t
 	desc = holhis_burma.1.d
