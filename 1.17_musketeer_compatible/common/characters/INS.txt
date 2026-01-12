@@ -441,6 +441,14 @@ characters = {
 						ruling_only = yes
 					}
 				}
+				NOT = {
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
+					}
+				}
 			}
 			traits = {
 				marxist_philosopher
@@ -1468,6 +1476,14 @@ characters = {
 				has_country_flag = INS_de_jonge_resigned
 				NOT = {
 					has_completed_focus = INS_make_use_nsboi
+				}
+				NOT = {
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
+					}
 				}
 			}
 			traits = {
@@ -2575,6 +2591,39 @@ characters = {
 		}
 	}
 
+	INS_peter_idenburg = {
+		name = INS_peter_idenburg
+		portraits = {
+			army = {
+				small = GFX_idea_indonesia_idenburg
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = INS_peter_idenburg
+			allowed = {
+				OR = {
+					original_tag = INS
+					original_tag = HOL
+				}
+			}
+			available = {
+				NOT = {
+					has_government = communism
+				}
+				if = {
+					limit = {
+						tag = INS
+					}
+					has_completed_focus = INS_expand_bandung_university
+				}
+			}
+			traits = {
+				IRQ_minister_of_education
+			}
+		}
+	}
+
 	INS_ruhana_kuddus = {
 		name = INS_ruhana_kuddus
 		gender = female
@@ -2596,6 +2645,14 @@ characters = {
 			}
 			visible = {
 				has_country_flag = INS_de_jonge_resigned
+				NOT = {
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
+					}
+				}
 			}
 			traits = {
 				independent_journalist
@@ -2835,6 +2892,14 @@ characters = {
 				}
 			}
 			visible = {
+				NOT = {
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
+					}
+				}
 			}
 			traits = {
 				former_railroad_union_leader
@@ -2843,6 +2908,38 @@ characters = {
 				modifier = {
 					has_government = communism
 				}
+			}
+		}
+	}
+
+	INS_sujono = {
+		name = INS_sujono
+		portraits = {
+			civilian = {
+				large = GFX_portrait_indonesia_sujono
+			}
+			army = {
+				small = GFX_idea_indonesia_sujono
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = INS_sujono
+			allowed = {
+				original_tag = INS
+			}
+			visible = {
+				has_completed_focus = INS_support_nationalists
+			}
+			available = {
+				has_completed_focus = INS_befriend_japan
+				has_completed_focus = INS_expel_the_colonials
+			}
+			traits = {
+				japanizer
+			}
+			ai_will_do = {
+				base = 20
 			}
 		}
 	}
@@ -3450,7 +3547,12 @@ characters = {
 					}
 				}
 				NOT = {
-					has_completed_focus = INS_make_use_nsboi
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
+					}
 				}
 			}
 			traits = {
@@ -3503,6 +3605,14 @@ characters = {
 						has_idea = INS_sukarno
 						has_idea = INS_mohammad_hatta
 						has_idea = INS_sutan_syahrir
+					}
+				}
+				NOT = {
+					if = {
+						limit = {
+							has_completed_focus = INS_upheld_status_quo
+						}
+						is_puppet_of = HOL
 					}
 				}
 			}

@@ -123,22 +123,75 @@ is_asean_state = {
 		AND = {
 			original_tag = YUN
 			NOT = {
-				OR = {
-					has_cosmetic_tag = CHI
-					has_cosmetic_tag = PRC
-					has_cosmetic_tag = CHI_warlord_leader
-					has_cosmetic_tag = CHI_warlord_PRC
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					OR = {
+						has_completed_focus = CHI_sea_the_yanan_incident
+						has_completed_focus = CHI_sea_proclaim_rival_government
+						has_completed_focus = CHI_sea_power_struggle
+					}
+				}
+				IF = {
+					limit = {
+						NOT = { has_dlc = "No Compromise, No Surrender" }
+					}
+					OR = {
+						has_completed_focus = CHI_the_yanan_incident
+						has_completed_focus = CHI_proclaim_rival_government
+						has_completed_focus = CHI_power_struggle
+					}
 				}
 			}
 		}
 		AND = {
 			original_tag = GXC
 			NOT = {
-				OR = {
-					has_cosmetic_tag = CHI
-					has_cosmetic_tag = PRC
-					has_cosmetic_tag = CHI_warlord_leader
-					has_cosmetic_tag = CHI_warlord_PRC
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					OR = {
+						has_completed_focus = CHI_sea_the_yanan_incident
+						has_completed_focus = CHI_sea_proclaim_rival_government
+						has_completed_focus = CHI_sea_power_struggle
+					}
+				}
+				IF = {
+					limit = {
+						NOT = { has_dlc = "No Compromise, No Surrender" }
+					}
+					OR = {
+						has_completed_focus = CHI_the_yanan_incident
+						has_completed_focus = CHI_proclaim_rival_government
+						has_completed_focus = CHI_power_struggle
+					}
+				}
+			}
+		}
+		AND = {
+			original_tag = GDC
+			NOT = {
+				IF = {
+					limit = {
+						has_dlc = "No Compromise, No Surrender"
+					}
+					OR = {
+						has_completed_focus = CHI_sea_the_yanan_incident
+						has_completed_focus = CHI_sea_proclaim_rival_government
+						has_completed_focus = CHI_sea_power_struggle
+					}
+				}
+				IF = {
+					limit = {
+						NOT = { has_dlc = "No Compromise, No Surrender" }
+					}
+					OR = {
+						has_completed_focus = CHI_the_yanan_incident
+						has_completed_focus = CHI_proclaim_rival_government
+						has_completed_focus = CHI_power_struggle
+					}
 				}
 			}
 		}

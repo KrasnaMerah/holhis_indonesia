@@ -173,8 +173,13 @@ characters={
 				planning_skill = 1
 				logistics_skill = 2
 				visible = {  
-					has_completed_focus = RAJ_forward_bloc 
-					NOT = { has_country_flag = has_arrested_bose }
+					OR = {
+						has_country_flag = has_swayed_bose_to_communism
+						ROOT = { 
+							has_completed_focus = RAJ_forward_bloc 
+							NOT = { has_country_flag = has_arrested_bose }
+						}
+					}
 				}
 			}
 			advisor = {
@@ -184,15 +189,23 @@ characters={
 					original_tag = RAJ
 				}
 				available = {
-					ROOT = { 
-						has_completed_focus = RAJ_forward_bloc 
-						NOT = { has_country_flag = has_arrested_bose }
+					OR = {
+						has_country_flag = has_swayed_bose_to_communism
+						ROOT = { 
+							has_completed_focus = RAJ_forward_bloc 
+							NOT = { has_country_flag = has_arrested_bose }
+						}
 					}
 				}
 
-				visible = {  
-					has_completed_focus = RAJ_forward_bloc 
-					NOT = { has_country_flag = has_arrested_bose }
+				visible = {
+					OR = {
+						has_country_flag = has_swayed_bose_to_communism
+						AND = {
+							has_completed_focus = RAJ_forward_bloc 
+							NOT = { has_country_flag = has_arrested_bose }
+						}
+					}
 				}
 				traits = {
 					pragmatic_authoritarian 
@@ -202,8 +215,6 @@ characters={
 					factor = 0.000
 				}
 			}
-
-
 		}
 	}
 
@@ -331,11 +342,6 @@ characters={
 					small = GFX_idea_raj_sitaramayya
 				}
 			}
-			country_leader={
-				ideology=socialism
-				expire="1965.1.1.1"
-				id=-1
-			}
 			advisor={
 				slot = political_advisor
 				idea_token = RAJ_b_p_sitaramayya
@@ -366,6 +372,28 @@ characters={
 			portraits={
 				civilian={
 					large="GFX_RAJ_pattabhi_sitaramayya"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = RAJ_b_p_sitaramayya
+				allowed = {
+					OR = {
+						original_tag = RAJ
+						original_tag = DRV
+					}
+				}
+				available = {
+					has_completed_focus = RAJ_administrative_oversight
+				}
+				visible = {
+					num_of_controlled_states > 4
+				}
+				traits = {
+					regional_autonomist 
+				}
+				ai_will_do = {
+					factor = 0.000
 				}
 			}
 		}
@@ -415,6 +443,17 @@ characters={
 			planning_skill=3
 			logistics_skill=1
 			legacy_id=-1
+			visible = {
+				OR = {
+					NOT = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+					}
+					AND = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+						has_completed_focus = RAJ_keep_british_generals
+					}
+				}
+			}
 		}
 	}
 
@@ -422,8 +461,8 @@ characters={
 		name=RAJ_frank_messervy
 		portraits = {
 			army = {
-				large = GFX_portrait_RAJ_frank_messervy
-				small = GFX_portrait_RAJ_frank_messervy_small
+				large = GFX_RAJ_frank_messervy
+				small = GFX_RAJ_frank_messervy_small
 			}
 		}
 		corps_commander={
@@ -434,6 +473,17 @@ characters={
 			planning_skill=2
 			logistics_skill=2
 			legacy_id=-1
+			visible = {
+				OR = {
+					NOT = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+					}
+					AND = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+						has_completed_focus = RAJ_keep_british_generals
+					}
+				}
+			}
 		}
 	}
 
@@ -442,8 +492,8 @@ characters={
 		name=RAJ_douglas_gracey
 		portraits={
 			army={
-				large = GFX_portrait_RAJ_douglas_gracey
-				small = GFX_portrait_RAJ_douglas_gracey_small
+				large = GFX_RAJ_douglas_gracey
+				small = GFX_RAJ_douglas_gracey_small
 			}
 		}
 		corps_commander={
@@ -454,6 +504,17 @@ characters={
 			planning_skill=3
 			logistics_skill=3
 			legacy_id=-1
+			visible = {
+				OR = {
+					NOT = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+					}
+					AND = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+						has_completed_focus = RAJ_keep_british_generals
+					}
+				}
+			}
 		}
 	}
 
@@ -475,6 +536,17 @@ characters={
 			planning_skill=1
 			logistics_skill=2
 			legacy_id=-1
+			visible = {
+				OR = {
+					NOT = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+					}
+					AND = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+						has_completed_focus = RAJ_keep_british_generals
+					}
+				}
+			}
 		}
 	}
 
@@ -494,6 +566,17 @@ characters={
 			planning_skill=2
 			logistics_skill=2
 			legacy_id=-1
+			visible = {
+				OR = {
+					NOT = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+					}
+					AND = {
+						has_completed_focus = RAJ_royal_indian_navy_mutiny
+						has_completed_focus = RAJ_keep_british_generals
+					}
+				}
+			}
 		}
 	}
 
@@ -534,7 +617,12 @@ characters={
 			planning_skill=1
 			logistics_skill=3
 
-			visible = { has_completed_focus = RAJ_sikh_religious_guarantees }
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_sikh_religious_guarantees
+					has_completed_focus = RAJ_the_punjab_accord
+				}
+			}
 		}
 	}
 
@@ -554,7 +642,12 @@ characters={
 			planning_skill=2
 			logistics_skill=2
 
-			visible = { has_completed_focus = RAJ_sikh_religious_guarantees }
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_sikh_religious_guarantees
+					has_completed_focus = RAJ_the_punjab_accord
+				}
+			}
 		}
 	}
 
@@ -1212,6 +1305,7 @@ characters={
 			allowed = {
 				OR = {
 					original_tag = PAK
+					original_tag = AFG
 					AND = {
 						original_tag = RAJ
 						has_completed_focus = RAJ_the_mughal_uprising
@@ -1234,6 +1328,11 @@ characters={
 			defense_skill=1
 			planning_skill=1
 			logistics_skill=1
+			visible = {
+				NOT = {
+					has_completed_focus = RAJ_royal_indian_navy_mutiny
+				}
+			}
 		}
 	}
 
@@ -1254,6 +1353,7 @@ characters={
 			allowed = {
 				OR = {
 					original_tag = PAK
+					original_tag = AFG
 					AND = {
 						original_tag = RAJ
 						has_completed_focus = RAJ_the_mughal_uprising
@@ -1276,6 +1376,11 @@ characters={
 			defense_skill=1
 			planning_skill=1
 			logistics_skill=1
+			visible = {
+				NOT = {
+					has_completed_focus = RAJ_royal_indian_navy_mutiny
+				}
+			}
 		}
 	}
 
@@ -1295,6 +1400,7 @@ characters={
 			allowed = {
 				OR = {
 					original_tag = PAK
+					original_tag = AFG
 					original_tag = RAJ
 				}
 			}
@@ -1314,6 +1420,11 @@ characters={
 			defense_skill=1
 			planning_skill=2
 			logistics_skill=3
+			visible = {
+				NOT = {
+					has_completed_focus = RAJ_royal_indian_navy_mutiny
+				}	
+			}
 		}
 	}
 	### NAVY CHIEFS ###
@@ -1846,10 +1957,16 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
-				has_completed_focus = RAJ_sikh_religious_guarantees
+				OR = {
+					has_completed_focus = RAJ_the_punjab_accord
+					has_completed_focus = RAJ_sikh_religious_guarantees
+				}
 			}
 			available = {
-				has_completed_focus = RAJ_sikh_religious_guarantees
+				OR = {
+					has_completed_focus = RAJ_the_punjab_accord
+					has_completed_focus = RAJ_sikh_religious_guarantees
+				}
 			}
 			traits = {
 				sikh_activist 
@@ -2047,12 +2164,12 @@ characters={
 
 			portraits = {
 				civilian = {
-					large = GFX_portrait_india_generic_land_4
-					small = GFX_portrait_india_generic_land_4_small
+					large = GFX_portrait_RAJ_chithira_thirunal_balarama_varma
+					small = GFX_portrait_RAJ_chithira_thirunal_balarama_varma_small
 				}
 				army = {
-					large = GFX_portrait_india_generic_land_4
-					small = GFX_portrait_india_generic_land_4_small
+					large = GFX_portrait_RAJ_chithira_thirunal_balarama_varma
+					small = GFX_portrait_RAJ_chithira_thirunal_balarama_varma_small
 				}
 			}
 

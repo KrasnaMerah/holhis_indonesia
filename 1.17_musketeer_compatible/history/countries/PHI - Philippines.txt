@@ -34,6 +34,13 @@ if = {
 set_stability = 0.50
 set_war_support = 0.15 
 
+1025 = { #Zamboanga
+	start_resistance = yes
+	set_compliance = 32
+	set_resistance = 30
+	set_garrison_strength = 1.0
+}
+
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -295,9 +302,8 @@ IF = {
 		## Vanilla characters
 		recruit_character = PHI_jose_laurel
 		recruit_character = PHI_manuel_luis_quezon
-		recruit_character = PHI_pedro_p_baguisa
-		recruit_character = PHI_deodato_jacinto
-		recruit_character = PHI_hermano_jacinto
+		recruit_character = PHI_cristanto_evangelista
+		recruit_character = PHI_benigno_ramos
 		recruit_character = PHI_pelagio_cruz
 		recruit_character = PHI_jose_v_andrada
 		recruit_character = PHI_enrique_jurado
@@ -392,6 +398,46 @@ IF = {
 			complete_national_focus = industrial_effort
 			complete_national_focus = construction_effort
 			complete_national_focus = production_effort
+			add_country_leader_role = {
+				character = PHI_benigno_ramos
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}
+			add_country_leader_role = {
+				character = PHI_jose_laurel
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = centrism
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}
+			PHI_benigno_ramos = {
+				remove_country_leader_role = {
+					ideology = centrism
+				}
+			}
+			PHI_andres_soriano = {
+				remove_country_leader_role = {
+					ideology = falangism
+				}
+			}
+			set_party_name = {
+				ideology = fascism
+				long_name = PHI_ganap_long
+				name = PHI_ganap
+			}
+			set_party_name = {
+				ideology = neutrality
+				long_name = PHI_kalibapi_long
+				name = PHI_kalibapi
+			}
 		}
 	}
 

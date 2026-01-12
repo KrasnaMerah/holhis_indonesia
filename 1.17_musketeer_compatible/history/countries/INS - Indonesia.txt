@@ -119,6 +119,7 @@ recruit_character = INS_group_gapi
 recruit_character = INS_margono_joyohadikusumo
 recruit_character = INS_mohammad_husni_thamrin
 recruit_character = INS_mohammad_husni_thamrin_volksraad
+recruit_character = INS_sujono
 recruit_character = INS_sukarjo_wiryopranoto
 recruit_character = INS_supomo
 recruit_character = INS_sutarjo_kartohadikusumo
@@ -139,6 +140,7 @@ recruit_character = INS_hubertus_van_mook
 recruit_character = INS_jan_jonkman
 recruit_character = INS_charles_van_der_plas
 recruit_character = INS_nicolaas_blom
+recruit_character = INS_peter_idenburg
 
 recruit_character = INS_hamengkubuwono_eighth
 recruit_character = INS_mangkunegara_seventh
@@ -606,6 +608,9 @@ create_equipment_variant = {
 		ideology = fascism
 		long_name = INS_pni_long
 		name = INS_pni
+	}
+	INS_amir_syarifuddin = {
+		promote_character = yes
 	}
 	
 	add_country_leader_role = {

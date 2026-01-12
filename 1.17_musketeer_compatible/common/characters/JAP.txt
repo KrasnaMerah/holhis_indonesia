@@ -2,54 +2,25 @@ characters = {
 
 	# Hirohito
 	JAP_emperor_hirohito = {
-		instance = {
-			allowed = {
-				has_dlc = "No Compromise, No Surrender"
+
+		name = JAP_emperor_hirohito
+
+		portraits = {
+			civilian = {
+				large = GFX_portrait_JAP_emperor_hirohito
+				small = GFX_portrait_JAP_emperor_hirohito_civilian_small
 			}
-
-			name = JAP_emperor_hirohito
-
-			portraits = {
-				civilian = {
-					large = GFX_portrait_JAP_emperor_hirohito
-					small = GFX_portrait_JAP_emperor_hirohito_civilian_small
-				}
-				army = {
-					small = GFX_portrait_JAP_emperor_hirohito_military_small
-				}
+			army = {
+				small = GFX_portrait_JAP_emperor_hirohito_military_small
 			}
-
-			#country_leader = {
-			#	ideology = emperor_fascism # was fascism_ideology
-			#	traits = { warrior_code emperor_showa imperial_sanction }
-			#	expire = "1989.1.1.1"
-			#	id = 700
-			#}
-
 		}
-		instance = {
-			allowed = {
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-			}
 
-			name = JAP_emperor_hirohito
-
-			portraits = {
-				civilian = {
-					large = GFX_portrait_JAP_emperor_hirohito
-				}
-			}
-
-			country_leader = {
-				ideology = emperor_fascism # was fascism_ideology
-				traits = { warrior_code emperor_showa imperial_sanction }
-				expire = "1989.1.1.1"
-				id = 700
-			}
-
-		}
+		#country_leader = {
+		#	ideology = emperor_fascism # was fascism_ideology
+		#	traits = { warrior_code emperor_showa imperial_sanction }
+		#	expire = "1989.1.1.1"
+		#	id = 700
+		#}
 	}
 
 	# Empress Nagako
@@ -1810,21 +1781,21 @@ characters = {
 	}
 
 	JAP_harada_kumakichi = {
-		name=JAP_harada_kumakichi
+		name = JAP_harada_kumakichi
 		portraits={
 			army={
-				large=GFX_portrait_Winston_Tyron
-				small=GFX_idea_JAP_generic_land_1
+				large = GFX_portrait_JAP_harada_kumakichi
+				small = GFX_idea_japan_harada_kumakichi
 			}
 		}
-		corps_commander={
-			traits={ old_guard politically_connected JAP_samurai_lineage }
-			skill=1
-			attack_skill=1
-			defense_skill=1
-			planning_skill=2
-			logistics_skill=1
-			legacy_id=0
+		corps_commander = {
+			traits = { old_guard politically_connected JAP_samurai_lineage }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = 0
 		}
 	}
 
@@ -2316,12 +2287,12 @@ characters = {
 
 	}
 
-	JAP_maeda_tadashi = {
-		name = JAP_maeda_tadashi
+	JAP_shiro_takasu = {
+		name = JAP_shiro_takasu
 		portraits = {
 			army = {
-				large = GFX_portrait_JAP_maeda_tadashi
-				small = GFX_portrait_JAP_maeda_tadashi_small
+				large = GFX_portrait_japan_takasu_shiro
+				small = GFX_idea_japan_takasu_shiro
 			}
 		}
 		navy_leader = {
@@ -2332,6 +2303,16 @@ characters = {
 			maneuvering_skill = 2
 			coordination_skill = 1
 			legacy_id=0
+		}
+	}
+
+	JAP_maeda_tadashi = {
+		name = JAP_maeda_tadashi
+		portraits = {
+			army = {
+				large = GFX_portrait_JAP_maeda_tadashi
+				small = GFX_idea_japan_maeda_tadashi
+			}
 		}
 	}
 

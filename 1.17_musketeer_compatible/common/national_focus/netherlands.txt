@@ -2450,6 +2450,8 @@ focus_tree = {
 			    amount = 500
 			    producer = HOL
 			}
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = HOL_liberation
 			HOL_de_crisisjaren_level_down = yes
 			country_event = { id = mtg_netherlands.80 hours = 6 }
@@ -2529,6 +2531,8 @@ focus_tree = {
 					}
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			HOL_de_crisisjaren_level_down = yes
 		}
 	}
@@ -2561,6 +2565,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			HOL_de_crisisjaren_level_down = yes
 		}
 	}
@@ -2600,6 +2606,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			HOL_de_crisisjaren_level_down = yes
 		}
 	}
@@ -2746,6 +2754,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			HOL_de_crisisjaren_level_down = yes
 			hidden_effect = { news_event = { id = mtg_news.47 days = 1 } }
 		}
@@ -3293,6 +3303,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = HOL_prepare_the_inundation_lines
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_category_tooltip = HOL_prepare_the_inundation_lines
 			custom_effect_tooltip = HOL_prepare_the_inundation_lines_tt
 		}
@@ -3370,6 +3381,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			ENG = {
 				add_opinion_modifier = { target = HOL modifier = HOL_protect_against_britain }
 			}	
@@ -3560,7 +3573,9 @@ focus_tree = {
 					province = 6500
 					instant_build = yes
 				}
-			}	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			GER = {
 				add_opinion_modifier = { target = HOL modifier = HOL_germany_is_the_greater_threat }
 			}	
@@ -5220,6 +5235,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			add_state_claim = 528
+			add_state_claim = 1018
 			create_wargoal = {
 				type = annex_everything
 				target = JAP
@@ -7232,6 +7249,7 @@ focus_tree = {
 				NOT = { has_idea = HOL_shell_shocked_spectator_3 }
 				NOT = { has_idea = HOL_shell_shocked_spectator_2 }
 			}
+			NOT = { has_completed_focus = HOL_lead_the_minor_democracies }
 		}
 		bypass = {
 			has_government = neutrality
@@ -7460,7 +7478,7 @@ focus_tree = {
 		}
 		cancel_if_invalid = yes
 		prerequisite = { focus = HOL_revive_the_buffer_state_proposal }
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_BEL_defensive_neutrality
 		x = 0
 		y = 1
 		relative_position_id = HOL_revive_the_buffer_state_proposal
@@ -8535,7 +8553,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = BEL_the_council_of_europe_tt
-			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = BEL_european_community_tt
 			
 			hidden_effect = { news_event = { id = mtg_news.54 days = 1 } }

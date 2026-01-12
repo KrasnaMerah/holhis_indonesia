@@ -6264,7 +6264,6 @@ country_event = { #Nationalists 5 - Notification to the Dutch
 	desc = holhis_nationalists.5.desc
 	picture = GFX_report_event_ger_civil_war
 
-	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = { #Let them go
@@ -6289,6 +6288,9 @@ country_event = { #Nationalists 5 - Notification to the Dutch
 			transfer_state = 1057
 			set_country_flag = HOL_seized_papua_flag
 		}
+		INS = {
+			country_event = { id = holhis_nationalists.9 hours = 12 }
+		}
 		ai_chance = {
 			base = 65
 			modifier = {
@@ -6306,6 +6308,7 @@ country_event = { #Nationalists 5 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -6328,6 +6331,7 @@ country_event = { #Nationalists 5 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -6488,6 +6492,27 @@ country_event = { #Nationalists 8 - Dispatcher for uprisings
 					set_country_flag = mlk_uprising_flag
 					INS = { country_event = holhis_nationalists.9 }
 				}
+			}
+		}
+	}
+}
+
+country_event = { #Nationalists 9 - The Dutch seized West Papua
+	id = holhis_nationalists.9
+	title = holhis_nationalists.9.t
+	desc = holhis_nationalists.9.desc
+	picture = GFX_report_event_ger_civil_war
+	is_triggered_only = yes
+
+	option = { #We can't afford war
+		name = holhis_nationalists.9.a
+	}
+	option = { #War it is!
+		name = holhis_nationalists.9.b
+		HOL = {
+			declare_war_on = {
+				target = INS
+				type = puppet_wargoal_focus
 			}
 		}
 	}
@@ -7872,6 +7897,9 @@ country_event = { #Commies 12 - Notification to the Dutch
 			transfer_state = 1057
 			set_country_flag = HOL_seized_papua_flag
 		}
+		INS = {
+			country_event = { id = holhis_commies.121 hours = 12 }
+		}
 		ai_chance = {
 			base = 55
 			modifier = {
@@ -7889,6 +7917,7 @@ country_event = { #Commies 12 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -7911,6 +7940,7 @@ country_event = { #Commies 12 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -7930,6 +7960,27 @@ country_event = { #Commies 12 - Notification to the Dutch
 		}
 		ai_chance = {
 			base = 30
+		}
+	}
+}
+
+country_event = { #Commies 121 - The Dutch seized West Papua
+	id = holhis_commies.121
+	title = holhis_commies.121.t
+	desc = holhis_commies.121.desc
+	picture = GFX_report_event_ger_civil_war
+	is_triggered_only = yes
+
+	option = { #We can't afford war
+		name = holhis_commies.121.a
+	}
+	option = { #War it is!
+		name = holhis_commies.121.b
+		HOL = {
+			declare_war_on = {
+				target = INS
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }
@@ -12233,6 +12284,9 @@ country_event = { #NSB 6 - Notification to the Dutch
 			transfer_state = 1057
 			set_country_flag = HOL_seized_papua_flag
 		}
+		INS = {
+			country_event = { id = holhis_nsb.601 hours = 12 }
+		}
 		ai_chance = {
 			base = 65
 			modifier = {
@@ -12250,6 +12304,7 @@ country_event = { #NSB 6 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -12272,6 +12327,7 @@ country_event = { #NSB 6 - Notification to the Dutch
 		HOL = {
 			transfer_state = 669
 			transfer_state = 1057
+			set_country_flag = HOL_seized_papua_flag
 			declare_war_on = {
 				target = INS
 				type = puppet_wargoal_focus
@@ -12291,6 +12347,27 @@ country_event = { #NSB 6 - Notification to the Dutch
 		}
 		ai_chance = {
 			base = 5
+		}
+	}
+}
+
+country_event = { #NSB 601 - The Dutch seized West Papua
+	id = holhis_nsb.601
+	title = holhis_nsb.601.t
+	desc = holhis_nsb.601.desc
+	picture = GFX_report_event_ger_civil_war
+	is_triggered_only = yes
+
+	option = { #We can't afford war
+		name = holhis_nsb.601.a
+	}
+	option = { #War it is!
+		name = holhis_nsb.601.b
+		HOL = {
+			declare_war_on = {
+				target = INS
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }
@@ -13653,6 +13730,27 @@ country_event = { #Volksraad 11 - Notification to the Dutch
 		}
 		ai_chance = {
 			base = 5
+		}
+	}
+}
+
+country_event = { #Volksraad 111 - The Dutch seized West Papua
+	id = holhis_volksraad.111
+	title = holhis_volksraad.111.t
+	desc = holhis_volksraad.111.desc
+	picture = GFX_report_event_ger_civil_war
+	is_triggered_only = yes
+
+	option = { #We can't afford war
+		name = holhis_volksraad.111.a
+	}
+	option = { #War it is!
+		name = holhis_volksraad.111.b
+		HOL = {
+			declare_war_on = {
+				target = INS
+				type = puppet_wargoal_focus
+			}
 		}
 	}
 }

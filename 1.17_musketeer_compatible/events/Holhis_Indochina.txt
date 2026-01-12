@@ -1,7 +1,7 @@
 add_namespace = holhis_burma
 add_namespace = holhis_siam
 
-country_event = { #Burma 1 - British Burma? for Britain - Testo for Github webhook
+country_event = { #Burma 1 - British Burma? for Britain
 	id = holhis_burma.1
 	title = holhis_burma.1.t
 	desc = holhis_burma.1.d
@@ -129,9 +129,9 @@ country_event = { #Siam 2 - Siam won - for Siam
 	option = {
 		name = holhis_siam.2.a
 		
-		transfer_state = 1042
-		transfer_state = 1050
-		transfer_state = 1047
+		transfer_state = 1066
+		transfer_state = 1074
+		transfer_state = 1071
 
 		add_war_support = 0.03
 
@@ -182,9 +182,9 @@ country_event = { #Siam 3 - Siam won - for owner of Battambang
 		name = holhis_siam.3.b
 		
 		army_experience = 25
-		add_state_claim = 1042
-		add_state_claim = 1050
-		add_state_claim = 1047
+		add_state_claim = 1066
+		add_state_claim = 1074
+		add_state_claim = 1071
 		add_war_support = 0.05
 		
 		if = {
@@ -334,10 +334,10 @@ country_event = { #Siam 5 - Siam lost - for owner of Battambang
 		name = holhis_siam.5.b
 		
 		army_experience = 25
-		add_state_claim = 1042
-		add_state_claim = 1050
-		add_state_claim = 1047
-		add_state_claim = 1041
+		add_state_claim = 1066
+		add_state_claim = 1074
+		add_state_claim = 1071
+		add_state_claim = 1065
 		
 		if = {
 			limit = {
@@ -825,7 +825,7 @@ country_event = { #Siam 14 - Siam won - for Siam
 	option = {
 		name = holhis_siam.14.a
 		
-		transfer_state = 1036
+		transfer_state = 1060
 
 		add_war_support = 0.025
 		army_experience = 10
@@ -899,8 +899,8 @@ country_event = { #Siam 15 - Siam won - for owner of Kedah
 			}
 		}
 
-		add_state_claim = 1036
-		add_state_claim = 724
+		add_state_claim = 1060
+		add_state_claim = 1061
 		
 		add_opinion_modifier = {
 			target = SIA
@@ -1024,7 +1024,7 @@ country_event = { #Siam 17 - Siam lost - for owner of Kedah
 		
 		army_experience = 25
 
-		add_state_claim = 724
+		add_state_claim = 1061
 		add_state_claim = 955
 		
 		if = {
@@ -1318,8 +1318,8 @@ country_event = { #Siam 22 - Siam lost - for owner of Phnom Penh
 		name = holhis_siam.22.b
 		
 		army_experience = 25
-		add_state_claim = 1042
-		add_state_claim = 1047
+		add_state_claim = 1066
+		add_state_claim = 1071
 		add_state_claim = 957
 		
 		if = {
@@ -1469,7 +1469,7 @@ country_event = { #Siam 25 - Siam won - for owner of Vientiane
 		
 		army_experience = 25
 		add_state_claim = 670
-		add_state_claim = 1050
+		add_state_claim = 1074
 		add_war_support = 0.05
 		
 		if = {
@@ -1619,8 +1619,8 @@ country_event = { #Siam 27 - Siam lost - for owner of Vientiane
 		name = holhis_siam.27.b
 		
 		army_experience = 25
-		add_state_claim = 1050
-		add_state_claim = 1041
+		add_state_claim = 1074
+		add_state_claim = 1065
 		
 		if = {
 			limit = {
@@ -2010,7 +2010,7 @@ country_event = { #Siam 34 - Siam won - for Siam
 	option = {
 		name = holhis_siam.34.a
 		
-		transfer_state = 1035
+		transfer_state = 1059
 
 		add_war_support = 0.075
 		army_experience = 10
@@ -2084,8 +2084,8 @@ country_event = { #Siam 35 - Siam won - for owner of Kelantan
 			}
 		}
 
-		add_state_claim = 1035
-		add_state_claim = 1036
+		add_state_claim = 1059
+		add_state_claim = 1060
 		
 		add_opinion_modifier = {
 			target = SIA
@@ -2209,8 +2209,8 @@ country_event = { #Siam 37 - Siam lost - for owner of Kelantan
 		
 		army_experience = 15
 
-		add_state_claim = 724
-		add_state_claim = 1036
+		add_state_claim = 1061
+		add_state_claim = 1060
 		
 		if = {
 			limit = {
@@ -2375,25 +2375,25 @@ country_event = { #Siam 39 - The attacker wins - Accept concessions or not
 		#BATTAMBANG
 		if = {
 			limit = {
-				FROM = { owns_state = 1042 }
+				FROM = { owns_state = 1066 }
 			}
-			transfer_state = 1042
+			transfer_state = 1066
 		}
 
 		#CHAMPASSAK
 		if = {
 			limit = {
-				FROM = { owns_state = 1047 }
+				FROM = { owns_state = 1071 }
 			}
-			transfer_state = 1047
+			transfer_state = 1071
 		}
 
 		#XAIGNABOULI
 		if = {
 			limit = {
-				FROM = { owns_state = 1050 }
+				FROM = { owns_state = 1074 }
 			}
-			transfer_state = 1050
+			transfer_state = 1074
 		}
 
 		#UDON THANI, cede this only if Thailand didn't own all above three
@@ -2401,14 +2401,14 @@ country_event = { #Siam 39 - The attacker wins - Accept concessions or not
 			limit = {
 				FROM = {
 					AND = {
-						NOT = { owns_state = 1042 }
-						NOT = { owns_state = 1047 }
-						NOT = { owns_state = 1050 }
+						NOT = { owns_state = 1066 }
+						NOT = { owns_state = 1071 }
+						NOT = { owns_state = 1074 }
 					}
-					owns_state = 1041
+					owns_state = 1065
 				}
 			}
-			transfer_state = 1041
+			transfer_state = 1065
 		}
 		add_political_power = 50
 	}
@@ -2591,7 +2591,7 @@ country_event = { #Siam 44 - Siam ponders peace in exchange of Southern Territor
 		tag = SIA
 		has_war = yes
 		any_enemy_country = {
-			owns_state = 1035
+			owns_state = 1059
 		}
 		surrender_progress > 0.25
 		has_civil_war = no
@@ -2613,7 +2613,7 @@ country_event = { #Siam 44 - Siam ponders peace in exchange of Southern Territor
 			random_other_country = {
 				limit = {
 					has_war_with = SIA
-					owns_state = 1035
+					owns_state = 1059
 				}
 				save_event_target_as = SIA_southern_enemy
 			}
@@ -2626,7 +2626,7 @@ country_event = { #Siam 44 - Siam ponders peace in exchange of Southern Territor
 			random_other_country = {
 				limit = {
 					has_war_with = SIA
-					owns_state = 1035
+					owns_state = 1059
 				}
 				save_event_target_as = SIA_southern_enemy
 			}
@@ -2684,17 +2684,17 @@ country_event = { #Siam 45 - The attacker wins - Accept concessions or not
 		#KEDAH
 		if = {
 			limit = {
-				FROM = { owns_state = 1036 }
+				FROM = { owns_state = 1060 }
 			}
-			transfer_state = 1036
+			transfer_state = 1060
 		}
 
 		#KELANTAN
 		if = {
 			limit = {
-				FROM = { owns_state = 1035 }
+				FROM = { owns_state = 1059 }
 			}
-			transfer_state = 1035
+			transfer_state = 1059
 		}
 
 		#PATTANI, cede this only if Thailand didn't own all above two
@@ -2702,13 +2702,13 @@ country_event = { #Siam 45 - The attacker wins - Accept concessions or not
 			limit = {
 				FROM = {
 					AND = {
-						NOT = { owns_state = 1036 }
-						NOT = { owns_state = 1035 }
+						NOT = { owns_state = 1060 }
+						NOT = { owns_state = 1059 }
 					}
-					owns_state = 724
+					owns_state = 1061
 				}
 			}
-			transfer_state = 724
+			transfer_state = 1061
 		}
 		add_political_power = 50
 	}

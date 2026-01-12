@@ -279,6 +279,7 @@ bookmarks = {
 			ideas = {
 				RAJ_agrarian_society
 				RAJ_princely_states
+				RAJ_risk_of_famine
 			}
 			focuses = {
 				RAJ_all_india_forward_bloc
@@ -1136,7 +1137,7 @@ bookmarks = {
 			ideas = {
 				INS_malaise_1
 				INS_nationalism_suppressed
-				INS_knil_incompetence_1
+				INS_knil_incompetence_1_showcase
 			}
 			focuses = {
 				INS_emerald_equator

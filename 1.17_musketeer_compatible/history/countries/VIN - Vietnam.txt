@@ -75,7 +75,7 @@ set_technology = {
 }
 
 set_politics = {
-	ruling_party = democratic
+	ruling_party = communism
 	last_election = "1933.2.16"
 	election_frequency = 36
 	elections_allowed = yes
@@ -83,8 +83,8 @@ set_politics = {
 set_popularities = {
 	democratic = 35
 	fascism = 15
-	communism = 15
-	neutrality = 35
+	communism = 35
+	neutrality = 15
 }
 
 add_ideas = {

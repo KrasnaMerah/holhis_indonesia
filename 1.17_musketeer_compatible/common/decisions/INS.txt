@@ -29,7 +29,6 @@ INS_category_volksraad = {
 				id = holhis_history.11
 			}
 		}
-
 	}
 
 	INS_emergency_relocation = {
@@ -76,7 +75,7 @@ INS_category_volksraad = {
 				province = 7421
 				value = 10
 			}
-			set_capital = { state = 1020 }
+			set_capital = { state = 1051 }
 		}
 
 		ai_will_do = {
@@ -231,8 +230,8 @@ INS_category_volksraad = {
 			FROM = {
 				OR = {
 					state = 335
-					state = 1020
-					state = 1021
+					state = 1051
+					state = 1052
 				}
 				is_fully_controlled_by = ROOT
 			}
@@ -464,7 +463,7 @@ INS_category_volksraad = {
 
 		complete_effect = {
 			add_stability = -0.1
-			1029 = {
+			1057 = {
 				add_manpower = -629
 			}
 		}
@@ -522,7 +521,7 @@ INS_category_national_projects = {
 	INS_establish_nv_merbabu = {
 
 		available = {
-			controls_state = 1021
+			controls_state = 1051
 			has_completed_focus = INS_copy_dutch_navair
 			NOT = {
 				has_country_flag = INS_merbabu_quits_flag
@@ -558,7 +557,7 @@ INS_category_national_projects = {
 			show_ideas_tooltip = INS_nv_merbabu
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			1020 = {
+			1051 = {
 				add_building_construction = {
 					type = air_facility
 					level = 1
@@ -572,9 +571,13 @@ INS_category_national_projects = {
 	INS_expand_ai_bandung = {
 
 		available = {
-			controls_state = 1021
+			controls_state = 1051
 			has_completed_focus = INS_state_weapons
 			num_of_civilian_factories_available_for_projects > 8
+			custom_trigger_tooltip = {
+				tooltip = INS_controls_bandung_tt
+				controls_province = 7421
+			}
 		}
 
 		cost = 135
@@ -596,7 +599,7 @@ INS_category_national_projects = {
 		}
 
 		remove_effect = {
-			1020 = {
+			1051 = {
 				add_building_construction = {
 					type = land_facility
 					level = 1
@@ -610,9 +613,13 @@ INS_category_national_projects = {
 	INS_expand_surabaya_dm = {
 
 		available = {
-			controls_state = 1021
+			controls_state = 1052
 			has_completed_focus = INS_expand_javan_dockyards
 			num_of_civilian_factories_available_for_projects > 8
+			custom_trigger_tooltip = {
+				tooltip = INS_controls_surabaya_tt
+				controls_province = 4608
+			}
 		}
 
 		cost = 135
@@ -634,7 +641,7 @@ INS_category_national_projects = {
 		}
 
 		remove_effect = {
-			1021 = {
+			1052 = {
 				add_building_construction = {
 					type = naval_facility
 					level = 1
@@ -656,7 +663,7 @@ INS_category_national_projects = {
 
 		available = {
 			is_subject = no
-			controls_state = 1021
+			controls_state = 1052
 			OR = {
 				has_completed_focus = INS_expel_the_colonials
 				has_completed_focus = INS_merdeka
@@ -719,7 +726,7 @@ INS_category_national_projects = {
 
 		available = {
 			is_subject = no
-			controls_state = 1020
+			controls_state = 1051
 			OR = {
 				has_completed_focus = INS_expel_the_colonials
 				has_completed_focus = INS_merdeka
@@ -1394,7 +1401,7 @@ INS_category_pki_decisions = {
 		days_remove = 183
 
 		complete_effect = {
-			1029 = {
+			1057 = {
 				add_manpower = -629
 			}
 		}
@@ -2718,8 +2725,8 @@ INS_category_ethical_policies = {
 					is_fully_controlled_by = ROOT
 					OR = {
 						state = 335
-						state = 1020
-						state = 1021
+						state = 1051
+						state = 1052
 					}
 				}
 				add_manpower = -7500
@@ -2753,8 +2760,8 @@ INS_category_ethical_policies = {
 						NOT = { #Don't give it back to Java
 							OR = {
 								state = 335
-								state = 1020 
-								state = 1021
+								state = 1051
+								state = 1052
 							}
 						}
 						AND = {
@@ -2764,7 +2771,7 @@ INS_category_ethical_policies = {
 							}
 						}
 						AND = {
-							state = 1026 #Dutch Timor
+							state = 1053 #Dutch Timor
 							NOT = {
 								has_state_flag = INS_transmigration_2
 							}
@@ -2776,7 +2783,7 @@ INS_category_ethical_policies = {
 							}
 						}
 						AND = {
-							state = 1027 #North Maluku
+							state = 1055 #North Maluku
 							NOT = {
 								has_state_flag = INS_transmigration_3
 							}
@@ -2788,13 +2795,13 @@ INS_category_ethical_policies = {
 							}
 						}
 						AND = {
-							state = 1022 #West Kalimantan
+							state = 1050 #West Kalimantan
 							NOT = {
 								has_state_flag = INS_transmigration_4
 							}
 						}
 						AND = {
-							state = 1028 #Vogelkop
+							state = 1056 #Vogelkop
 							NOT = {
 								has_state_flag = INS_transmigration_4
 							}
@@ -2821,7 +2828,7 @@ INS_category_ethical_policies = {
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_4
-						NOT = { state = 1022 }
+						NOT = { state = 1050 }
 					}
 					clr_state_flag = INS_transmigration_4
 					set_state_flag = INS_transmigration_5
@@ -2829,7 +2836,7 @@ INS_category_ethical_policies = {
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_4
-						NOT = { state = 1028 }
+						NOT = { state = 1056 }
 					}
 					clr_state_flag = INS_transmigration_4
 					set_state_flag = INS_transmigration_5
@@ -2846,7 +2853,7 @@ INS_category_ethical_policies = {
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_3
-						NOT = { state = 1027 }
+						NOT = { state = 1055 }
 					}
 					add_extra_state_shared_building_slots = 1
 					clr_state_flag = INS_transmigration_3
@@ -2855,7 +2862,7 @@ INS_category_ethical_policies = {
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
-						NOT = { state = 1026 }
+						NOT = { state = 1053 }
 					}
 					clr_state_flag = INS_transmigration_2
 					set_state_flag = INS_transmigration_3
@@ -3122,7 +3129,7 @@ INS_category_ethical_policies = {
 
 		available = {
 			num_of_civilian_factories_available_for_projects > 4
-			1017 = {
+			1047 = {
 				is_fully_controlled_by = ROOT
 				compliance > 50
 				infrastructure > 3
@@ -3137,7 +3144,7 @@ INS_category_ethical_policies = {
 					has_idea = INS_agrarian_society_2
 				}
 			}
-			1017 = {
+			1047 = {
 				NOT = {
 					is_core_of = INS
 				}
@@ -3155,7 +3162,7 @@ INS_category_ethical_policies = {
 		}
 
 		remove_effect = {
-			1017 = {
+			1047 = {
 				add_core_of = INS
 			}
 		}
@@ -3179,13 +3186,13 @@ INS_category_ethical_policies = {
 				infrastructure > 2
 				arms_factory > 0
 			}
-			1028 = {
+			1056 = { #Vogelkop
 				is_fully_controlled_by = ROOT
 				compliance > 40
 				infrastructure > 2
 				industrial_complex > 0
 			}
-			1029 = {
+			1057 = { #Soutwest Papua
 				is_fully_controlled_by = ROOT
 				compliance > 40
 				infrastructure > 2
@@ -3203,12 +3210,12 @@ INS_category_ethical_policies = {
 						is_core_of = INS
 					}
 				}
-				1028 = {
+				1056 = {
 					NOT = {
 						is_core_of = INS
 					}
 				}
-				1029 = {
+				1057 = {
 					NOT = {
 						is_core_of = INS
 					}
@@ -3230,10 +3237,10 @@ INS_category_ethical_policies = {
 			669 = {
 				add_core_of = INS
 			}
-			1028 = {
+			1056 = {
 				add_core_of = INS
 			}
-			1029 = {
+			1057 = {
 				add_core_of = INS
 			}
 		}
@@ -3461,7 +3468,7 @@ INS_category_new_capital = {
 					province = 7421
 					value = 4
 				}
-				1020 = {
+				1051 = {
 					add_building_construction = {
 						type = supply_node
 						level = 1
@@ -3884,7 +3891,7 @@ INS_category_new_capital = {
 					province = 2184
 					value = 4
 				}
-				1022 = {
+				1050 = {
 					add_building_construction = {
 						type = supply_node
 						level = 1
@@ -3948,7 +3955,7 @@ INS_category_new_capital = {
 					id = holhis_indonesia.13
 					hours = 6
 				}
-				1018 = {
+				1048 = {
 					add_building_construction = {
 						type = naval_base
 						level = 1
@@ -3971,7 +3978,7 @@ INS_category_new_capital = {
 					province = 12268
 					value = 4
 				}
-				1018 = {
+				1048 = {
 					add_building_construction = {
 						type = naval_base
 						level = 1
@@ -3994,7 +4001,7 @@ INS_category_new_capital = {
 					province = 12268
 					value = 4
 				}
-				1018 = {
+				1048 = {
 					add_building_construction = {
 						type = naval_base
 						level = 1
@@ -4017,7 +4024,7 @@ INS_category_new_capital = {
 					province = 12268
 					value = 4
 				}
-				1018 = {
+				1048 = {
 					add_building_construction = {
 						type = naval_base
 						level = 1
@@ -4040,7 +4047,7 @@ INS_category_new_capital = {
 					province = 12268
 					value = 4
 				}
-				1018 = {
+				1048 = {
 					add_building_construction = {
 						type = supply_node
 						level = 1
@@ -4142,12 +4149,13 @@ INS_pacification_campaigns = {
 		target_trigger = {
 			FROM = {
 				OR = {
-					state = 1036
-					state = 524
-					state = 428
-					state = 422
-					state = 423
-					state = 528
+					state = 1058 #Malaka
+					state = 524 #Taiwan
+					state = 428 #Gujarat
+					state = 422 #Ceylon
+					state = 423 #Southern Madras
+					state = 528 #Kita Kyushu
+					state = 1018 #Minami Kyushu
 				}
 			}
 		}
@@ -4279,15 +4287,17 @@ INS_pacification_campaigns = {
 		target_trigger = {
 			FROM = {
 				OR = {
-					state = 599
-					state = 594
-					state = 593
-					state = 592
-					state = 591
-					state = 728
-					state = 729
-					state = 326
-					state = 524
+					state = 595 #Fujian
+					state = 599 #Guangxi
+					state = 594 #Nanning
+					state = 593 #Guangdong
+					state = 592 #Guangzhou
+					state = 591 #Hainan
+					state = 728 #Guangzhouwan
+					state = 729 #Macau
+					state = 326 #Hong Kong
+					state = 524 #Taiwan
+					state = 1033 #Nanlu
 				}
 			}
 		}
@@ -5779,6 +5789,11 @@ INS_category_evacuation = {
 			}
 			INS_sarjono = {
 				clr_character_flag = INS_evacuated_flag
+				set_portraits = {
+					army = {
+						small = GFX_idea_indonesia_sarjono
+					}
+				}
 			}
 		}
 
@@ -6132,11 +6147,11 @@ INS_category_civil_war_missions = {
 		available = {
 			OR = {
 				NOT = { controls_state = 335 }
-				NOT = { controls_state = 1020 }
-				NOT = { controls_state = 1021 }
-				NOT = { controls_state = 1017 }
+				NOT = { controls_state = 1051 }
+				NOT = { controls_state = 1052 }
+				NOT = { controls_state = 1047 }
 				NOT = { controls_state = 672 }
-				NOT = { controls_state = 1018 }
+				NOT = { controls_state = 1048 }
 			}
 		}
 
@@ -6147,14 +6162,14 @@ INS_category_civil_war_missions = {
 			custom_trigger_tooltip = {
 				tooltip = INS_control_java
 				controls_state = 335
-				controls_state = 1020
-				controls_state = 1021
+				controls_state = 1051
+				controls_state = 1052
 			}
 			custom_trigger_tooltip = {
 				tooltip = INS_control_sumatra
-				controls_state = 1017
+				controls_state = 1047
 				controls_state = 672
-				controls_state = 1018
+				controls_state = 1048
 			}
 		}
 

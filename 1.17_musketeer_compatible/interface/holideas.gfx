@@ -696,6 +696,11 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_idea_indonesia_sujono"
+		texturefile = "gfx/ideas/INS/idea_ins_sujono.dds"
+	}
+
+	spriteType = {
 		name = "GFX_idea_indonesia_syafruddin"
 		texturefile = "gfx/ideas/INS/idea_ins_syafruddin.dds"
 	}
@@ -991,6 +996,21 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_idea_japan_maeda_tadashi"
+		texturefile = "gfx/ideas/JAP/idea_jap_maeda.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_japan_takasu_shiro"
+		texturefile = "gfx/ideas/JAP/idea_jap_takasu.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_japan_harada_kumakichi"
+		texturefile = "gfx/ideas/JAP/idea_jap_harada.dds"
+	}
+
+	spriteType = {
 		name = "GFX_idea_siam_plaek_phibun"
 		texturefile = "gfx/ideas/SIA/idea_sia_plaek_phibunsongkhram.dds"
 	}
@@ -1083,6 +1103,11 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_idea_siam_wichitwathakan"
 		texturefile = "gfx/ideas/SIA/idea_sia_wichit.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_siam_wichcitcholathai"
+		texturefile = "gfx/ideas/SIA/idea_sia_wichcitcholathai.dds"
 	}
 
 	spriteType = {
@@ -1873,6 +1898,21 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_portrait_sur_anton_de_kom"
 		texturefile = "gfx/leaders/SUR/portrait_sur_anton_de_kom.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_japan_maeda_tadashi"
+		texturefile = "gfx/leaders/JAP/portrait_jap_maeda.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_japan_harada_kumakichi"
+		texturefile = "gfx/leaders/JAP/portrait_jap_harada.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_japan_takasu_shiro"
+		texturefile = "gfx/leaders/JAP/portrait_jap_takasu.dds"
 	}
 
 	spriteType = {

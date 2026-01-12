@@ -5484,12 +5484,12 @@ prospect_for_resources = {
 		}
 	}
 
-	JAP_develop_west_papuan_oil_deposits = { #669
+	JAP_develop_west_papuan_oil_deposits = { #1056
 		icon = oil
 
 		highlight_states = {
  			highlight_state_targets = {
-				state = 669
+				state = 1056
 			} 
 		}
 
@@ -5498,7 +5498,7 @@ prospect_for_resources = {
 		}
 
 		available = {
-			669 = { is_controlled_by_ROOT_or_subject = yes }
+			1056 = { is_controlled_by_ROOT_or_subject = yes }
 			has_tech = excavation3
 		}
 
@@ -5507,7 +5507,7 @@ prospect_for_resources = {
 				has_completed_focus = JAP_transformation_of_nature
 				has_completed_focus = JAP_sea_exploit_southern_resource_area
 			}
-			669 = {
+			1056 = {
 				NOT = {
 					has_state_flag = west_papuan_oil_developed
 				}
@@ -5517,7 +5517,7 @@ prospect_for_resources = {
 		fire_only_once = no
 
 		cancel_trigger = {
-			669 = { is_controlled_by_ROOT_or_subject = no }
+			1056 = { is_controlled_by_ROOT_or_subject = no }
 		}
 
 		cost = 25
@@ -5532,7 +5532,7 @@ prospect_for_resources = {
 		}
 
 		remove_effect = {
-			669 = {
+			1056 = {
 				add_resource = {
 					type = oil
 					amount = 14

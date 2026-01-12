@@ -12330,12 +12330,12 @@ prospect_for_resources = {
 		}
 	}
 
-	develop_west_papuan_oil_deposits = { #669
+	develop_west_papuan_oil_deposits = { #1056
 		icon = oil
 
 		highlight_states = {
  			highlight_state_targets = {
-				state = 669
+				state = 1056
 			} 
 		}
 
@@ -12345,20 +12345,20 @@ prospect_for_resources = {
 
 		available = {
 			has_tech = excavation3
-			owns_state = 669
-			controls_state = 669
+			owns_state = 1056
+			controls_state = 1056
 			num_of_civilian_factories_available_for_projects > 3
 		}
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 669
+				state = 1056
 			}
 		}
 
 		visible = {
-			owns_state = 669
-			controls_state = 669
+			owns_state = 1056
+			controls_state = 1056
 			668 = {
 				NOT = {
 					has_state_flag = {
@@ -12372,7 +12372,7 @@ prospect_for_resources = {
 		fire_only_once = no
 
 		cancel_trigger = {
-			669 = { is_controlled_by_ROOT_or_subject = no }
+			1056 = { is_controlled_by_ROOT_or_subject = no }
 		}
 
 		cost = 25
@@ -12415,7 +12415,7 @@ prospect_for_resources = {
 		}
 
 		remove_effect = {
-			669 = {
+			1056 = {
 				if = {
 					limit = {
 						NOT = {
@@ -12434,7 +12434,7 @@ prospect_for_resources = {
 					}
 				}
 			}
-			669 = {
+			1056 = {
 				add_resource = {
 					type = oil
 					amount = 6

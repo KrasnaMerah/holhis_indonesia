@@ -772,6 +772,7 @@ recruit_character = JAP_tadaichi_wakamatsu
 recruit_character = JAP_masanobu_tsuji
 recruit_character = JAP_maeda_tadashi
 recruit_character = JAP_harada_kumakichi
+recruit_character = JAP_shiro_takasu
 
 
 ### DLC-SPECIFIC CHARACTERS ###

@@ -450,6 +450,11 @@
  holhis_volksraad.11.c:0 "We must take direct control of the situation!"
  holhis_volksraad.11.d:0 "Secure New Guinea at once!"
 
+ holhis_volksraad.111.t:0 "The Dutch Seized New Guinea"
+ holhis_volksraad.111.desc:0 "The accursed Dutch has seized New Guinea, certainly capitalizing on the chance to restore order and stamping down our revolution..."
+ holhis_volksraad.111.a:0 "We are too preoccupied right now"
+ holhis_volksraad.111.b:0 "Our territorial integrity must be defended, to arms!"
+
  holhis_volksraad.12.t:0 "The End of the National Revolution"
  holhis_volksraad.12.d:0 "Following the liberation of the last Dutch bastions, our nation is finally freed from the three centuries of colonialism.\n\nA question remained, however, about our own paramilitary force who has helped us to defeat the colonialists. While they are rightfully deserved to be integrated into our armed forces, a vocal group in our committee has demanded them to be disbanded altogether, but with a chance to receive proper training in our armed forces recruitment afterwards."
  holhis_volksraad.12.a:0 "They can be disbanded"
@@ -690,6 +695,11 @@
  holhis_nationalists.5.c:0 "We must take direct control of the situation!"
  holhis_nationalists.5.d:0 "Secure New Guinea at once!"
 
+ holhis_nationalists.9.t:0 "The Dutch Seized New Guinea"
+ holhis_nationalists.9.desc:0 "The accursed Dutch has seized New Guinea, certainly capitalizing on the chance to restore order and stamping down our revolution..."
+ holhis_nationalists.9.a:0 "We are too preoccupied right now"
+ holhis_nationalists.9.b:0 "Our territorial integrity must be defended, to arms!"
+
  holhis_nationalists.6.t:0 "The End of the National Revolution"
  holhis_nationalists.6.d:0 "Following the liberation of the last Dutch bastions, our nation is finally freed from the three centuries of colonialism.\n\nA question remained, however, about our own paramilitary force who has helped us to defeat the colonialists. While they are rightfully deserved to be integrated into our armed forces, a vocal group in our committee has demanded them to be disbanded altogether, but with a chance to receive proper training in our armed forces recruitment afterwards."
  holhis_nationalists.6.a:0 "They can be disbanded"
@@ -765,6 +775,11 @@
  holhis_commies.12.b:0 "Retake our Crown Jewel of the Empire!"
  holhis_commies.12.c:0 "We must take direct control of the situation!"
  holhis_commies.12.d:0 "Secure New Guinea at once!"
+
+ holhis_commies.121.t:0 "The Dutch Seized New Guinea"
+ holhis_commies.121.desc:0 "The accursed Dutch has seized New Guinea, certainly capitalizing on the chance to restore order and stamping down our revolution..."
+ holhis_commies.121.a:0 "We are too preoccupied right now"
+ holhis_commies.121.b:0 "Our territorial integrity must be defended, to arms!"
 
  holhis_commies.13.t:0 "The Revolution Triumphant!"
  holhis_commies.13.d:0 "Following the conquest of the last Dutch bastions, our people is finally freed from the three centuries of colonialism.\n\nA question remained, however, about our own militias who has helped us to defeat the colonialists. While they are rightfully deserved to be integrated into our armed forces, a vocal group in our committee has demanded them to be disbanded altogether, but with a chance to receive proper training in our armed forces recruitment afterwards."
@@ -1004,6 +1019,11 @@
  holhis_nsb.6.c:0 "We must take direct control of the situation!"
  holhis_nsb.6.d:0 "Secure New Guinea at once!"
  HOL_seized_papua_flag:0 "§YThe Dutch§! has seized §YNew Guinea§!"
+
+ holhis_nsb.601.t:0 "The Dutch Seized New Guinea"
+ holhis_nsb.601.desc:0 "The accursed liberals at Den Haag has seized New Guinea, certainly capitalizing on the chance to restore order and stamping down our cleansing of the archipelago..."
+ holhis_nsb.601.a:0 "We are too preoccupied right now"
+ holhis_nsb.601.b:0 "Our territorial integrity must be defended, to arms!"
 
  holhis_nsb.7.t:0 "The Counter-Revolution Successful"
  holhis_nsb.7.d:0 "Following the pacification of the last Indonesian bastions, we has finally taking control of the whole East Indies colony.\n\nA question remained, however, about our own militias who has helped us to defeat the rebels. While they are rightfully deserved to be integrated into our armed forces, a vocal group in our committee has demanded them to be disbanded altogether, but with a chance to receive proper training in our armed forces recruitment afterwards."

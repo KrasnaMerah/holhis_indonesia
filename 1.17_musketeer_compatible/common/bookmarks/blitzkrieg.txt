@@ -180,6 +180,7 @@ bookmarks = {
 			ideas = {
 				RAJ_agrarian_society
 				RAJ_princely_states
+				RAJ_risk_of_famine
 			}
 			focuses = {
 				RAJ_all_india_forward_bloc

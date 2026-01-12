@@ -19,6 +19,8 @@ focus_tree = {
 	}
 	default = no
 
+	continuous_focus_position = { x = 0 y = 1100 }
+
 	focus = {
 		id = crypto_bomb_focus
 		available = {
@@ -849,7 +851,7 @@ focus_tree = {
 		continue_if_invalid = yes
 
 		icon = GFX_goal_generic_consumer_goods
-		x = 5
+		x = 4
 		y = 1
 		relative_position_id = limited_rearmament_focus
 		cost = 10
@@ -5968,11 +5970,17 @@ focus_tree = {
 			has_government = democratic
 			OR = {
 				any_other_country = {
-					is_asean_state = yes
+					custom_trigger_tooltip = {
+						tooltip = INS_any_asean_tags
+						is_asean_state = yes
+					}
 					is_puppet_of = ENG
 				}
 				any_other_country = {
-					is_asean_state = yes
+					custom_trigger_tooltip = {
+						tooltip = INS_any_asean_tags
+						is_asean_state = yes
+					}
 					is_in_faction_with = ENG
 				}
 				has_full_control_of_state = 1021

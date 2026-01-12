@@ -405,7 +405,7 @@ focus_tree = {
 
 	focus = {
 		id = INS_increase_sufficiency
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_focus_GER_autarky_ambitions
 		prerequisite = { focus = INS_limit_exports }
 		prerequisite = { focus = INS_self_sufficient_weapon_production }
 		
@@ -1693,6 +1693,7 @@ focus_tree = {
 					is_owned_by = INS
 					OR = {
 						region = 187 #Sumatra
+						region = 188 #Malaya
 						region = 157 #Sunda Islands
 						region = 159 #Borneo
 						region = 92 #Timor Sea
@@ -1875,7 +1876,7 @@ focus_tree = {
 				limit = {
 					NOT = {
 						has_full_control_of_state = 333
-						has_full_control_of_state = 1021
+						has_full_control_of_state = 336
 					}
 				}
 				custom_effect_tooltip = INS_finalize_develop_west_melayu_tt
@@ -1883,7 +1884,7 @@ focus_tree = {
 			else_if = {
 				limit = {
 					NOT = {
-						has_full_control_of_state = 333
+						has_full_control_of_state = 336
 					}
 				}
 				custom_effect_tooltip = INS_finalize_develop_west_malaya_tt
@@ -3782,7 +3783,7 @@ focus_tree = {
 
 	focus = {
 		id = INS_mining_companies
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_mining_industry
 		prerequisite = { focus = INS_oil_fields }
 		
 		relative_position_id = INS_oil_fields
@@ -8089,6 +8090,9 @@ focus_tree = {
 				}
 				country_event = { id = holhis_indonesia.10 hours = 8 }
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = INS_peter_idenburg
 		}
 	}
 
@@ -9339,7 +9343,10 @@ focus_tree = {
 				}
 			}
 			any_other_country = {
-				is_southwest_pacific_state = yes
+				custom_trigger_tooltip = {
+					tooltip = INS_any_soutwest_pacific_tags
+					is_southwest_pacific_state = yes
+				}
 				is_in_faction_with = INS
 			}
 		}
@@ -11074,6 +11081,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_state_claim = 595
 			add_state_claim = 599
 			add_state_claim = 594
 			add_state_claim = 593
@@ -11083,14 +11091,35 @@ focus_tree = {
 			add_state_claim = 729
 			add_state_claim = 326
 			add_state_claim = 524
+			add_state_claim = 1033
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
-			592 = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 595
+						state = 599
+						state = 594
+						state = 593
+						state = 592
+						state = 591
+						state = 728
+						state = 729
+						state = 326
+						state = 524
+						state = 1033
+					}
+					NOT = {
+						controller = {
+							tag = ROOT
+						}
+					}
+				}
 				owner = {
 					ROOT = {
 						create_wargoal = {
-							target = PREV
 							type = annex_everything
+							target = PREV
 						}
 					}
 				}
@@ -11127,6 +11156,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_state_claim = 528
+			add_state_claim = 1018
 			create_wargoal = {
 				type = puppet_wargoal_focus
 				target = JAP
@@ -12031,6 +12061,8 @@ focus_tree = {
 			add_autonomy_ratio = {
 				value = 0.1
 			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = INS_sujono
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = {
@@ -15263,11 +15295,13 @@ focus_tree = {
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
-			release = TML
-			release = SLW
-			release = EIS
-			release = MLK
-			release = WPG
+			INS = {
+				release = TML
+				release = SLW
+				release = EIS
+				release = MLK
+				release = WPG
+			}
 			set_autonomy = {
 				target = TML
 				autonomy_state = autonomy_dominion
@@ -17474,7 +17508,7 @@ focus_tree = {
 
 	focus = {
 		id = INS_air_defense
-		icon = GFX_focus_generic_coastal_fort
+		icon = GFX_focus_generic_escort_efficiency
 		prerequisite = { focus = INS_expand_the_airforce }
 		mutually_exclusive = { focus = INS_air_offense }
 
@@ -18740,6 +18774,16 @@ focus_tree = {
 				long_name = INS_sibar_long
 				name = INS_sibar
 			}
+			add_country_leader_role = {
+				character = INS_sarjono
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}
 			add_manpower = 10000
 			add_popularity = {
 				ideology = communism
@@ -18754,10 +18798,6 @@ focus_tree = {
 					has_country_flag = INS_nayoan_alive
 				}
 				show_ideas_tooltip = INS_thomas_nayoan
-			}
-			promote_character = {
-				character = INS_sarjono
-				ideology = marxism
 			}
 			custom_effect_tooltip = INS_support_pki_exile_tooltip
 			if = {
@@ -18777,6 +18817,92 @@ focus_tree = {
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = INS_pki_shenanigans_tt
+		}
+	}
+
+	focus = {
+		id = INS_papuan_auxiliaries
+		icon = GFX_focus_ins_sahul
+		prerequisite = { focus = INS_support_pki_exile }
+		
+		relative_position_id = INS_support_pki_exile
+		x = -1
+		y = 1
+
+		cost = 5
+
+		available = {
+			has_legitimacy > 60
+			OR = {
+				669 = {
+					controller = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						has_full_control_of_state = PREV
+					}
+				}
+				1056 = {
+					controller = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						has_full_control_of_state = PREV
+					}
+				}
+				1057 = {
+					controller = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						has_full_control_of_state = PREV
+					}
+				}
+			}
+		}
+		
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+
+		complete_tooltip = {
+		}
+
+		completion_reward = {
+			add_stability = -0.05
+			add_ideas = HOL_expand_the_colonial_army
+			if = {
+				limit = {
+					has_full_control_of_state = 669
+				}
+				669 = {
+					add_dynamic_modifier = { modifier = INS_expand_recruitment }
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 1056
+				}
+				1056 = {
+					add_dynamic_modifier = { modifier = INS_expand_recruitment }
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 1057
+				}
+				1057 = {
+					add_dynamic_modifier = { modifier = INS_expand_recruitment }
+				}
+			}
 		}
 	}
 
@@ -19263,92 +19389,6 @@ focus_tree = {
 			    type = infantry_equipment
 			    amount = 2500
 			    producer = INS
-			}
-		}
-	}
-
-	focus = {
-		id = INS_papuan_auxiliaries
-		icon = GFX_focus_ins_sahul
-		prerequisite = { focus = INS_support_pki_exile }
-		
-		relative_position_id = INS_support_pki_exile
-		x = -1
-		y = 1
-
-		cost = 5
-
-		available = {
-			has_legitimacy > 60
-			OR = {
-				669 = {
-					controller = {
-						OR = {
-							tag = ROOT
-							is_subject_of = ROOT
-						}
-						has_full_control_of_state = PREV
-					}
-				}
-				1056 = {
-					controller = {
-						OR = {
-							tag = ROOT
-							is_subject_of = ROOT
-						}
-						has_full_control_of_state = PREV
-					}
-				}
-				1057 = {
-					controller = {
-						OR = {
-							tag = ROOT
-							is_subject_of = ROOT
-						}
-						has_full_control_of_state = PREV
-					}
-				}
-			}
-		}
-		
-		bypass = {
-		}
-
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
-		
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
-
-		complete_tooltip = {
-		}
-
-		completion_reward = {
-			add_stability = -0.05
-			add_ideas = HOL_expand_the_colonial_army
-			if = {
-				limit = {
-					has_full_control_of_state = 669
-				}
-				669 = {
-					add_dynamic_modifier = { modifier = INS_expand_recruitment }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 1056
-				}
-				1056 = {
-					add_dynamic_modifier = { modifier = INS_expand_recruitment }
-				}
-			}
-			if = {
-				limit = {
-					has_full_control_of_state = 1057
-				}
-				1057 = {
-					add_dynamic_modifier = { modifier = INS_expand_recruitment }
-				}
 			}
 		}
 	}
