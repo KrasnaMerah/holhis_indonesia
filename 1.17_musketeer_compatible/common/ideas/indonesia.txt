@@ -30,6 +30,7 @@ ideas = {
 				stability_factor = -0.1
 				local_resources_factor = -0.2
 				drift_defence_factor = -0.35
+				neutrality_drift = -0.1
 			}
 		}
 
@@ -59,6 +60,7 @@ ideas = {
 				stability_factor = -0.05
 				local_resources_factor = -0.15
 				drift_defence_factor = -0.25
+				neutrality_drift = -0.1
 			}
 		}
 
@@ -88,6 +90,7 @@ ideas = {
 				stability_factor = -0.05
 				local_resources_factor = -0.1
 				drift_defence_factor = -0.15
+				neutrality_drift = -0.05
 			}
 		}
 
@@ -629,8 +632,6 @@ ideas = {
 				always = yes
 			}
 
-			name = INS_attack_japan
-
 			removal_cost = -1
 			
 			picture = jap_intervene_in_china
@@ -638,16 +639,25 @@ ideas = {
 			targeted_modifier = {
 				tag = JAP
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 			targeted_modifier = {
 				tag = MAN
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 			targeted_modifier = {
 				tag = MEN
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+			targeted_modifier = {
+				tag = RNG
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 
@@ -656,6 +666,8 @@ ideas = {
 			allowed = {
 				always = no
 			}
+
+			name = INS_attack_japan
 
 			allowed_civil_war = {
 				always = yes
@@ -668,21 +680,31 @@ ideas = {
 			targeted_modifier = {
 				tag = JAP
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 			targeted_modifier = {
 				tag = MAN
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 			targeted_modifier = {
 				tag = MEN
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+			targeted_modifier = {
+				tag = RNG
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 			targeted_modifier = {
 				tag = SIA
 				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 	
@@ -1483,6 +1505,25 @@ ideas = {
 			picture = hol_oranje_boven
 
 			modifier = {
+				fascism_drift = 0.1
+			}
+		}
+
+		INS_dutch_nationalism_1 = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = hol_oranje_boven
+
+			modifier = {
 				fascism_drift = 0.2
 				autonomy_gain = 2
 				political_power_factor = 0.05
@@ -1971,7 +2012,7 @@ ideas = {
 			picture = INS_imports
 
 			modifier = {
-				cic_to_overlord_factor = 0.3
+				cic_to_overlord_factor = 0.5
 			}
 		}
 
@@ -1996,7 +2037,7 @@ ideas = {
 			picture = INS_imports
 
 			modifier = {
-				cic_to_overlord_factor = 0.2
+				cic_to_overlord_factor = 0.3
 			}
 		}
 
@@ -2021,7 +2062,7 @@ ideas = {
 			picture = INS_imports
 
 			modifier = {
-				cic_to_overlord_factor = 0.1
+				cic_to_overlord_factor = 0.15
 			}
 		}
 
@@ -2441,7 +2482,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.05
 				political_power_factor = 0.1
-				neutrality_drift = 0.05
+				neutrality_drift = 0.1
 				surrender_limit = 0.05
 			}
 		}
@@ -2715,6 +2756,7 @@ ideas = {
 				coordination_bonus = -0.02
 				high_command_cost_factor = 0.5
 				army_chief_cost_factor = 0.5
+				army_leader_cost_factor = 0.5
 			}
 		}
 
@@ -2744,6 +2786,7 @@ ideas = {
 				coordination_bonus = -0.02
 				high_command_cost_factor = 0.5
 				army_chief_cost_factor = 0.5
+				army_leader_cost_factor = 0.5
 			}
 		}
 
@@ -2774,6 +2817,7 @@ ideas = {
 				coordination_bonus = -0.02
 				high_command_cost_factor = 0.45
 				army_chief_cost_factor = 0.45
+				army_leader_cost_factor = 0.4
 			}
 		}
 
@@ -2804,6 +2848,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.35
 				army_chief_cost_factor = 0.35
+				army_leader_cost_factor = 0.3
 			}
 		}
 
@@ -2834,6 +2879,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.25
 				army_chief_cost_factor = 0.25
+				army_leader_cost_factor = 0.2
 			}
 		}
 
@@ -2863,6 +2909,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.15
 				army_chief_cost_factor = 0.15
+				army_leader_cost_factor = 0.1
 			}
 		}
 
@@ -2921,6 +2968,7 @@ ideas = {
 				coordination_bonus = 0.01
 				high_command_cost_factor = -0.1
 				army_chief_cost_factor = -0.1
+				army_leader_cost_factor = -0.1
 			}
 		}
 
@@ -2953,6 +3001,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.4
 				army_chief_cost_factor = 0.4
+				army_leader_cost_factor = 0.4
 			}
 		}
 
@@ -2985,6 +3034,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.25
 				army_chief_cost_factor = 0.25
+				army_leader_cost_factor = 0.25
 			}
 		}
 
@@ -3015,6 +3065,7 @@ ideas = {
 				land_doctrine_cost_factor = 0.1
 				high_command_cost_factor = 0.1
 				army_chief_cost_factor = 0.1
+				army_leader_cost_factor = 0.1
 			}
 		}
 
@@ -3037,6 +3088,40 @@ ideas = {
 				army_core_defence_factor = 0.1	
 				democratic_drift = 0.01
 				communism_drift = 0.03
+			}
+		}
+
+		INS_revolutionary_brigades_1 = {
+	
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			name = INS_underground_factories
+
+			removal_cost = -1
+			
+			picture = generic_communism_drift_bonus
+
+			modifier = {
+				conscription_factor = 0.05
+				army_core_defence_factor = 0.1	
+				democratic_drift = 0.01
+				communism_drift = 0.03
+				supply_node_range = 0.05
+				supply_consumption_factor = -0.1
+			}
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					reliability = -0.1
+					instant = yes
+				}
 			}
 		}
 
@@ -3066,6 +3151,7 @@ ideas = {
 				coordination_bonus = -0.02
 				high_command_cost_factor = 0.4
 				army_chief_cost_factor = 0.4
+				army_leader_cost_factor = 0.4
 			}
 		}
 
@@ -3094,6 +3180,7 @@ ideas = {
 				coordination_bonus = -0.02
 				high_command_cost_factor = 0.3
 				army_chief_cost_factor = 0.3
+				army_leader_cost_factor = 0.35
 			}
 		}
 
@@ -3124,6 +3211,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.2
 				army_chief_cost_factor = 0.2
+				army_leader_cost_factor = 0.25
 			}
 		}
 
@@ -3154,6 +3242,7 @@ ideas = {
 				coordination_bonus = -0.01
 				high_command_cost_factor = 0.1
 				army_chief_cost_factor = 0.1
+				army_leader_cost_factor = 0.1
 			}
 		}
 
@@ -3182,7 +3271,7 @@ ideas = {
 			}
 		}
 
-		INS_surja_wirawan = {
+		INS_surya_wirawan = {
 
 			allowed = {
 				always = no
@@ -3557,6 +3646,7 @@ ideas = {
 			modifier = {
 				naval_doctrine_cost_factor = 0.25
 				navy_chief_cost_factor = 0.5
+				navy_leader_cost_factor = 0.25
 			}
 		}
 
@@ -3579,6 +3669,7 @@ ideas = {
 			modifier = {
 				naval_doctrine_cost_factor = 0.25
 				navy_chief_cost_factor = 0.4
+				navy_leader_cost_factor = 0.2
 			}
 		}
 
@@ -3602,6 +3693,7 @@ ideas = {
 				naval_doctrine_cost_factor = 0.1
 				convoy_escort_efficiency = 0.1
 				navy_chief_cost_factor = 0.25
+				navy_leader_cost_factor = 0.15
 			}
 		}
 
@@ -3625,6 +3717,7 @@ ideas = {
 				naval_doctrine_cost_factor = 0.1
 				convoy_raiding_efficiency_factor = 0.1
 				navy_chief_cost_factor = 0.25
+				navy_leader_cost_factor = 0.15
 			}
 		}
 
@@ -3647,6 +3740,7 @@ ideas = {
 			modifier = {
 				convoy_escort_efficiency = 0.1
 				navy_chief_cost_factor = 0.1
+				navy_leader_cost_factor = 0.1
 			}
 		}
 
@@ -3669,6 +3763,7 @@ ideas = {
 			modifier = {
 				convoy_raiding_efficiency_factor = 0.1
 				navy_chief_cost_factor = 0.1
+				navy_leader_cost_factor = 0.1
 			}
 		}
 
@@ -4609,7 +4704,6 @@ ideas = {
 			
 			allowed = {
 				original_tag = INS
-				has_dlc = "Man the Guns"
 			}
 
 			cost = 100
@@ -4752,10 +4846,13 @@ ideas = {
 
 		INS_nv_merbabu = {
 			
-			picture = INS_nv_merbabu
+			picture = INS_merbabu
 
 			available = {
-				has_country_flag = INS_merbabu_established_flag
+				OR = {
+					has_country_flag = INS_seize_merbabu_flag
+					has_country_flag = INS_merbabu_established_flag
+				}
 				NOT = {
 					has_country_flag = INS_merbabu_quits_flag
 				}
@@ -5432,14 +5529,15 @@ ideas = {
 			}
 
 			cost = 100
-
+			
 			research_bonus = {
-				industry = 0.15
+				industry = 0.05
+				synth_resources = 0.15
 			}
 
 			picture = HOL_royal_dutch_shell
 			
-			traits = { industrial_concern }
+			traits = { refinery_concern }
 			
 			ai_will_do = {
 				factor = 1
@@ -5473,14 +5571,15 @@ ideas = {
 					has_completed_focus = INS_make_use_nsboi
 				}
 			}
-
+			
 			research_bonus = {
-				industry = 0.15
+				industry = 0.1
+				synth_resources = 0.15
 			}
 
 			modifier = {
+				production_speed_fuel_silo_factor = 0.1
 				max_fuel_factor = 0.1
-				fuel_gain_factor = 0.2
 			}
 
 			picture = HOL_royal_dutch_shell
@@ -5513,14 +5612,15 @@ ideas = {
 					}
 				}
 			}
-
+			
 			research_bonus = {
-				industry = 0.15
+				industry = 0.05
+				synth_resources = 0.15
 			}
 
 			picture = generic_refining_concern_1
 			
-			traits = { industrial_concern }
+			traits = { refinery_concern }
 			
 			ai_will_do = {
 				factor = 1
@@ -5553,8 +5653,12 @@ ideas = {
 
 			research_bonus = {
 				industry = 0.1
+				synth_resources = 0.15
+			}
+
+			modifier = {
+				production_speed_fuel_silo_factor = 0.1
 				max_fuel_factor = 0.1
-				fuel_gain_factor = 0.2
 			}
 
 			picture = generic_refining_concern_1

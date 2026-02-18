@@ -3394,6 +3394,11 @@ political_actions = {
 
 		allowed = {
 			original_tag = HOL
+			NOT = {
+				INS = {
+					has_country_flag = INS_royal_family_indies_flag
+				}
+			}
 		}
 
 		available = {
@@ -3407,6 +3412,14 @@ political_actions = {
 
 		complete_effect = {
 			country_event = { id = holhis_juliana.5 }
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				date > 1948.09.4
+			}
 		}
 	}
 }

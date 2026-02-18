@@ -844,6 +844,53 @@ INS_category_national_projects = {
 
 INS_category_invite_foreign_investors = {
 	
+	INS_mission_mutual_aid = {
+		
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = INS
+		}
+		
+		available = {
+		}
+
+		days_mission_timeout = 720
+
+		activation = {
+			controls_state = 672
+			has_idea = INS_economic_aid
+		}
+
+		visible = {
+			has_completed_focus = INS_mutual_aid
+		}
+
+		is_good = yes
+
+		timeout_effect = {
+			add_stability = 0.075
+			remove_ideas = INS_economic_aid
+			every_owned_state = {
+				limit = {
+					is_core_of = INS
+					industrial_complex > 1
+					NOT = { has_state_category = enclave }
+					NOT = { has_state_category = wasteland }
+					NOT = { has_state_category = tiny_island }
+					NOT = { has_state_category = small_island }
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			every_country = {
+				limit = {
+					has_country_flag = INS_resources_exchange_program
+				}
+				remove_resource_rights = 672
+			}
+		}
+	}
+	
 	INS_mission_japanese_aid = {
 		
 		icon = generic_industry
@@ -923,6 +970,7 @@ INS_category_invite_foreign_investors = {
 		}
 
 		available = {
+			has_completed_focus = INS_invite_foreign_investors
 			NOT = {
 				has_war_with = JAP
 			}
@@ -1074,6 +1122,7 @@ INS_category_invite_foreign_investors = {
 		}
 
 		available = {
+			has_completed_focus = INS_invite_foreign_investors
 			NOT = {
 				has_war_with = USA
 			}
@@ -1135,6 +1184,7 @@ INS_category_invite_foreign_investors = {
 		}
 
 		available = {
+			has_completed_focus = INS_invite_foreign_investors
 			NOT = {
 				has_war_with = ENG
 			}
@@ -1196,6 +1246,7 @@ INS_category_invite_foreign_investors = {
 		}
 		
 		available = {
+			has_completed_focus = INS_invite_foreign_investors
 			NOT = {
 				has_war_with = FROM
 			}
@@ -1283,53 +1334,6 @@ INS_category_invite_foreign_investors = {
 	
 		remove_effect = {
 			remove_ideas = INS_FROM_investment
-		}
-	}
-	
-	INS_mission_mutual_aid = {
-		
-		icon = generic_prepare_civil_war
-
-		allowed = {
-			original_tag = INS
-		}
-		
-		available = {
-		}
-
-		days_mission_timeout = 720
-
-		activation = {
-			controls_state = 672
-			has_idea = INS_economic_aid
-		}
-
-		visible = {
-			has_completed_focus = INS_mutual_aid
-		}
-
-		is_good = yes
-
-		timeout_effect = {
-			add_stability = 0.075
-			remove_ideas = INS_economic_aid
-			every_owned_state = {
-				limit = {
-					is_core_of = INS
-					industrial_complex > 1
-					NOT = { has_state_category = enclave }
-					NOT = { has_state_category = wasteland }
-					NOT = { has_state_category = tiny_island }
-					NOT = { has_state_category = small_island }
-				}
-				add_extra_state_shared_building_slots = 2
-			}
-			every_country = {
-				limit = {
-					has_country_flag = INS_resources_exchange_program
-				}
-				remove_resource_rights = 672
-			}
 		}
 	}
 
@@ -1464,12 +1468,12 @@ INS_category_pki_decisions = {
 				INS = {
 					controls_state = 286
 					controls_state = 741
-					controls_state = 1042
-					controls_state = 1046
-					controls_state = 1047
+					controls_state = 1066
+					controls_state = 1017
+					controls_state = 1071
 					controls_state = 671
 					controls_state = 670
-					controls_state = 1051
+					controls_state = 1075
 				}
 				VIN = { exists = no }
 			}
@@ -1514,7 +1518,7 @@ INS_category_pki_decisions = {
 			AND = {
 				INS = {
 					controls_state = 286
-					controls_state = 1046
+					controls_state = 1017
 					controls_state = 671
 				}
 				VIN = { exists = no }
@@ -1554,8 +1558,8 @@ INS_category_pki_decisions = {
 			AND = {
 				INS = {
 					controls_state = 741
-					controls_state = 1042
-					controls_state = 1043
+					controls_state = 1066
+					controls_state = 1067
 				}
 				CAM = { exists = no }
 			}
@@ -1593,10 +1597,10 @@ INS_category_pki_decisions = {
 			has_completed_focus = INS_southeast_asian_liberation
 			AND = {
 				INS = {
-					controls_state = 1047
-					controls_state = 1049
+					controls_state = 1071
+					controls_state = 1073
 					controls_state = 670
-					controls_state = 1051
+					controls_state = 1075
 				}
 				LAO = { exists = no }
 			}
@@ -2569,6 +2573,14 @@ INS_category_ethical_policies = {
 				set_country_flag = INS_education_2_done_flag
 			}
 		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability > 0.75
+			}
+		}
 	}
 
 	INS_agriculture = {
@@ -2688,6 +2700,14 @@ INS_category_ethical_policies = {
 					}
 				}
 				set_country_flag = INS_agriculture_2_done_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability > 0.75
 			}
 		}
 	}
@@ -2967,6 +2987,14 @@ INS_category_ethical_policies = {
 				set_country_flag = INS_transmigration_2_done_flag
 			}
 		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability > 0.75
+			}
+		}
 	}
 
 	INS_uphold_rust_orde = {
@@ -2986,6 +3014,14 @@ INS_category_ethical_policies = {
 		}
 
 		cost = 40
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability < 0.75
+			}
+		}
 	}
 
 	INS_upgrade_agrarian_society = {
@@ -3076,6 +3112,10 @@ INS_category_ethical_policies = {
 				clr_country_flag = INS_agrarian_reforms_2_flag
 			}
 		}
+
+		ai_will_do = {
+			factor = 20
+		}
 	}
 
 	INS_upgrade_agrarian_society_final = {
@@ -3114,6 +3154,10 @@ INS_category_ethical_policies = {
 				remove_idea = INS_agrarian_society_3
 				add_idea = INS_agrarian_society_4
 			}
+		}
+
+		ai_will_do = {
+			factor = 20
 		}
 	}
 
@@ -3164,6 +3208,14 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1047 = {
 				add_core_of = INS
+			}
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability > 0.8
 			}
 		}
 	}
@@ -3242,6 +3294,14 @@ INS_category_ethical_policies = {
 			}
 			1057 = {
 				add_core_of = INS
+			}
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 5
+				has_stability > 0.65
 			}
 		}
 	}
@@ -4134,6 +4194,10 @@ INS_pacification_campaigns = {
 				add_dynamic_modifier = { modifier = INS_pacification days = 3650 }
 			}
 		}
+
+		ai_will_do = {
+			factor = 20
+		}
 	}
 	
 	INS_pacificate_asian_colonies = {
@@ -4204,6 +4268,10 @@ INS_pacification_campaigns = {
 				add_dynamic_modifier = { modifier = INS_pacification days = 1825 }
 			}
 		}
+
+		ai_will_do = {
+			factor = 20
+		}
 	}
 	
 	INS_pacificate_southeast_asia = {
@@ -4271,6 +4339,10 @@ INS_pacification_campaigns = {
 			FROM = {
 				add_dynamic_modifier = { modifier = INS_pacification days = 1825 }
 			}
+		}
+
+		ai_will_do = {
+			factor = 20
 		}
 	}
 	
@@ -4345,6 +4417,10 @@ INS_pacification_campaigns = {
 			FROM = {
 				add_dynamic_modifier = { modifier = INS_pacification days = 1825 }
 			}
+		}
+
+		ai_will_do = {
+			factor = 20
 		}
 	}
 }
@@ -4452,28 +4528,7 @@ INS_category_armament_procurement = {
 		days_remove = 75
 		days_re_enable = 75
 		fire_only_once = no
-
-		ai_will_do = {
-			factor = 0.1
-			modifier = {
-				factor = 2
-				is_in_faction_with = FROM
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					num_of_civilian_factories < 8
-					stockpile_ratio = { 
-						archetype = infantry_equipment
-						ratio > 0.75
-					}
-				}
-			}
-			modifier = {
-				factor = 0
-				NOT = { is_in_faction_with = FROM }
-			}
-		}
+		
 		modifier = {
 			civilian_factory_use = 1
 			min_export = 0.1
@@ -4529,6 +4584,28 @@ INS_category_armament_procurement = {
 				}
 			}
 			clr_country_flag = INS_purchasing_infantry_equipment_flag
+		}
+
+		ai_will_do = {
+			factor = 0.1
+			modifier = {
+				factor = 2
+				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					num_of_civilian_factories < 8
+					stockpile_ratio = { 
+						archetype = infantry_equipment
+						ratio > 0.75
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { is_in_faction_with = FROM }
+			}
 		}
 	}
 
@@ -5637,8 +5714,6 @@ INS_category_evacuation = {
 
 		cost = 15
 
-		days_re_enable = 45
-
 		days_remove = 30
 
 		allowed = {
@@ -5668,11 +5743,11 @@ INS_category_evacuation = {
 
 		visible = {
 			FROM = {
-				industrial_complex > 1
+				industrial_complex > 2
 			}
 			check_variable = {
 				var = INS_economic_relocation
-				value = 7
+				value = 16
 				compare = less_than
 			}
 		}
@@ -5683,13 +5758,18 @@ INS_category_evacuation = {
 				is_fully_controlled_by = ROOT
 				infrastructure > 2
 			}
-			has_equipment = { train_equipment > 19 } #20 trains per factory
+			has_equipment = { train_equipment > 9 } #10 trains per factory
+			check_variable = {
+				var = INS_relocation_cap
+				value = 4
+				compare = less_than
+			}
 		}
 
 		complete_effect = {
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = -20
+				amount = -10
 				producer = INS
 			}
 			FROM = {
@@ -5698,10 +5778,14 @@ INS_category_evacuation = {
 					level = 1
 				}
 			}
+			add_to_variable = {
+				var = INS_relocation_cap
+				value = 1
+			}
 		}
 
 		modifier = {
-			civilian_factory_use = 2
+			civilian_factory_use = 3
 		}
 
 		remove_effect = {
@@ -5711,10 +5795,112 @@ INS_category_evacuation = {
 			}
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = 20
+				amount = 10
 				producer = INS
 			}
 			add_offsite_building = { type = industrial_complex level = 1 }
+			add_to_variable = {
+				var = INS_relocation_cap
+				value = -1
+			}
+		}
+	}
+
+	INS_military_evacuation = {
+
+		icon = generic_construction
+
+		cost = 20
+
+		days_remove = 35
+
+		allowed = {
+			tag = INS
+		}
+
+		state_target = yes
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					region = 187
+					region = 158
+					region = 159
+					region = 188
+				}
+				is_fully_controlled_by = ROOT
+				arms_factory > 1
+				infrastructure > 2
+			}
+		}
+
+		target_root_trigger = {
+			original_tag = INS
+			has_completed_focus = INS_evacuation
+		}
+
+		visible = {
+			FROM = {
+				arms_factory > 2
+			}
+			check_variable = {
+				var = INS_economic_relocation
+				value = 16
+				compare = less_than
+			}
+		}
+
+		available = {
+			has_capitulated = no
+			FROM = {
+				is_fully_controlled_by = ROOT
+				infrastructure > 2
+			}
+			has_equipment = { train_equipment > 12 } #13 trains per factory
+			check_variable = {
+				var = INS_relocation_cap
+				value = 4
+				compare = less_than
+			}
+		}
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = -13
+				producer = INS
+			}
+			FROM = {
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			add_to_variable = {
+				var = INS_relocation_cap
+				value = 1
+			}
+		}
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				var = INS_economic_relocation
+				value = 1
+			}
+			add_to_variable = {
+				var = INS_relocation_cap
+				value = -1
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 13
+				producer = INS
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 	}
 

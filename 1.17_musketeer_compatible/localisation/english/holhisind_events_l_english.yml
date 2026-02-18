@@ -212,6 +212,11 @@
  holhis_indonesia.21.d:0 "Just this morning, the Governor-General of the East Indies [INS.GetLeader] has personally delivered a letter for Queen Wilhelmina regarding an invitation for a royal visit. While a few years ago the Indies was ailing with a rebellious population and a wrecked economy as a direct result from De Crisisjaren, almost no trace of it can be felt nowadays, now that peace and order has returned to the East Indies. Would it be wise for Her Majesty to be the first monarch who visited the East Indies?"
  holhis_indonesia.21.a:0 "Her Majesty agreed."
  holhis_indonesia.21.b:0 "Her Majesty declined."
+ 
+ holhis_indonesia.210.t:0 "A Refuge for Our Queen"
+ holhis_indonesia.210.d:0 "The recent development has led to the loss of our Fatherland to foreign powers. The entire Royal Family has been evacuated to Surinam, waiting for our response."
+ holhis_indonesia.210.a:0 "She must rule from the Indies!"
+ holhis_indonesia.210.b:0 "We can house her exile in Buitenzorg for the moment"
 
  holhis_indonesia.22.t:0 "Queen Wilhelmina Arrives in the East Indies"
  holhis_indonesia.22.d:0 "Just this morning, a DC-3 plane carrying Queen Wilhelmina and Her Majesty's entourage has arrived in Cililitan Airport. Received personally by Governor-General [INS.GetLeader], Her Majesty, Princess Juliana, and Prince Bernhard proceeds to the Volksraad, where prominent members of all political groups within the council received the Queen. In a speech, the Queen stated that both Netherlands and the East Indies are the driving force behind the Dutch Empire, citing example on how both De Crisisjaren and The Malaise has been now mostly eradicated. The Queen expects that the continued cooperation between the "Head" and the "Crown Jewel of the Empire" would serve as a model for the subsequent development on both Dutch Caribbean and Surinam."
@@ -335,6 +340,7 @@
  holhis_indonesia.55.d_2:0 "Following the declaration of war upon our fatherland, Her Majesty Queen Wilhelmina has been hurriedly returned to the Volksraad to deliver a speech regarding the present situation. With the fall of the Netherlands, the Kingdom currently held the East Indies, Surinam, and Curacao, with the government of the Netherlands has successfully relocated to an allied country. With such precarious moment, the Royal Family has decided to reside in the East Indies for the moment, until the eventual liberation of the Netherlands has been achieved."
  holhis_indonesia.55.a:0 "We would stand with our Fatherland!"
  holhis_indonesia.55.b:0 "Lang Leve de Koningin!!!"
+ INS_royal_family_indies_flag:0 "§YThe Royal Family§! has been evacuated to §Gthe Indies§!"
 
  holhis_indonesia.56.t:0 "The Queen returns home"
  holhis_indonesia.56.d:0 "With the liberation of the Netherlands has arrived, today Queen Wilhelmina presented a speech in the Volksraad, praising the collaborative spirit of all communities in the East Indies which transcends race and religion boundaries which Her Majesty credited for the survival of the Kingdom, and stated that the struggle of Conrad Theodor van Deventer and Eduard Douwes Dekker to realize the civilizing mission in the Indies has not been for naught.\n\nWith thunderous applause from the Parliament members, the Queen has announced that the East Indies would be granted a self-rule for the next 5 years, fulfilling the Sutarjo Petition which was delivered in 1936."
@@ -1042,6 +1048,15 @@
  holhis_nsb.10.t:0 "[PREV.GetNameDefCap] denies our request to join the [PREV.GetFactionName]"
  holhis_nsb.10.d:0 "[PREV.GetNameDefCap] has decided to reject our request to join the [PREV.GetFactionName]. We will have to make do without their help."
  holhis_nsb.10.a:0 "Our differences were too great."
+
+ holhis_nsb.11.t:0 "[INS.GetNameDefCap] demands our subjugation"
+ holhis_nsb.11.d:0 "The government of [INS.GetName] has demanded our subjugation. How should we respond?"
+ holhis_nsb.11.a:0 "Very well"
+ holhis_nsb.11.b:0 "Who are you to demand our submission?"
+
+ holhis_nsb.12.t:0 "The NSB-OI fades into irrelevancy"
+ holhis_nsb.12.d:0 "After the 1937 Dutch Election, in which the Nationaal-Socialistische Beweging has failed to gain a substantial votes, the party has becoming increasingly divided between the party moderates and pro-German racialists who demanded expulsion of its Indo-European members. The Indies branch of the party has also affected by the changes, with its Indo members has been resigned en masse in protest. It seems that their influence in the archipelago has been waned."
+ holhis_nsb.12.a:0 "Good then"
  
  holhis_navair.1.t:0 "The East Indies requests control of the East Indies Fleet"
  holhis_navair.1.d:0 "Seeking for easier coordination and reduces the needed logistics, our colonial government has requested us for the transfer of the East Indies Fleet. While indeed it would make easier coordination, Admiral Doorman has expressed doubts about the capacity of the East Indies' admirality while dealing with the current economic crisis."
@@ -1053,11 +1068,11 @@
  holhis_navair.2.d:0 "After some negotiations, it has been concluded that our section of the Koninklijke Marine would be given two-thirds of the East Indies Squadron, including Heavy Cruiser Soerabaja herself. This certainly would bolster our defenses in the archipelago."
  holhis_navair.2.a:0 "With this, the Malay Barrier would be unbeatable!"
 
- holhis_navair.3.t:0 "[HOL.GetNameDef] Send us a small detachment"
+ holhis_navair.3.t:0 "[HOL.GetNameDef] Send us a Small Detachment"
  holhis_navair.3.d:0 "After some negotiations, the Koninklijke Marine Headquarters has decided to give several ships under our command. While it is not much, the available ships would still make a difference between an easily bypassed islands and a guarded one."
  holhis_navair.3.a:0 "We can work on the rest from this"
 
- holhis_navair.4.t:0 "The East Indies requests aeronautical assistance"
+ holhis_navair.4.t:0 "The East Indies Requests Aeronautical Assistance"
  holhis_navair.4.d:0 "Looking for easier coordination and reduces the needed logistics, our colonial military of the East Indies has requested us to help establish their own air branch. This would be beneficial on the long run, as they can adapt to their own situation quicker than us did."
  holhis_navair.4.a:0 "We can send them some planes"
  holhis_navair.4.b:0 "We can send them the needed blueprints"
@@ -1078,6 +1093,7 @@
  holhis_navair.7.a:0 "We can hire another aviation industry"
  holhis_navair.7.b:0 "We will buy them"
  INS_merbabu_quits_flag:0 "§YNaamloze Venootschap Merbabu§! has been closed"
+ INS_seize_merbabu_flag:0 "§YNaamloze Venootschap Merbabu§! has been seized by the government"
 
  holhis_sabotage.1.t:0 "Arms Factory Sabotaged"
  holhis_sabotage.1.d:0 "Reports have come in from one of our factories, reporting that a major fire broke out last night. Local firefighters are still tackling the blaze, but are confident that they will have the fire under control by the end of the day. The damage to the factory appears to be significant, as the fire appears to have started in the storage area for highly flammable chemicals.\n\nMilitary Intelligence has started a thorough investigation to find out how the fire could break out despite the strictest safety measures. First leads indicate arson as a strong possibility."
@@ -1398,6 +1414,11 @@
  holhis_history.13.d:0 "§RDipa Nusantara Aidit§!: Go with the communist revolution and have the Party Congress reestablished. Beginning in 1953, Aidit would be available as potential leader.\n\n§bDiponegoro IV§!: Go with the Parindrist revolution and restore the monarchy with Hamengkubuwono VIII as the initial ruler. When he died, you can opt to put Diponegoro IV as the leader instead of his son or the Pakubuwonos.\n\n§OPrins Bernhard§!: Have the Royal Family taking holiday to the Indies and let Wilhelmina rule when the Netherlands capitulated and Prins Bernhard partake in the governing. When the war ends, an event would be shown and you can put Bernhard in charge when the rest of the Royal Family went home."
  holhis_history.13.a:0 "Go back to the previous page"
  holhis_history.13.b:0 "Thanks for the path guides"
+
+ holhis_history.14.t:0 "The Whistle Calls"
+ holhis_history.14.d:0 "Technological advancement in transportation has enabled the global industrialized powers to build an effective rail system which further advanced their own technologies. Perhaps while our country is not as industrialized as them, we can afford to close the technological gap a little."
+ holhis_history.14.a:0 "We'll soon get into that in due time"
+ holhis_history.14.b:0 "No time to waste, we should've procured it years ago"
 
  usa.66.t:0 "Japan Annexes Indochina"
  usa.66.d:0 "Two days ago, the forces of Imperial Japanese Army has entered Indochina after an undeclared war. As the French forces was weakened after the swift capitulation of the Paris government, the local French Indochinese government has signed an agreement of handover of the region towards Japan. Some portion of our own public has reacted with discontent upon yet another Japanese aggression, but others remained apathetic."

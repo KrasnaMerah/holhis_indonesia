@@ -365,8 +365,8 @@ country_event = { #2 - "There so much good to be done more" book release
 
 	trigger = {
 		original_tag = INS
-		date > 1936.02.20
 		has_start_date < 1936.01.02
+		date > 1936.02.20
 	}
 
 	mean_time_to_happen = { days = 1 }
@@ -1874,8 +1874,7 @@ country_event = { #17 - Chindo Riots
 			mission = INS_mission_japanese_aid
 			days = 105
 		}
-		remove_ideas = INS_nv_merbabu
-		set_country_flag = INS_merbabu_quits_flag
+		country_event = { id = holhis_navair.7 hours = 12 }
 
 		ai_chance = {
 			base = 80
@@ -1912,7 +1911,6 @@ country_event = { #20 - Mangkunegara VII's passing
 	trigger = {
 		original_tag = INS
 		date > 1944.07.01
-		has_dlc = "Man the Guns"
 	}
 
 	mean_time_to_happen = { days = 18 }
@@ -1987,6 +1985,53 @@ country_event = { #21 - Her Majesty invited to East Indies
 				factor = 10
 				threat > 0.4
 			}
+		}
+	}
+}
+
+country_event = { #210 - Her Majesty evacuated to East Indies
+	id = holhis_indonesia.210
+	title = holhis_indonesia.210.t
+	desc = holhis_indonesia.210.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		HOL = {
+			HOL_wilhelmina = {
+				set_nationality = INS
+			}
+			HOL_juliana = {
+				set_nationality = INS
+			}
+			HOL_prince_bernhard = {
+				set_nationality = INS
+			}
+		}
+		set_country_flag = INS_royal_family_indies_flag
+	}
+
+	option = { #She must rule from here, long live!
+		name = holhis_indonesia.210.a
+
+		promote_character = {
+			character = HOL_wilhelmina
+			ideology = centrism
+		}
+
+		ai_chance = {
+			base = 95
+		}
+	}
+
+	option = { #Nah
+		name = holhis_indonesia.21.b
+
+		add_ideas = INS_wilhelmina_here
+
+		ai_chance = {
+			base = 5
 		}
 	}
 }
@@ -2800,14 +2845,14 @@ country_event = { #55 - Fall of the Fatherland
 	title = holhis_indonesia.55.t
 
 	desc = {
-		text = holhis_navair.55.d_1
+		text = holhis_indonesia.55.d_1
 		trigger = {
 			NOT = { has_idea = INS_wilhelmina_here }
 		}
 	}
 
 	desc = {
-		text = holhis_navair.55.d_2
+		text = holhis_indonesia.55.d_2
 		trigger = {
 			has_idea = INS_wilhelmina_here
 		}
@@ -2819,7 +2864,14 @@ country_event = { #55 - Fall of the Fatherland
 	trigger = {
 		original_tag = INS
 		HOL = {
-			has_defensive_war = yes
+			OR = {
+				AND = {
+					NOT = { has_government = communism }
+					has_capitulated = yes
+				}
+				exists = no
+				has_government = communism
+			}
 		}
 		has_completed_focus = INS_invite_queen_wilhelmina
 	}
@@ -2844,6 +2896,15 @@ country_event = { #55 - Fall of the Fatherland
 			character = HOL_wilhelmina
 			ideology = centrism
 		}
+		HOL = {
+			HOL_juliana = {
+				set_nationality = INS
+			}
+			HOL_prince_bernhard = {
+				set_nationality = INS
+			}
+		}
+		set_country_flag = INS_royal_family_indies_flag
 		add_ideas = INS_staat_van_oorlog_en_van_beleg_idea
 	}
 }
@@ -2918,6 +2979,13 @@ country_event = { #56 - The Queen returns home, after the war
 				has_country_flag = INS_ltgg_van_mook_flag
 			}
 			promote_character = INS_hubertus_van_mook
+		}
+		if = {
+			limit = {
+				has_idea = HOL_wilhelmina
+			}
+			remove_ideas = HOL_wilhelmina
+			add_ideas = HOL_juliana
 		}
 		hidden_effect = {
 			INS = {
@@ -3666,6 +3734,8 @@ country_event = { #Navair 7 - KKH protested, seize NV Merbabu?
 		name = holhis_navair.7.b
 		add_political_power = -150
 		set_country_flag = INS_seize_merbabu_flag
+		custom_effect_tooltip = available_designer
+		show_ideas_tooltip = INS_nv_merbabu
 	}
 }
 
@@ -4234,7 +4304,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = PNG
@@ -4259,7 +4328,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = PNG
@@ -4284,7 +4352,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = FSM
@@ -4309,7 +4376,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = FSM
@@ -4334,7 +4400,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = FSM
@@ -4359,7 +4424,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = GUM
@@ -4384,7 +4448,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = SAM
@@ -4409,7 +4472,6 @@ country_event = { #SWPA 9 - LoN Mandates Liberation
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = FIJ
@@ -4467,7 +4529,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 					MAL = {
 						NOT = {
 							OR = {
@@ -4508,7 +4569,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 					PHI = {
 						NOT = {
 							OR = {
@@ -4541,7 +4601,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4566,7 +4625,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4591,7 +4649,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4616,7 +4673,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4641,7 +4697,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4666,7 +4721,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = VIN
@@ -4691,7 +4745,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = CHM
@@ -4716,7 +4769,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = CAM
@@ -4741,7 +4793,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = CAM
@@ -4766,7 +4817,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = CAM
@@ -4791,7 +4841,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = CAM
@@ -4816,7 +4865,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = LAO
@@ -4841,7 +4889,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = LAO
@@ -4866,7 +4913,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = LAO
@@ -4891,7 +4937,6 @@ country_event = { #SWPA 10 - Decolonization of Southeast Asia
 			if = {
 				limit = {
 					has_government = democratic
-					has_dlc = "Man the Guns"
 				}
 				set_autonomy = {
 					target = LAO
@@ -5605,8 +5650,8 @@ country_event = { #Nationalists 1 - Transfer of Mohammad Hatta
 
 	trigger = {
 		original_tag = INS
-		date > 1936.02.07
 		has_start_date < 1936.01.02
+		date > 1936.02.01
 		INS_mohammad_hatta = {
 			has_character_flag = INS_imprisoned_flag
 		}
@@ -5651,7 +5696,7 @@ country_event = { #Nationalists 1 - Transfer of Mohammad Hatta
 	}
 }
 
-country_event = { #Nationalists 2 - Transfer of Sutan Sjahrir
+country_event = { #Nationalists 2 - Transfer of Sutan Syahrir
 	id = holhis_nationalists.2
 	title = holhis_nationalists.2.t
 	desc = holhis_nationalists.2.d
@@ -5662,8 +5707,8 @@ country_event = { #Nationalists 2 - Transfer of Sutan Sjahrir
 
 	trigger = {
 		original_tag = INS
-		date > 1936.02.07
 		has_start_date < 1936.01.02
+		date > 1936.02.01
 		INS_sutan_syahrir = {
 			has_character_flag = INS_imprisoned_flag
 		}
@@ -5823,6 +5868,12 @@ country_event = { #Nationalists 4 - PNI Uprising
 			set_global_flag = INS_civil_war_ongoing
 			if = {
 				limit = {
+					has_idea = INS_dutch_nationalism
+				}
+				remove_ideas = INS_dutch_nationalism
+			}
+			if = {
+				limit = {
 					has_idea = INS_japanese_investment_1
 				}
 				remove_ideas = INS_japanese_investment_1
@@ -5953,6 +6004,7 @@ country_event = { #Nationalists 4 - PNI Uprising
 					set_capital = { state = 668 }
 				}
 				set_cosmetic_tag = INS_DUTCH
+				add_ideas = INS_dutch_nationalism
 				add_ai_strategy = {
 					type = antagonize
 					id = "JAP"
@@ -5994,11 +6046,11 @@ country_event = { #Nationalists 4 - PNI Uprising
 					division_names_group = INS_GAR_01
 					is_locked = yes
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
 					}
 				}
 				every_owned_state = {
@@ -6077,9 +6129,11 @@ country_event = { #Nationalists 4 - PNI Uprising
 			division_names_group = INS_INF_02
 			is_locked = yes
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 1 y = 0 }
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+		
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
 			}
 		}
 		every_owned_state = {
@@ -7233,6 +7287,12 @@ country_event = { #Commies 11 - Communist Uprising
 			set_global_flag = INS_civil_war_ongoing
 			if = {
 				limit = {
+					has_idea = INS_dutch_nationalism
+				}
+				remove_ideas = INS_dutch_nationalism
+			}
+			if = {
+				limit = {
 					has_idea = INS_japanese_investment_1
 				}
 				remove_ideas = INS_japanese_investment_1
@@ -7406,6 +7466,7 @@ country_event = { #Commies 11 - Communist Uprising
 					set_capital = { state = 668 }
 				}
 				set_cosmetic_tag = INS_DUTCH
+				add_ideas = INS_dutch_nationalism
 				set_popularities = {
 					fascism = 0.5
 				}
@@ -7454,11 +7515,11 @@ country_event = { #Commies 11 - Communist Uprising
 					division_names_group = INS_GAR_01
 					is_locked = yes
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
 					}
 				}
 				every_owned_state = {
@@ -7529,9 +7590,11 @@ country_event = { #Commies 11 - Communist Uprising
 			division_names_group = INS_INF_02
 			is_locked = yes
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 1 y = 0 }
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+		
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
 			}
 		}
 		every_owned_state = {
@@ -12033,9 +12096,11 @@ country_event = { #NSB 5 - NSB Uprising
 					division_names_group = INS_INF_02
 					is_locked = yes
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 1 y = 0 }
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+				
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
 					}
 				}
 				every_owned_state = {
@@ -12194,11 +12259,11 @@ country_event = { #NSB 5 - NSB Uprising
 			division_names_group = INS_GAR_01
 			is_locked = yes
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
+				irregular_infantry = { x = 0 y = 0 }
+				irregular_infantry = { x = 0 y = 1 }
+				irregular_infantry = { x = 0 y = 2 }
+				irregular_infantry = { x = 1 y = 0 }
+				irregular_infantry = { x = 1 y = 1 }
 			}
 		}
 		every_owned_state = {
@@ -12629,6 +12694,31 @@ country_event = { #NSB 11 - Pressure onto SAF
 					ratio > 2
 				}
 			}
+		}
+	}
+}
+
+country_event = { #NSB 12 - Fading into irrelevancy
+	id = holhis_nsb.12
+	title = holhis_nsb.12.t
+	desc = holhis_nsb.12.d
+
+	is_triggered_only = no
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = INS
+		date > 1938.05.14
+		has_start_date < 1936.01.02
+		NOT = { has_completed_focus = INS_make_use_nsboi }
+		has_idea = INS_dutch_nationalism
+	}
+
+	option = {
+		name = holhis_nsb.12.a
+		remove_ideas = INS_dutch_nationalism
+		ai_chance = {
+			base = 100
 		}
 	}
 }
@@ -13145,6 +13235,12 @@ country_event = { #Volskraad 10 - Parindra Uprising
 			set_global_flag = INS_civil_war_ongoing
 			if = {
 				limit = {
+					has_idea = INS_dutch_nationalism
+				}
+				remove_ideas = INS_dutch_nationalism
+			}
+			if = {
+				limit = {
 					has_idea = INS_japanese_investment_1
 				}
 				remove_ideas = INS_japanese_investment_1
@@ -13261,6 +13357,7 @@ country_event = { #Volskraad 10 - Parindra Uprising
 					set_capital = { state = 668 }
 				}
 				set_cosmetic_tag = INS_DUTCH
+				add_ideas = INS_dutch_nationalism
 				set_popularities = {
 					fascism = 0.5
 				}
@@ -13305,11 +13402,11 @@ country_event = { #Volskraad 10 - Parindra Uprising
 					division_names_group = INS_GAR_01
 					is_locked = yes
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
 					}
 				}
 				every_owned_state = {
@@ -13376,9 +13473,11 @@ country_event = { #Volskraad 10 - Parindra Uprising
 			division_names_group = INS_INF_02
 			is_locked = yes
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 1 y = 0 }
+				militia = { x = 0 y = 0 }
+				militia = { x = 0 y = 1 }
+		
+				militia = { x = 1 y = 0 }
+				militia = { x = 1 y = 1 }
 			}
 		}
 		every_owned_state = {
@@ -14672,6 +14771,9 @@ country_event = { #Council 1 - Ranneft retires
 		hidden_effect = {
 			set_country_flag = INS_waiting_for_tjarda
 		}
+		hidden_effect = {
+			country_event = { id = holhis_council.2 days = 14 random_days = 7 }
+		}
 
 		ai_chance = {
 			base = 0
@@ -14867,11 +14969,11 @@ country_event = { #Council 4 - Second voting for Raad van Indie
 			hidden_effect = {
 				add_trait = {
 					slot = political_advisor
-					trait = liberal_journalist
+					trait = colonial_reformer
 				}
 				remove_trait = {
 					slot = political_advisor
-					trait = independent_journalist
+					trait = raad_indie_ranneft
 				}
 			}
 		}
@@ -17502,5 +17604,38 @@ country_event = { #Path Guides - Easter Egg Leaders
 
 	option = {
 		name = holhis_history.13.b
+	}
+}
+
+country_event = { #Acquire trains
+	id = holhis_history.14
+	title = holhis_history.14.t
+	desc = holhis_history.14.d
+
+	trigger = {
+		date > 1939.01.01
+		NOT = { has_tech = basic_train }
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = holhis_history.14.a
+
+		ai_chance = {
+			base = 0
+		}
+	}
+
+	option = {
+		name = holhis_history.14.b
+		add_political_power = -150
+		set_technology = {
+			basic_train = 1
+		}
+
+		ai_chance = {
+			base = 60
+		}
 	}
 }

@@ -43,10 +43,6 @@ INS_category_invite_foreign_investors = {
 	priority = {
 		base = 10
 	}
-
-	visible = {
-		has_completed_focus = INS_invite_foreign_investors
-	}
 }
 
 INS_category_ethical_policies = {

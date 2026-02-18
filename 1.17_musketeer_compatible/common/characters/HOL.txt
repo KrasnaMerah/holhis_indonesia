@@ -847,17 +847,27 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = HOL_prince_bernhard
-			cost = 100.000
-				allowed = {
+			cost = 100
+			allowed = {
+				OR = {
+					original_tag = INS
 					original_tag = HOL
-					has_dlc = "Man the Guns"
 				}
-				available = {
+				has_dlc = "Man the Guns"
+			}
+			available = {
+				if = {
+					limit = { tag = HOL }
 					has_completed_focus = HOL_the_only_man_in_the_dutch_government 
 				}
-				traits = {
-					adventurous_daredevil 
+				if = {
+					limit = { tag = INS }
+					has_country_flag = INS_royal_family_indies_flag
 				}
+			}
+			traits = {
+				adventurous_daredevil 
+			}
 		}
 		name = HOL_prince_bernhard
 		portraits = {

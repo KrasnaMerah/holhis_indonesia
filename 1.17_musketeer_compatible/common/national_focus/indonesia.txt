@@ -4463,7 +4463,6 @@ focus_tree = {
 			if = {
 				limit = {
 					has_completed_focus = INS_reestablish_royal_houses
-					has_dlc = "Man the Guns"
 					NOT = {
 						has_country_flag = INS_mangkunegara_vii_passed
 					}
@@ -4817,7 +4816,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+
 			random_owned_controlled_state = {
+				limit = {
+					is_core_of = INS
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -4826,6 +4829,9 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
+				limit = {
+					is_core_of = INS
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -4834,6 +4840,9 @@ focus_tree = {
 				}
 			}
 			random_owned_controlled_state = {
+				limit = {
+					is_core_of = INS
+				}
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -4841,13 +4850,11 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = INS_revolutionary_brigades
+				add_idea = INS_revolutionary_brigades_1
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_land
@@ -4986,24 +4993,19 @@ focus_tree = {
 					set_character_flag = INS_appointed_general_flag
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				add_corps_commander_role = {
-					character = INS_pierre_cox
-					traits = { infantry_leader }
-					skill = 1
-					attack_skill = 2
-					defense_skill = 1
-					planning_skill = 1
-					logistics_skill = 1
-					legacy_id = -1
-				}
-				hidden_effect = {
-					INS_pierre_cox = {
-						set_character_flag = INS_appointed_general_flag
-					}
+			add_corps_commander_role = {
+				character = INS_pierre_cox
+				traits = { infantry_leader }
+				skill = 1
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+				legacy_id = -1
+			}
+			hidden_effect = {
+				INS_pierre_cox = {
+					set_character_flag = INS_appointed_general_flag
 				}
 			}
 
@@ -5617,12 +5619,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				set_technology = { bicycle_infantry = 1 }
-			}
+			set_technology = { bicycle_infantry = 1 }
 			add_tech_bonus = {
 				name = infantry_weapons_bonus
 				bonus = 0.5
@@ -5665,8 +5662,7 @@ focus_tree = {
 				uses = 1
 				category = land_doctrine
 			}
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
+
 			swap_ideas = {
 				remove_idea = INS_knil_incompetence_parades_3
 				add_idea = INS_knil_incompetence_parades_4
@@ -6041,7 +6037,7 @@ focus_tree = {
 	focus = {
 		id = INS_introduce_mechanised_vehicles
 		icon = GFX_goal_generic_army_motorized
-		prerequisite = { focus = INS_final_knil_reform }
+		prerequisite = { focus = INS_final_knil_reform focus = INS_indonesian_high_command }
 		
 		relative_position_id = INS_final_knil_reform
 		x = -1
@@ -6267,12 +6263,12 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = -0.075
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
 				remove_idea = INS_nationalism_suppressed
 				add_idea = INS_nationalism_reemergence_1
 			}
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = INS_challenge_elitism_1
 			INS_burden_step_down = yes
 			HOL = {
@@ -7652,6 +7648,10 @@ focus_tree = {
 				type = topple_government
 				target = JAP
 			}
+			add_timed_idea = {
+				idea = INS_attack_japan
+				days = 1461
+			}
 		}
 	}
 
@@ -7691,6 +7691,9 @@ focus_tree = {
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
+			effect_tooltip = {
+				add_ideas = INS_attack_japan_cps
+			}
 			if = {
 				limit = {
 					SIA = {
@@ -7700,15 +7703,10 @@ focus_tree = {
 						}
 					}
 				}
+				remove_ideas = INS_attack_japan
 				add_timed_idea = {
 					idea = INS_attack_japan_cps
 					days = 1461
-				}
-				else = {
-					add_timed_idea = {
-						idea = INS_attack_japan
-						days = 1461
-					}
 				}
 			}
 			add_ai_strategy = {
@@ -7885,7 +7883,6 @@ focus_tree = {
 				add_idea = INS_loyalty_unquestionable
 			}
 			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = INS_henri_zentgraaff
 			show_ideas_tooltip = GER_walther_hewel
@@ -7930,7 +7927,6 @@ focus_tree = {
 				add_idea = INS_loyalty_conditional
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = INS_sutarjo_kartohadikusumo
 			show_ideas_tooltip = INS_samuel_ratulangi
@@ -8195,7 +8191,7 @@ focus_tree = {
 				mission = INS_mission_japanese_aid
 				days = 240
 			}
-			country_event = { id = holhis_navair.7 days = 14 }
+			country_event = { id = holhis_navair.7 days = 7 }
 		}
 	}
 
@@ -8612,7 +8608,7 @@ focus_tree = {
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
+			if = { #HOL goes communist
 				limit = {
 					HOL = {
 						has_government = communism
@@ -8625,16 +8621,16 @@ focus_tree = {
 					target = INS
 					autonomy_state = autonomy_free
 				}
-				INS = { country_event = { id = holins.7 days = 2 } }
+				INS = { country_event = { id = holins.210 days = 2 } }
 			}
-			if = {
+			if = { #HOL does not exist
 				limit = {
 					is_subject = no
 					HOL = { exists = no }
 				}	
-				INS = { country_event = { id = holins.7 days = 2 } }
+				INS = { country_event = { id = holins.210 days = 2 } }
 			}
-			if = {
+			if = { #HOL stayed historical - has been capitulated
 				limit = {
 					is_subject_of = HOL
 					HOL = {
@@ -8642,9 +8638,9 @@ focus_tree = {
 						has_capitulated = yes
 					}
 				}
-				INS = { country_event = { id = holins.7 days = 2 } }
+				INS = { country_event = { id = holins.210 hours = 6 } }
 			}
-			if = {
+			if = { #HOL stayed historical - has not been capitulated
 				limit = {
 					is_subject_of = HOL
 					HOL = {
@@ -8690,13 +8686,8 @@ focus_tree = {
 		cost = 5
 
 		available = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				NOT = {
-					has_completed_focus = INS_prepare_flight
-				}
+			NOT = {
+				has_completed_focus = INS_prepare_flight
 			}
 			OR = {
 				has_completed_focus = INS_knil_leadership_reforms
@@ -8710,13 +8701,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Man the Guns"
-				}
-				custom_effect_tooltip = available_political_advisor
-				show_ideas_tooltip = INS_charles_van_der_plas
-			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = INS_charles_van_der_plas
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
@@ -8765,7 +8751,6 @@ focus_tree = {
 				HOL_burden_step_down = yes
 			}
 			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					is_subject_of = HOL
@@ -9103,6 +9088,39 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = INS_invite_queen_wilhelmina
+					HOL = {
+						OR = {
+							has_government = communism
+							exists = no
+						}
+					}
+				}
+				add_state_claim = 7
+				add_state_claim = 35
+				add_state_claim = 36
+				7 = {
+					OWNER = {
+						ROOT = {
+							create_wargoal = {
+								target = PREV
+								type = take_state_focus
+								expire = 0
+								generator = { 7 35 36 }
+							}
+							add_ai_strategy = {
+								type = conquer
+								id = PREV
+								value = 200
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
 			335 = {
 				if = {
 					limit = {
@@ -9904,6 +9922,7 @@ focus_tree = {
 		}
 
 		available = {
+			has_idea = INS_dutch_nationalism
 			NOT = {
 				has_completed_focus = INS_start_drafting_locals
 			}
@@ -9929,9 +9948,10 @@ focus_tree = {
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
-				remove_idea = INS_reforms_halted
-				add_idea = INS_dutch_nationalism
+				remove_idea = INS_dutch_nationalism
+				add_idea = INS_dutch_nationalism_1
 			}
+			remove_ideas = INS_reforms_halted
 			swap_ideas = {
 				remove_idea = INS_nationalism_suppressed
 				add_idea = INS_nationalism_rally
@@ -11986,7 +12006,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_ideas = INS_surja_wirawan
+			add_ideas = INS_surya_wirawan
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			swap_ideas = {
@@ -12061,6 +12081,8 @@ focus_tree = {
 			add_autonomy_ratio = {
 				value = 0.1
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = INS_sujono
 			
@@ -16674,8 +16696,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					is_subject = no
@@ -16683,6 +16703,7 @@ focus_tree = {
 						has_country_flag = INS_pardi_admiral_flag
 					}
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 				add_naval_commander_role = {
 					character = INS_mas_pardi
 					traits = { bold }
@@ -18356,7 +18377,6 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_dlc = "Man the Guns"
 			NOT = { has_completed_focus = INS_discourage_democratic_reforms }
 			NOT = { has_completed_focus = INS_first_election }
 		}
@@ -18495,6 +18515,71 @@ focus_tree = {
 					}
 				}
 			}
+			random_owned_controlled_state = {
+				prioritize = { 335 } #Batavia
+				limit = {
+					is_fully_controlled_by = ROOT
+					OR = {
+						region = 157 #Sunda Islands
+						region = 187 #Sumatra
+						region = 188 #Malaya
+						region = 159 #Borneo
+						region = 92 #Timor Sea
+						state = 673 #Southern Sulawesi
+						state = 1054 #Northern Sulawesi
+					}
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 1051 } #Western Java
+				limit = {
+					is_fully_controlled_by = ROOT
+					OR = {
+						region = 157 #Sunda Islands
+						region = 187 #Sumatra
+						region = 188 #Malaya
+						region = 159 #Borneo
+						region = 92 #Timor Sea
+						state = 673 #Southern Sulawesi
+						state = 1054 #Northern Sulawesi
+					}
+					arms_factory > 0
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 1052 } #East Java
+				limit = {
+					is_fully_controlled_by = ROOT
+					OR = {
+						region = 157 #Sunda Islands
+						region = 187 #Sumatra
+						region = 188 #Malaya
+						region = 159 #Borneo
+						region = 92 #Timor Sea
+						state = 673 #Southern Sulawesi
+						state = 1054 #Northern Sulawesi
+					}
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 2 }
+			add_offsite_building = { type = arms_factory level = 1 }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			unlock_decision_category_tooltip = INS_category_evacuation
 			unlock_decision_category_tooltip = INS_category_netherlands_indies_intelligence_service
 		}
 	}
@@ -18799,12 +18884,12 @@ focus_tree = {
 				}
 				show_ideas_tooltip = INS_thomas_nayoan
 			}
-			custom_effect_tooltip = INS_support_pki_exile_tooltip
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
 					has_country_flag = INS_nayoan_alive
 				}
+				custom_effect_tooltip = INS_support_pki_exile_tooltip
 				create_operative_leader = {
 					name = "Thomas Nayoan"
 					GFX = GFX_portrait_indonesia_operative_nayoan
@@ -18878,7 +18963,11 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = -0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = HOL_expand_the_colonial_army
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					has_full_control_of_state = 669
@@ -18957,16 +19046,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			add_naval_commander_role = {
-				character = INS_pieter_kunraad
-				traits = { fleet_protector }
-				skill = 1
-				attack_skill = 1
-				defense_skill = 2
-				maneuvering_skill = 1
-				coordination_skill = 1
-				legacy_id = -1
-			}
 			if = {
 				limit = {
 					INS_simon_spoor = {
@@ -19005,6 +19084,18 @@ focus_tree = {
 				INS_overakker = {
 					set_character_flag = INS_appointed_general_flag
 				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_naval_commander_role = {
+				character = INS_pieter_koenraad
+				traits = { fleet_protector }
+				skill = 1
+				attack_skill = 1
+				defense_skill = 2
+				maneuvering_skill = 1
+				coordination_skill = 1
+				legacy_id = -1
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt

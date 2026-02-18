@@ -11,6 +11,7 @@ INS = {
 	navy = {
 		male = {
 			"GFX_Portrait_Southeast_Asia_Generic_navy_1"
+			"GFX_Portrait_Southeast_Asia_Generic_navy_2"
 			"GFX_Portrait_Asia_Generic_navy_1"
 			"GFX_portrait_asia_generic_navy_8"
 		}
@@ -56,6 +57,7 @@ ATJ = {
 	navy = {
 		male = {
 			"GFX_Portrait_Southeast_Asia_Generic_navy_1"
+			"GFX_Portrait_Southeast_Asia_Generic_navy_2"
 			"GFX_Portrait_Asia_Generic_navy_1"
 			"GFX_portrait_asia_generic_navy_8"
 		}
@@ -75,6 +77,7 @@ MAL = {
 	navy = {
 		male = {
 			"GFX_Portrait_Southeast_Asia_Generic_navy_1"
+			"GFX_Portrait_Southeast_Asia_Generic_navy_2"
 			"GFX_Portrait_Asia_Generic_navy_1"
 			"GFX_portrait_asia_generic_navy_8"
 		}
@@ -94,6 +97,7 @@ BRN = {
 	navy = {
 		male = {
 			"GFX_Portrait_Southeast_Asia_Generic_navy_1"
+			"GFX_Portrait_Southeast_Asia_Generic_navy_2"
 			"GFX_Portrait_Asia_Generic_navy_1"
 			"GFX_portrait_asia_generic_navy_8"
 		}
@@ -113,6 +117,7 @@ SLU = {
 	navy = {
 		male = {
 			"GFX_Portrait_Southeast_Asia_Generic_navy_1"
+			"GFX_Portrait_Southeast_Asia_Generic_navy_2"
 			"GFX_Portrait_Asia_Generic_navy_1"
 			"GFX_portrait_asia_generic_navy_8"
 		}

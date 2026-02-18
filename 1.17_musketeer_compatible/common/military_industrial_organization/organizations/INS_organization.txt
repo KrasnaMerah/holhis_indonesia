@@ -152,6 +152,26 @@ INS_koolhoven_organization = {
 	}
 }
 
+INS_merbabu_organization = {
+	include = generic_light_aircraft_organization
+	icon = GFX_idea_INS_merbabu
+	allowed = {
+		tag = INS
+		has_dlc = "Arms Against Tyranny"
+	}
+	available = {
+		owner = {
+			OR = {
+				has_country_flag = INS_seize_merbabu_flag
+				has_country_flag = INS_merbabu_established_flag
+			}
+			NOT = {
+				has_country_flag = INS_merbabu_quits_flag
+			}
+		}
+	}
+}
+
 INS_nakajima_organization = {
 	include = generic_heavy_aircraft_organization
 	icon = GFX_idea_nakajima

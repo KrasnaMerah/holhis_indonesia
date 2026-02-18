@@ -9147,7 +9147,7 @@ form_majapahit_empire_category = {
 		visible = {
 			is_subject = no
 			has_cosmetic_tag = MAJ_UNIFIED
-			has_idea = INS_mohammad_jamin
+			has_idea = INS_mohammad_yamin
 			NOT = {
 				has_global_flag = MAJ_nusantara_done_claim
 			}
@@ -9182,7 +9182,7 @@ form_majapahit_empire_category = {
 				factor = 0
 				NOT = {
 					has_country_leader = {
-						name = "Soekarno"
+						name = "Sukarno"
 						ruling_only = yes
 					}
 				}

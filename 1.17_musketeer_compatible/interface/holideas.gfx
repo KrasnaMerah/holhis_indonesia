@@ -111,6 +111,11 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_idea_INS_merbabu"
+		texturefile = "gfx/interface/ideas/idea_INS_merbabu.dds"
+	}
+
+	spriteType = {
 		name = "GFX_idea_INS_ai_bandung"
 		texturefile = "gfx/interface/ideas/idea_ins_ai_bandung.dds"
 	}

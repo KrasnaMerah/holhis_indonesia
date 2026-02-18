@@ -247,6 +247,60 @@ defined_text = { # Country
 }
 
 defined_text = { # Country
+	name = getinshelpname
+	text = {
+		trigger = {
+			original_tag = INS
+			HOL = {
+				NOT = { has_government = communism }
+			}
+		}
+		localization_key = INS_HELP_FATHERLAND
+	}
+	text = {
+		trigger = {
+			original_tag = INS
+			if = {
+				HOL = {
+					OR = {
+						has_government = communism
+						exists = no
+					}
+				}
+			}
+		}
+		localization_key = INS_LIBERATE_FATHERLAND
+	}
+}
+
+defined_text = { # Country
+	name = getinshelpdesc
+	text = {
+		trigger = {
+			original_tag = INS
+			HOL = {
+				NOT = { has_government = communism }
+			}
+		}
+		localization_key = INS_HELP_FATHERLAND_desc
+	}
+	text = {
+		trigger = {
+			original_tag = INS
+			if = {
+				HOL = {
+					OR = {
+						has_government = communism
+						exists = no
+					}
+				}
+			}
+		}
+		localization_key = INS_LIBERATE_FATHERLAND_desc
+	}
+}
+
+defined_text = { # Country
 	name = getinsempirename
 	text = {
 		trigger = {

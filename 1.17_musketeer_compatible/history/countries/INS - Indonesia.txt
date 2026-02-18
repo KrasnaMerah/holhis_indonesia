@@ -214,6 +214,7 @@ add_ideas = {
 	INS_meyer_ranneft
 	INS_malaise_1
 	INS_nationalism_suppressed
+	INS_dutch_nationalism
 	INS_reforms
 	INS_knil_incompetence_1
 	INS_navy_1
@@ -715,6 +716,7 @@ create_equipment_variant = {
 	remove_ideas = {
 		INS_agrarian_society_1
 		INS_japanese_investment_1
+		INS_dutch_nationalism
 	}
 
 	add_ideas = {
