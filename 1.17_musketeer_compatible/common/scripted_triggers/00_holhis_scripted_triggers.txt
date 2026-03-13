@@ -120,6 +120,7 @@ is_asean_state = {
 		original_tag = MLK
 		original_tag = TML
 		original_tag = SLU
+		original_tag = FOR
 		AND = {
 			original_tag = YUN
 			NOT = {

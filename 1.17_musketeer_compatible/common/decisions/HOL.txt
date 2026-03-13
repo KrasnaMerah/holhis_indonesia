@@ -3394,11 +3394,6 @@ political_actions = {
 
 		allowed = {
 			original_tag = HOL
-			NOT = {
-				INS = {
-					has_country_flag = INS_royal_family_indies_flag
-				}
-			}
 		}
 
 		available = {
@@ -3408,6 +3403,11 @@ political_actions = {
 		visible = {
 			original_tag = HOL
 			date > 1944.04.30
+			NOT = {
+				INS = {
+					has_country_flag = INS_royal_family_indies_flag
+				}
+			}
 		}
 
 		complete_effect = {

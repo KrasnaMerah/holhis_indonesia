@@ -86,7 +86,6 @@ characters = {
 			expire = "1965.1.1"
 			ideology = centrism
 			traits = {
-				wilhelmina
 				disdain_for_politicians_1
 				queen_of_the_people
 			}

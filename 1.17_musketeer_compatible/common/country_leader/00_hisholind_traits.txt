@@ -360,7 +360,8 @@ leader_traits = {
 		sprite = 13
 
 		political_power_cost = -0.1
-		stability_weekly = 0.003
+		stability_weekly = 0.001
+		cic_to_overlord_factor = -0.1
 	}
 
 	raad_indie_ranneft = { #VP-Indie Meyer Ranneft

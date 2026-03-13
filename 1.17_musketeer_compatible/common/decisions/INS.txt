@@ -18,7 +18,7 @@ INS_category_volksraad = {
 
 	INS_path_guides = {
 
-		icon = eng_install_government
+		icon = GFX_decision_generic_operation
 
 		allowed = {
 			original_tag = INS
@@ -206,7 +206,7 @@ INS_category_volksraad = {
 
 	INS_promote_indo_colonization = {
 
-		icon = generic_political_discourse
+		icon = GFX_decision_hol_engelandvaarders
 
 		days_remove = 90
 
@@ -288,6 +288,10 @@ INS_category_volksraad = {
 					add_extra_state_shared_building_slots = 1
 					clr_state_flag = INS_transmigration_3
 					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
 				}
 				if = {
 					limit = {
@@ -323,7 +327,7 @@ INS_category_volksraad = {
 
 	INS_promote_zending_papua = {
 
-		icon = generic_political_discourse
+		icon = GFX_decision_hol_engelandvaarders
 
 		days_remove = 90
 
@@ -431,7 +435,7 @@ INS_category_volksraad = {
 
 	INS_close_down_tanahmerah = {
 
-		icon = generic_break_treaty
+		icon = eng_trade_unions_demand
 
 		allowed = {
 			original_tag = INS
@@ -520,6 +524,8 @@ INS_category_national_projects = {
 
 	INS_establish_nv_merbabu = {
 
+		icon = GFX_decision_SWE_set_air_budget
+
 		available = {
 			controls_state = 1051
 			has_completed_focus = INS_copy_dutch_navair
@@ -570,6 +576,8 @@ INS_category_national_projects = {
 
 	INS_expand_ai_bandung = {
 
+		icon = GFX_decision_generic_industry
+
 		available = {
 			controls_state = 1051
 			has_completed_focus = INS_state_weapons
@@ -611,6 +619,8 @@ INS_category_national_projects = {
 	}
 
 	INS_expand_surabaya_dm = {
+
+		icon = GFX_decision_SWE_set_navy_budget
 
 		available = {
 			controls_state = 1052
@@ -893,7 +903,7 @@ INS_category_invite_foreign_investors = {
 	
 	INS_mission_japanese_aid = {
 		
-		icon = generic_industry
+		icon = GFX_decision_generic_welfare
 
 		allowed = {
 			original_tag = INS
@@ -963,7 +973,7 @@ INS_category_invite_foreign_investors = {
 
 	INS_invite_investment_JAP = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_hol_attract_foreign_investors
 
 		allowed = {
 			original_tag = INS
@@ -1379,7 +1389,7 @@ INS_category_pki_decisions = {
 
 	INS_close_down_tanahmerah_pki = {
 
-		icon = generic_break_treaty
+		icon = eng_trade_unions_demand
 
 		allowed = {
 			original_tag = INS
@@ -2536,7 +2546,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 8
+						value = 11
 						compare = equals
 					}
 				}
@@ -2546,7 +2556,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 14
+						value = 16
 						compare = equals
 					}
 				}
@@ -2572,6 +2582,16 @@ INS_category_ethical_policies = {
 				}
 				set_country_flag = INS_education_2_done_flag
 			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_education_upgrade
+						value = 6
+						compare = equals
+					}
+				}
+				set_country_flag = INS_education_3_done_flag
+			}
 		}
 
 		ai_will_do = {
@@ -2585,7 +2605,7 @@ INS_category_ethical_policies = {
 
 	INS_agriculture = {
 
-		icon = generic_factory
+		icon = GFX_decision_generic_forestry
 
 		allowed = {
 			original_tag = INS
@@ -2665,7 +2685,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 8
+						value = 11
 						compare = equals
 					}
 				}
@@ -2675,7 +2695,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 14
+						value = 16
 						compare = equals
 					}
 				}
@@ -2701,6 +2721,16 @@ INS_category_ethical_policies = {
 				}
 				set_country_flag = INS_agriculture_2_done_flag
 			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_irrigation_upgrade
+						value = 6
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agriculture_3_done_flag
+			}
 		}
 
 		ai_will_do = {
@@ -2714,11 +2744,11 @@ INS_category_ethical_policies = {
 	
 	INS_transmigration = {
 
-		icon = generic_political_discourse
+		icon = GFX_decision_hol_engelandvaarders
 
 		days_remove = 90
 
-		cost = 25
+		cost = 22
 
 		allowed = {
 			original_tag = INS
@@ -2730,6 +2760,7 @@ INS_category_ethical_policies = {
 			NOT = {
 				has_country_flag = INS_agrarian_reform_enacted
 			}
+			NOT = { has_country_flag = INS_transmigration_flag }
 		}
 
 		modifier = {
@@ -2744,9 +2775,18 @@ INS_category_ethical_policies = {
 					is_core_of = ROOT
 					is_fully_controlled_by = ROOT
 					OR = {
-						state = 335
-						state = 1051
-						state = 1052
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
 					}
 				}
 				add_manpower = -7500
@@ -2770,12 +2810,37 @@ INS_category_ethical_policies = {
 				var = INS_transmigration_upgrade
 				value = 1
 			}
+			set_country_flag = INS_transmigration_flag
 		}
 
 		remove_effect = {
 			random_owned_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
+					OR = {
+						region = 158 #Sunda Islands except Java
+						region = 187 #Sumatra
+						state = 724 #Malayan Peninsula
+						state = 1060
+						state = 336
+						state = 1059
+						state = 1058
+						state = 1021
+						region = 159 #Borneo
+						region = 299 #Banda Sea
+						state = 738 #Aru Islands
+						region = 167 #Papua
+						region = 193 #Northern Australia
+						state = 872 #North Queensland
+						state = 521 #Queensland
+						state = 1026 #Mindanao
+						state = 627
+						state = 1025
+						state = 711 #Cocos Islands
+					}
+					NOT = {
+						has_state_flag = INS_transmigration_10
+					}
 					OR = {
 						NOT = { #Don't give it back to Java
 							OR = {
@@ -2786,6 +2851,12 @@ INS_category_ethical_policies = {
 						}
 						AND = {
 							state = 738 #Aru Islands
+							NOT = {
+								has_state_flag = INS_transmigration_1
+							}
+						}
+						AND = {
+							state = 711 #Cocos Islands
 							NOT = {
 								has_state_flag = INS_transmigration_1
 							}
@@ -2823,7 +2894,19 @@ INS_category_ethical_policies = {
 						AND = {
 							state = 1056 #Vogelkop
 							NOT = {
-								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_2
+							}
+						}
+						AND = {
+							state = 1057 #South Papua
+							NOT = {
+								has_state_flag = INS_transmigration_3
+							}
+						}
+						AND = {
+							state = 669 #North Papua
+							NOT = {
+								has_state_flag = INS_transmigration_3
 							}
 						}
 					}
@@ -2855,11 +2938,27 @@ INS_category_ethical_policies = {
 				}
 				if = {
 					limit = {
-						has_state_flag = INS_transmigration_4
-						NOT = { state = 1056 }
+						has_state_flag = INS_transmigration_3
+						NOT = { state = 1057 }
 					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+						NOT = { state = 669 }
+					}
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
 				}
 				if = {
 					limit = {
@@ -2869,6 +2968,10 @@ INS_category_ethical_policies = {
 					add_extra_state_shared_building_slots = 1
 					clr_state_flag = INS_transmigration_3
 					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
 				}
 				if = {
 					limit = {
@@ -2878,6 +2981,18 @@ INS_category_ethical_policies = {
 					add_extra_state_shared_building_slots = 1
 					clr_state_flag = INS_transmigration_3
 					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+						NOT = { state = 1056 }
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
 				}
 				if = {
 					limit = {
@@ -2945,7 +3060,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 8
+						value = 11
 						compare = equals
 					}
 				}
@@ -2955,7 +3070,7 @@ INS_category_ethical_policies = {
 				limit = {
 					check_variable = {
 						var = INS_agriculture_upgrade
-						value = 14
+						value = 16
 						compare = equals
 					}
 				}
@@ -2986,6 +3101,41 @@ INS_category_ethical_policies = {
 				}
 				set_country_flag = INS_transmigration_2_done_flag
 			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
 		}
 
 		ai_will_do = {
@@ -2997,9 +3147,6725 @@ INS_category_ethical_policies = {
 		}
 	}
 
+	INS_transmigration_to_aceh = { #Can handle 13 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1047
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1047 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1047 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1047 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+					add_compliance = 5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+					add_compliance = 5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+					add_compliance = 5
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nsumatra = { #Can handle 117 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 672
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 672 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			672 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_ssumatra = { #Can handle 85 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1048
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1048 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1048 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_natuna = { #Can handle 4 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1049
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1049 = {
+				is_owned_by = INS
+				NOT = {
+					has_state_flag = INS_transmigration_4
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1049 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1049 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_wkalimantan = { #Can handle 26 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1050
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1050 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1050 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1050 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_ekalimantan = { #Can handle 32 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 334
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 334 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			334 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_sarawak = { #Can handle 16 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 333
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			333 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 333 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			333 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_brunei = { #Can handle 7 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1023
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1023 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1023 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1023 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_sabah = { #Can handle 8 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1024
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1024 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1024 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1024 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_ende = { #Can handle 85 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 667
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 667 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			667 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_wtimor = { #Can handle 13 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1053
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1053 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1053 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1053 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_etimor = { #Can handle 12 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 721
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			721 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 721 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			721 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_ssulawesi = { #Can handle 83 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 673
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 673 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			673 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nsulawesi = { #Can handle 49 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1054
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1054 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1054 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nmoluccas = { #Can handle 9 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1055
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1055 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1055 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1055 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_smoluccas = { #Can handle 6 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 668
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 668 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			668 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_aru = { #Can handle 1 wave only
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 738
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			738 = {
+				is_owned_by = INS
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 738 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			738 = {
+				add_manpower = 7500
+				add_extra_state_shared_building_slots = 1
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = INS_transmigration_1
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_vogelkop = { #Can handle 2 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1056 
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1056 = {
+				is_owned_by = INS
+				NOT = {
+					has_state_flag = INS_transmigration_2
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1056 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1056 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_state_flag = INS_transmigration_1
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nwpapua = { #Can handle 3 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 669
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			669 = {
+				is_owned_by = INS
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 669 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			669 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+					add_compliance = 5
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_swpapua = { #Can handle 3 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 1057
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1057 = {
+				is_owned_by = INS
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1057 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1057 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+					add_compliance = 5
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nepapua = { #Can handle 10 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 979
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			979 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 979 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			979 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_sepapua = { #Can handle 19 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 523
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			523 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 523 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			523 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_bismarck = { #Can handle 9 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 737
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			737 = {
+				is_owned_by = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 737 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			737 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_5
+					set_state_flag = INS_transmigration_6
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					clr_state_flag = INS_transmigration_4
+					set_state_flag = INS_transmigration_5
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_3
+					set_state_flag = INS_transmigration_4
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nwaus = { #Can handle only 1 wave
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 870
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			870 = {
+				is_core_of = INS
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 870 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			870 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_naus = { #Can handle 1 wave only
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 520
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			520 = {
+				is_core_of = INS
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 520 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			520 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_caledonia = { #Can handle 1 wave only
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 635
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			635 = {
+				is_core_of = INS
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 635 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			635 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_5
+								has_state_flag = INS_transmigration_6
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nqueensland = { #Can handle 3 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			has_full_control_of_state = 872
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			872 = {
+				is_core_of = INS
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 872 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			872 = {
+				add_manpower = 7500
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_2
+					}
+					add_extra_state_shared_building_slots = 1
+					clr_state_flag = INS_transmigration_2
+					set_state_flag = INS_transmigration_3
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_1
+					}
+					clr_state_flag = INS_transmigration_1
+					set_state_flag = INS_transmigration_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_state_flag = INS_transmigration_1
+								has_state_flag = INS_transmigration_2
+								has_state_flag = INS_transmigration_3
+							}
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					set_state_flag = INS_transmigration_1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_agriculture_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_agriculture_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_agriculture_upgrade
+				value = 1
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_1_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 11
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_2_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_agriculture_upgrade
+						value = 16
+						compare = equals
+					}
+				}
+				set_country_flag = INS_agrarian_reforms_3_flag
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 1
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_1_done_flag
+				country_event = { id = holhis_indonesia.57 }
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_1_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_4
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 4
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_2_done_flag
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_3_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = INS_transmigration_2_done_flag
+					any_owned_state = {
+						has_state_flag = INS_transmigration_6
+					}
+					check_variable = {
+						var = INS_transmigration_upgrade
+						value = 6
+						compare = equals
+					}
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 3
+						compare = equals
+					}
+				}
+				set_country_flag = INS_transmigration_3_done_flag
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
 	INS_uphold_rust_orde = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_generic_belgian_colonial_helmet
 
 		allowed = {
 			original_tag = INS
@@ -3024,16 +9890,15 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_upgrade_agrarian_society = {
+	INS_societal_reforms = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_SWI_support_humanitarian_efforts
 
 		allowed = {
 			original_tag = INS
 		}
 
 		available = {
-			industrial_complex > 4
 			if = {
 				limit = {
 					has_idea = INS_agrarian_society_1
@@ -3045,6 +9910,7 @@ INS_category_ethical_policies = {
 					has_country_flag = INS_agriculture_1_done_flag
 					has_country_flag = INS_transmigration_1_done_flag
 				}
+				industrial_complex > 4
 				amount_research_slots > 2
 				else_if = {
 					limit = {
@@ -3057,6 +9923,7 @@ INS_category_ethical_policies = {
 						has_country_flag = INS_agriculture_2_done_flag
 						has_country_flag = INS_transmigration_2_done_flag
 					}
+					industrial_complex > 6
 					amount_research_slots > 3
 				}
 			}
@@ -3118,18 +9985,28 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_upgrade_agrarian_society_final = {
+	INS_societal_reforms_final = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_SWI_support_humanitarian_efforts
 
 		allowed = {
 			original_tag = INS
 		}
 
 		available = {
-			industrial_complex > 8
+			industrial_complex > 10
 			has_idea = INS_agrarian_society_3
-			has_country_flag = INS_agrarian_reforms_3_flag
+			custom_trigger_tooltip = {
+				tooltip = INS_agrarian_reforms_3
+				has_country_flag = INS_agrarian_reforms_3_flag
+				has_country_flag = INS_education_3_done_flag
+				has_country_flag = INS_agriculture_3_done_flag
+				has_country_flag = INS_transmigration_3_done_flag
+			}
+			any_state = {
+				is_fully_controlled_by = INS
+				has_state_flag = INS_transmigration_6
+			}
 			amount_research_slots > 4
 		}
 
@@ -3163,7 +10040,7 @@ INS_category_ethical_policies = {
 
 	INS_integrate_atjeh = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_hol_exchange_intelligence_data
 
 		allowed = {
 			original_tag = INS
@@ -3222,7 +10099,7 @@ INS_category_ethical_policies = {
 
 	INS_integrate_papua = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_hol_exchange_intelligence_data
 
 		allowed = {
 			original_tag = INS
@@ -3250,6 +10127,10 @@ INS_category_ethical_policies = {
 				infrastructure > 2
 				industrial_complex > 0
 			}
+		}
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 669 } 
 		}
 
 		visible = {

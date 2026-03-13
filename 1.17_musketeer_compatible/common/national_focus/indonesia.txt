@@ -7876,8 +7876,13 @@ focus_tree = {
 					modifier = medium_increase
 				}
 			}
-			
+
 			custom_effect_tooltip = generic_skip_one_line_tt
+			INS_burden_step_down = yes
+			HOL = {
+				HOL_burden_step_down = yes
+			}
+
 			swap_ideas = {
 				remove_idea = INS_loyalty
 				add_idea = INS_loyalty_unquestionable
@@ -8574,7 +8579,17 @@ focus_tree = {
 					HOL = {
 						exists = yes
 					}
-					is_subject_of = HOL
+				}
+				is_subject_of = HOL
+			}
+			if = {
+				limit = {
+					HOL = {
+						exists = yes
+						NOT = {
+							has_government = communism
+						}
+					}
 				}
 				HOL = {
 					OR = {
@@ -8621,14 +8636,14 @@ focus_tree = {
 					target = INS
 					autonomy_state = autonomy_free
 				}
-				INS = { country_event = { id = holins.210 days = 2 } }
+				INS = { country_event = { id = holhis_indonesia.210 days = 2 } }
 			}
 			if = { #HOL does not exist
 				limit = {
 					is_subject = no
 					HOL = { exists = no }
 				}	
-				INS = { country_event = { id = holins.210 days = 2 } }
+				INS = { country_event = { id = holhis_indonesia.210 days = 2 } }
 			}
 			if = { #HOL stayed historical - has been capitulated
 				limit = {
@@ -8638,7 +8653,7 @@ focus_tree = {
 						has_capitulated = yes
 					}
 				}
-				INS = { country_event = { id = holins.210 hours = 6 } }
+				HOL = { country_event = { id = holhis_indonesia.210 hours = 6 } }
 			}
 			if = { #HOL stayed historical - has not been capitulated
 				limit = {
@@ -17467,6 +17482,20 @@ focus_tree = {
 			HOL = {
 				country_event = { id = holhis_navair.4 days = 1 }
 				custom_effect_tooltip = needs_approval
+				effect_tooltip = {
+					send_equipment = {
+						equipment = small_plane_airframe_0
+						amount = 50
+						target = INS
+					}
+					air_experience = 20
+					add_doctrine_cost_reduction = {
+						name = air_doc_bonus
+						cost_reduction = 0.5
+						uses = 2
+						category = air_doctrine
+					}
+				}
 			}
 		}
 	}

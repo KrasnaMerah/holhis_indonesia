@@ -98,9 +98,9 @@ political_actions = {
 		}
 	}
 
-	ASEAN_upgrade_agrarian_society = {
+	ASEAN_societal_reforms = {
 
-		icon = generic_civil_support
+		icon = GFX_decision_SWI_support_humanitarian_efforts
 
 		allowed = {
 			is_asean_state = yes
@@ -238,7 +238,7 @@ ASEAN_malacca_strait_security = {
 		}
 	}
 
-	ASEAN_handover_atjeh_to_MAL = {
+	ASEAN_handover_aceh_to_MAL = {
 
 		cost = 25
 
@@ -264,11 +264,11 @@ ASEAN_malacca_strait_security = {
 		available = {
 			OR = {
 				ROOT = {
-					controls_state = 1047 # Atjeh
+					controls_state = 1047 # Aceh
 				}
 				any_country = {
 					is_subject_of = ROOT
-					controls_state = 1047 # Atjeh
+					controls_state = 1047 # Aceh
 				}
 			}
 		}
@@ -362,7 +362,7 @@ ASEAN_malacca_strait_security = {
 		}
 	}
 
-	ASEAN_handover_riouw_to_MAL = {
+	ASEAN_handover_riau_to_MAL = {
 
 		cost = 25
 

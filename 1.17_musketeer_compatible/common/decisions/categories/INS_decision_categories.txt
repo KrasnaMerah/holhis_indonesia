@@ -53,6 +53,12 @@ INS_category_ethical_policies = {
 	allowed = {
 		original_tag = INS
 	}
+
+	on_map_area = {
+		state = 1051
+		name = INS_transmigration_map_category_name
+		zoom = 250
+	}
 	
 	priority = {
 		base = 9
@@ -250,7 +256,7 @@ ASEAN_malacca_strait_security = {
 	picture = GFX_decision_cat_picture_malacca
 
 	priority = {
-		base = 11
+		base = 7
 	}
 
 	allowed = {

@@ -63,7 +63,7 @@ political_actions = {
 
 	improved_worker_conditions = {
 
-		icon = generic_industry
+		icon = GFX_decision_generic_factory
 		priority = 10
 		available = {
 			has_stability < 1.0
@@ -568,7 +568,7 @@ propaganda_efforts = {
 	
 	war_propaganda_radio_industry = { 
 
-		icon = generic_prepare_civil_war
+		icon = GFX_decision_hol_radio_oranje
 
 		available = {
 			IF = {
@@ -632,7 +632,7 @@ propaganda_efforts = {
 	
 	war_propaganda_film_industry = { 
 
-		icon = generic_prepare_civil_war
+		icon = GFX_decision_eng_propaganda_campaigns
 
 		available = { 
 			has_war_with_non_exiled_country = yes

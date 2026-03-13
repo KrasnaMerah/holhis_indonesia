@@ -843,6 +843,27 @@ ideas = {
 			}
 		}
 
+		INS_revolution_at_home_0 = {
+
+			name = INS_revolution_at_home_1
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = INS_flag
+
+			modifier = {
+				communism_drift = 0.05
+			}
+		}
+
 		INS_revolution_at_home_1 = {
 		
 			allowed = {
@@ -1502,7 +1523,7 @@ ideas = {
 
 			removal_cost = -1
 			
-			picture = hol_oranje_boven
+			picture = generic_fascism_drift_bonus
 
 			modifier = {
 				fascism_drift = 0.1
@@ -1686,7 +1707,7 @@ ideas = {
 				neutrality_drift = 0.01
 				surrender_limit = -0.15
 				mic_to_overlord_factor = -0.25
-				cic_to_overlord_factor = 0.15
+				cic_to_overlord_factor = 0.05
 				autonomy_manpower_share = -0.45
 				high_command_cost_factor = -0.05
 				army_chief_cost_factor = -0.05
@@ -1722,7 +1743,6 @@ ideas = {
 				neutrality_acceptance = 25
 				surrender_limit = -0.1
 				mic_to_overlord_factor = -0.4
-				cic_to_overlord_factor = 0.15
 				autonomy_manpower_share = -0.25
 				high_command_cost_factor = -0.1
 				army_chief_cost_factor = -0.1
@@ -1758,7 +1778,7 @@ ideas = {
 				surrender_limit = -0.05
 				autonomy_gain = 0.5
 				mic_to_overlord_factor = -0.3
-				cic_to_overlord_factor = 0.2
+				cic_to_overlord_factor = 0.1
 				autonomy_manpower_share = -0.35
 				high_command_cost_factor = -0.05
 				army_chief_cost_factor = -0.05
@@ -1789,7 +1809,7 @@ ideas = {
 				democratic_acceptance = 25
 				autonomy_gain = 0.75
 				mic_to_overlord_factor = -0.35
-				cic_to_overlord_factor = 0.2
+				cic_to_overlord_factor = 0.15
 				autonomy_manpower_share = -0.3
 				high_command_cost_factor = -0.05
 				army_chief_cost_factor = -0.05

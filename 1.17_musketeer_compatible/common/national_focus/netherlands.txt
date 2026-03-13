@@ -6149,6 +6149,12 @@ focus_tree = {
 			show_ideas_tooltip = HOL_saul_de_groot
 			show_ideas_tooltip = HOL_hendrikus_sneevliet
 			hidden_effect = {
+				INS = {
+					reduce_focus_completion_cost = {
+						focus = INS_invite_queen_wilhelmina
+						cost = 35
+					}
+				}
 				if = {
 					limit = {
 						ENG = {
@@ -6276,21 +6282,33 @@ focus_tree = {
 		available = {
 			has_government = communism
 			OR = {
-				CRC = {
+				CRC = { #Curacao is HOL's subject
 					is_subject_of = HOL
 					communism > 0.4
 				}
-				695 = { is_fully_controlled_by = HOL }
+				695 = { is_fully_controlled_by = HOL } #HOL directly control Curacao
+				AND = { #CRC is already free
+					NOT = {
+						695 = { is_owned_by = HOL }
+						CRC = { is_subject_of = HOL }
+					}
+				}
 			}
 			OR = {
-				SUR = {
+				SUR = { #Surinam is HOL's subject
 					is_subject_of = HOL
 					communism > 0.4
 				}
-				309 = { is_fully_controlled_by = HOL }
+				309 = { is_fully_controlled_by = HOL } #HOL directly control Surinam
+				AND = { #SUR is already free
+					NOT = {
+						309 = { is_owned_by = HOL }
+						SUR = { is_subject_of = HOL }
+					}
+				}
 			}
 			OR = {
-				custom_trigger_tooltip = {
+				custom_trigger_tooltip = { #HOL directly controls Indonesia
 					tooltip = HOL_decolonization_tt2
 					AND = {
 						672 = { is_fully_controlled_by = HOL }
@@ -6304,7 +6322,7 @@ focus_tree = {
 						669 = { is_fully_controlled_by = HOL }
 					}
 				}
-				AND = {
+				AND = { #INS is HOL's subject
 					INS = {
 						is_subject_of = HOL
 						communism > 0.4
@@ -6320,6 +6338,20 @@ focus_tree = {
 						668 = { is_fully_controlled_by = INS }
 						738 = { is_fully_controlled_by = INS }
 						669 = { is_fully_controlled_by = INS }
+					}
+				}
+				AND = {
+					NOT = {
+						672 = { is_owned_by = HOL }
+						335 = { is_owned_by = HOL }
+						334 = { is_owned_by = HOL }
+						667 = { is_owned_by = HOL }
+						673 = { is_owned_by = HOL }
+						1055 = { is_owned_by = HOL }
+						668 = { is_owned_by = HOL }
+						738 = { is_owned_by = HOL }
+						669 = { is_owned_by = HOL }
+						INS = { is_subject_of = HOL }
 					}
 				}
 			}
@@ -6386,6 +6418,9 @@ focus_tree = {
 				}
 				INS = {
 					every_unit_leader = {
+						limit = {
+							has_character_flag = INS_dutch_officer_flag
+						}
 						set_nationality = HOL
 					}
 					set_politics = {
@@ -6393,6 +6428,10 @@ focus_tree = {
 						elections_allowed = yes
 					}
 				}
+				335 = { set_state_name = "Jayakarta" }
+				set_province_name = { id = 7381 name = "Jayakarta" }
+				set_province_name = { id = 4406 name = "Bogor" }
+				set_province_name = { id = 12371 name = "Numbay" }
 				release = INS
 				hidden_effect = {
 					INS = {
@@ -6426,6 +6465,10 @@ focus_tree = {
 				    target = INS
 				    autonomy_state = autonomy_free
 				}
+				335 = { set_state_name = "Jayakarta" }
+				set_province_name = { id = 7381 name = "Jayakarta" }
+				set_province_name = { id = 4406 name = "Bogor" }
+				set_province_name = { id = 12371 name = "Numbay" }
 				INS = {
 					set_politics = {
 						ruling_party = communism
@@ -6489,10 +6532,6 @@ focus_tree = {
 					}
 				}
 			}
-			335 = { set_state_name = "Jayakarta" }
-			set_province_name = { id = 7381 name = "Jayakarta" }
-			set_province_name = { id = 4406 name = "Bogor" }
-			set_province_name = { id = 12371 name = "Numbay" }
 			if = {
 				limit = {
 					OR = {
@@ -6598,6 +6637,8 @@ focus_tree = {
 			has_government = communism
 		}
 		prerequisite = { focus = HOL_legacy_of_the_de_zeven_provincien_mutiny }
+		bypass = {
+		}
 		icon = GFX_goal_tfv_burn_the_royal_portraits
 		x = 2
 		y = 1

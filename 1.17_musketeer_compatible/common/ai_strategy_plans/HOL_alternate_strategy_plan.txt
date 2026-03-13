@@ -1,4 +1,4 @@
-HOL_indonesia_player_plan = {
+HOL_indonesia_player_plan = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
 	name = "Netherlands Plan for Player Indonesia"
 	desc = "Build Up Indonesia"
 
@@ -77,7 +77,7 @@ HOL_indonesia_historical_player_plan = {
 		}
 	}
 
-	ai_national_focuses = { #23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
+	ai_national_focuses = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
 		HOL_obtain_foreign_colonial_investments		#10	
 		HOL_the_crown_jewel_colony					#10 = 20
 		HOL_java									#10 = 30
@@ -149,7 +149,7 @@ HOL_indonesia_historical_player_plan = {
 	}
 }
 
-HOL_colonial_alternate_democratic_plan = {
+HOL_colonial_alternate_democratic_plan = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
 	name = "Netherlands Colonial Alternate Democratic plan"
 	desc = "Democratic Netherlands will build up in the colonies rather than on the continent."
 
@@ -243,7 +243,7 @@ HOL_colonial_alternate_democratic_plan = {
 
 }
 
-HOL_continental_alternate_democratic_plan = {
+HOL_continental_alternate_democratic_plan = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
 	name = "Netherlands Continental Alternate Democratic plan"
 	desc = "Democratic Netherlands will build up on the continent rather than their colonies."
 
@@ -326,7 +326,7 @@ HOL_continental_alternate_democratic_plan = {
 	}
 }
 
-HOL_lead_the_minor_democracies_democratic_plan = {
+HOL_lead_the_minor_democracies_democratic_plan = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
 	name = "Netherlands Lead the Minor Democracies Alternate Democratic plan"
 	desc = "Democratic Netherlands will create their own alliance of minor democracies."
 
@@ -436,26 +436,26 @@ HOL_alternate_communist_plan = {
 			}
 		}
 	}
+
 	abort = {
 		
 	}
 
-	ai_national_focuses = {
-		HOL_abandon_the_gold_standard				#March 10 1936	
-		HOL_continue_the_public_works				#May 20 1936	
-		HOL_finish_the_noordoostpolder					#July 30 1936	
-		HOL_expand_the_artillerieinrichtingen					#October 10 1936
-		HOL_form_new_government					#October 10 1936	
-		HOL_philips_focus					#December 20 1936	
-		HOL_expand_RD_facilities					#February 30 1937	
-							#May 10 1937	
-		HOL_overturn_military_budget_cuts					#July 20 1937	
-		HOL_prepare_the_inundation_lines					#September 30 1937	
-		HOL_germany_is_the_greater_threat					#December 10 1937
-		HOL_war_on_pacifism					#February 20 1938	
-		HOL_gateway_to_europe
-		HOL_maintain_trade_neutrality
-		HOL_legacy_of_the_de_zeven_provincien_mutiny
+	ai_national_focuses = { #Tjarda inaugurated in 37 weeks, 24 Mei 1937 is 73 weeks, 23 August 1939 is 190 weeks, 15 May 1940 is 228 weeks, 1 October 1941 is 300 weeks
+		HOL_abandon_the_gold_standard						#10	
+		HOL_continue_the_public_works						#10	= 20
+		HOL_finish_the_noordoostpolder						#10	= 30
+		HOL_expand_the_artillerieinrichtingen				#10 = 40
+		HOL_philips_focus									#10 = 50	
+		HOL_expand_RD_facilities							#10 = 60
+		HOL_form_new_government								#10	= 70
+		HOL_gateway_to_europe								#10 = 80
+		HOL_maintain_trade_neutrality						#5 = 85
+		HOL_legacy_of_the_de_zeven_provincien_mutiny		#10 = 95
+		HOL_overturn_military_budget_cuts					#10 = 105
+		HOL_prepare_the_inundation_lines					#10 = 115
+		HOL_germany_is_the_greater_threat					#5 = 120
+		HOL_war_on_pacifism									#10 = 130
 		HOL_red_is_the_new_orange
 		HOL_decolonization
 		HOL_join_the_french
@@ -469,7 +469,6 @@ HOL_alternate_communist_plan = {
 		HOL_fortress_holland				#April 30 1938	
 		HOL_modernize_the_grebbeline				#July 10 1938	
 		HOL_appoint_new_supreme_commander				#September 20 1938
-					#November 30 1938
 		HOL_develop_the_randstad					#February 10 1939	
 		HOL_expand_the_ijmuiden_steel_mill					#April 20 1939	
 		HOL_fokker					#June 30 1939

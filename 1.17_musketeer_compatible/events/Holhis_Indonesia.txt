@@ -528,7 +528,7 @@ country_event = { #7 - Let the Raad van State decide for the new Governor-Genera
 	trigger = {
 		original_tag = INS
 		has_government = neutrality
-		date > 1936.06.06
+		date > 1936.07.06
 		has_start_date < 1936.01.02
 		has_country_flag = INS_needs_governor
 		NOT = {
@@ -2012,7 +2012,7 @@ country_event = { #210 - Her Majesty evacuated to East Indies
 		set_country_flag = INS_royal_family_indies_flag
 	}
 
-	option = { #She must rule from here, long live!
+	option = { #She must rule directly from here, long live!
 		name = holhis_indonesia.210.a
 
 		promote_character = {
@@ -2025,7 +2025,7 @@ country_event = { #210 - Her Majesty evacuated to East Indies
 		}
 	}
 
-	option = { #Nah
+	option = { #Nah, the previous arrangement works
 		name = holhis_indonesia.21.b
 
 		add_ideas = INS_wilhelmina_here
@@ -2058,6 +2058,11 @@ country_event = { #22 - Her Majesty arrives to the East Indies
 				HOL_wilhelmina = {
 					set_nationality = INS
 				}
+				swap_ideas = {
+					remove_idea = HOL_wilhelmina
+					add_idea = HOL_wilhelmina_absent
+				}
+
 			}
 		}
 
@@ -2507,7 +2512,7 @@ country_event = { #49 - Dr. Sutomo's passing
 			}
 			has_completed_focus = INS_break_the_chains
 		}
-		date > 1938.3.31
+		date > 1938.4.14
 		has_start_date < 1936.01.02
 	}
 
@@ -2782,7 +2787,6 @@ country_event = { #54 - The Queen returns home
 			}
 			if = {
 				limit = {
-					has_dlc = "Together for Victory"
 					is_subject_of = HOL
 					has_autonomy_state = autonomy_puppet
 				}
@@ -2806,7 +2810,6 @@ country_event = { #54 - The Queen returns home
 			}
 			if = {
 				limit = {
-					has_dlc = "Together for Victory"
 					is_subject_of = HOL
 					has_autonomy_state = autonomy_integrated_puppet
 				}
@@ -2877,6 +2880,10 @@ country_event = { #55 - Fall of the Fatherland
 	}
 	
 	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		set_country_flag = INS_fall_of_netherlands_flag
+	}
 	
 	option = { #We stand for the Fatherland
 		name = holhis_indonesia.55.a
@@ -2921,7 +2928,11 @@ country_event = { #56 - The Queen returns home, after the war
 	trigger = {
 		original_tag = INS
 		has_government = neutrality
-		has_global_flag = INS_wilhelmina_tropical_holiday_flag
+		has_global_flag = {
+			flag = INS_wilhelmina_tropical_holiday_flag
+			days > 180
+		}
+		has_country_flag = INS_fall_of_netherlands_flag
 		has_war = no
 		is_subject_of = HOL
 		HOL = {
@@ -2952,6 +2963,10 @@ country_event = { #56 - The Queen returns home, after the war
 					set_autonomy = {
 						target = INS
 						autonomous_state = autonomy_dominion
+					}
+					swap_ideas = {
+						remove_idea = HOL_wilhelmina_absent
+						add_idea = HOL_wilhelmina
 					}
 				}
 				set_politics = {
@@ -11021,6 +11036,25 @@ country_event = { #Commies 38 - 7th PKI National Congress - 1955-1960
 	}
 }
 
+country_event = { #Commies 39 - Musso departs, communist lost their luster (historical)
+	id = holhis_commies.39
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		original_tag = INS
+		has_start_date < 1936.01.02
+		date > 1936.05.01
+		has_idea = INS_revolution_at_home_0
+		NOT = {
+			has_completed_focus = INS_discourage_democratic_reforms
+		}
+	}
+
+	immediate = {
+		remove_ideas = INS_revolution_at_home_0
+	}
+}
+
 country_event = { #Commies 101 - Asking for Aid
 	id = holhis_commies.101
 	title = holhis_commies.101.t
@@ -11525,7 +11559,7 @@ country_event = { #Commies 104 - Asking for Aid from 3rd International
 	}	
 }
 
-country_event = { #Gerindo 1 - Formation of Gerindo
+country_event = { #Gerindo 1 - Formation of Gerindo (historical)
 	id = holhis_gerindo.1
 	title = holhis_gerindo.1.t
 	desc = holhis_gerindo.1.d
@@ -11535,7 +11569,7 @@ country_event = { #Gerindo 1 - Formation of Gerindo
 
 	trigger = {
 		original_tag = INS
-		date > 1937.05.23
+		date > 1937.05.09
 		has_start_date < 1936.01.02
 		NOT = {
 			has_completed_focus = INS_discourage_democratic_reforms
@@ -12708,7 +12742,7 @@ country_event = { #NSB 12 - Fading into irrelevancy
 
 	trigger = {
 		original_tag = INS
-		date > 1938.05.14
+		date > 1938.05.01
 		has_start_date < 1936.01.02
 		NOT = { has_completed_focus = INS_make_use_nsboi }
 		has_idea = INS_dutch_nationalism
@@ -12797,6 +12831,9 @@ country_event = { #Volskraad 2 - Petition signed by Indonesians
 	option = {
 		name = holhis_volksraad.2.b #Support
 		add_stability = -0.05
+		add_autonomy_ratio = {
+			value = 0.5
+		}
 		set_country_flag = INS_support_sutarjo_flag
 		ai_chance = {
 			base = 20
@@ -15218,7 +15255,9 @@ country_event = { #Council 6 - VP 1938/9 Election
 				value = yes
 			}
 			remove_ideas = INS_cornelis_bussche
-			retire_character = INS_cornelis_bussche
+			hidden_effect = {
+				retire_character = INS_cornelis_bussche
+			}
 		}
 		INS_frans_visman = {
 			add_trait = {

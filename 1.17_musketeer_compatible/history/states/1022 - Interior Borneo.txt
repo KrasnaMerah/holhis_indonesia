@@ -2,6 +2,9 @@ state={
 	id=1022
 	name="STATE_1022"
 
+	impassable = yes 
+	force_link_ownership_to = 1050 # West Kalimantan
+	
 	history={
 		owner = INS
 		add_core_of = INS
