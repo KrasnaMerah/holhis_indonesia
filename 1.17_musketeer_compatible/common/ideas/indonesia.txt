@@ -844,8 +844,6 @@ ideas = {
 		}
 
 		INS_revolution_at_home_0 = {
-
-			name = INS_revolution_at_home_1
 		
 			allowed = {
 				always = no
@@ -857,7 +855,7 @@ ideas = {
 
 			removal_cost = -1
 			
-			picture = INS_flag
+			picture = generic_communism_drift_bonus
 
 			modifier = {
 				communism_drift = 0.05
@@ -2482,6 +2480,62 @@ ideas = {
 			modifier = {
 				stability_factor = -0.2
 				legitimacy_daily = -0.03
+				surrender_limit = -0.1
+			}
+		}
+
+		INS_nica = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = generic_constitutional_guarantee
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = 0.04
+				army_core_defence_factor = 0.08
+				army_core_attack_factor = 0.08
+				conscription_factor = 0.06
+				production_speed_bunker_factor = 0.1
+				production_speed_coastal_bunker_factor = 0.1
+				production_speed_anti_air_building_factor = 0.1
+				mobilization_speed = 0.05
+			}
+		}
+
+		INS_nica_2 = {
+
+			name = INS_nica
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = generic_constitutional_guarantee
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.05
+				army_morale_factor = 0.05
+				army_core_defence_factor = 0.1
+				army_core_attack_factor = 0.1
+				conscription_factor = 0.08
+				production_speed_bunker_factor = 0.1
+				production_speed_coastal_bunker_factor = 0.1
+				production_speed_anti_air_building_factor = 0.1
+				mobilization_speed = 0.1
 			}
 		}
 

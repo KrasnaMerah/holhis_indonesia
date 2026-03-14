@@ -186,3 +186,48 @@ INS_not_jailed_or_exiled = {
 		}
 	}
 }
+
+INS_has_any_transmigrant_waves = {
+	OR = {
+		has_state_flag = INS_transmigration_1
+		has_state_flag = INS_transmigration_2
+		has_state_flag = INS_transmigration_3
+		has_state_flag = INS_transmigration_4
+		has_state_flag = INS_transmigration_5
+		has_state_flag = INS_transmigration_6
+		has_state_flag = INS_transmigration_7
+		has_state_flag = INS_transmigration_8
+		has_state_flag = INS_transmigration_9
+		has_state_flag = INS_transmigration_10
+		has_state_flag = INS_transmigration_11
+		has_state_flag = INS_transmigration_12
+		has_state_flag = INS_transmigration_13
+		has_state_flag = INS_transmigration_14
+		has_state_flag = INS_transmigration_15
+		has_state_flag = INS_transmigration_16
+		has_state_flag = INS_transmigration_17
+		has_state_flag = INS_transmigration_18
+		has_state_flag = INS_transmigration_19
+		has_state_flag = INS_transmigration_20
+		has_state_flag = INS_transmigration_21
+		has_state_flag = INS_transmigration_22
+		has_state_flag = INS_transmigration_23
+		has_state_flag = INS_transmigration_24
+		has_state_flag = INS_transmigration_25
+		has_state_flag = INS_transmigration_26
+		has_state_flag = INS_transmigration_27
+		has_state_flag = INS_transmigration_28
+		has_state_flag = INS_transmigration_29
+		has_state_flag = INS_transmigration_30
+		has_state_flag = INS_transmigration_31
+		has_state_flag = INS_transmigration_32
+		has_state_flag = INS_transmigration_33
+		has_state_flag = INS_transmigration_34
+		has_state_flag = INS_transmigration_35
+		has_state_flag = INS_transmigration_36
+		has_state_flag = INS_transmigration_37
+		has_state_flag = INS_transmigration_38
+		has_state_flag = INS_transmigration_39
+		has_state_flag = INS_transmigration_40
+	}
+}

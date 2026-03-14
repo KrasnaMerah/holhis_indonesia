@@ -1,4 +1,4 @@
-version="1.7.3 Sumber Marga Telang"
+version="1.7.4 Sumber Marga Telang"
 tags={
 	"Alternative History"
 	"Events"

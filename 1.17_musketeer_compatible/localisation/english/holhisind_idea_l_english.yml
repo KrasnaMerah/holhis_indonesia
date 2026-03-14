@@ -109,6 +109,8 @@ INS_challenge_elitism_2_desc:0 "With the political reform is still fragile, we n
 #revolution
 INS_reforms_halted:0 "Reforms Halted"
 INS_reforms_halted_desc:0 "The closure of the Volksraad by Governor-General Bonifacius Cornelis de Jonge was claimed to be done to further restore the political stability after the twin shocks of the Indonesian Rebellion and the Malaise. But it seems that this move only further exacerbate the underlying tensions remained beneath notice."
+INS_revolution_at_home_0:0 "Communist Undercurrent"
+INS_revolution_at_home_0_desc:0 "Despite our vigilant efforts, there is still a subtly brewing, yet dangerous remains of the banned Communist Party of Indonesia. But it's only a matter of time until they revealed themselves to us."
 INS_revolution_at_home_1:0 "Grow the Revolution"
 INS_revolution_at_home_1_desc:0 "The closure of Volksraad by reactionary forces has inevitably closing down the legal path of the Indonesian independence movement, and thus, a revival of communist movement has begun to take form once more!"
 INS_revolution_at_home_2_desc:0 "Our revolutionary cells has interconnected with several nationalist organizations and disgraced nobles to extend our reach in Sulawesi and Kalimantan as a part of our mutual struggle against the Dutch!"
@@ -346,6 +348,7 @@ INS_anti_nationalist_police_lar_desc:0 "The General Investigation Service has be
 INS_nigis:0 "Netherlands Indies Government Information Service"
 INS_nefis:0 "Netherlands Indies Forces Intelligence Service"
 INS_defeatism:0 "Defeatism"
+INS_nica:0 "Netherlands Indies Civil Administration"
 
 #Dutch Free State ideas
 INS_weapons_payment:0 "Weapons Payment"

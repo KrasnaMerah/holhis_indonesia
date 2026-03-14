@@ -171,7 +171,10 @@ INS_category_volksraad = {
 		visible = {
 			OR = {
 				has_completed_focus = INS_staat_van_oorlog_en_van_beleg
-				has_completed_focus = INS_invite_queen_wilhelmina
+				AND = {
+					has_completed_focus = INS_invite_queen_wilhelmina
+					has_war = yes
+				}
 			}
 		}
 
@@ -2820,12 +2823,11 @@ INS_category_ethical_policies = {
 					OR = {
 						region = 158 #Sunda Islands except Java
 						region = 187 #Sumatra
-						state = 724 #Malayan Peninsula
-						state = 1060
-						state = 336
-						state = 1059
-						state = 1058
-						state = 1021
+						state = 724 #Pattani
+						state = 1060 #Kedah
+						state = 336 #Cent Malaya
+						state = 1059 #Kelantan
+						state = 1058 #Johor
 						region = 159 #Borneo
 						region = 299 #Banda Sea
 						state = 738 #Aru Islands
@@ -2833,13 +2835,13 @@ INS_category_ethical_policies = {
 						region = 193 #Northern Australia
 						state = 872 #North Queensland
 						state = 521 #Queensland
-						state = 1026 #Mindanao
-						state = 627
-						state = 1025
+						state = 1026 #N Mindanao
+						state = 627 #Davao
+						state = 1025 #Zamboanga
 						state = 711 #Cocos Islands
 					}
 					NOT = {
-						has_state_flag = INS_transmigration_10
+						has_state_flag = INS_transmigration_40
 					}
 					OR = {
 						NOT = { #Don't give it back to Java
@@ -2856,39 +2858,15 @@ INS_category_ethical_policies = {
 							}
 						}
 						AND = {
-							state = 711 #Cocos Islands
+							state = 712 #Cocos Islands
 							NOT = {
 								has_state_flag = INS_transmigration_1
 							}
 						}
 						AND = {
-							state = 1053 #Dutch Timor
+							state = 711 #Christmas Islands
 							NOT = {
-								has_state_flag = INS_transmigration_2
-							}
-						}
-						AND = {
-							state = 334 #East Kalimantan
-							NOT = {
-								has_state_flag = INS_transmigration_3
-							}
-						}
-						AND = {
-							state = 1055 #North Maluku
-							NOT = {
-								has_state_flag = INS_transmigration_3
-							}
-						}
-						AND = {
-							state = 668 #Maluku
-							NOT = {
-								has_state_flag = INS_transmigration_4
-							}
-						}
-						AND = {
-							state = 1050 #West Kalimantan
-							NOT = {
-								has_state_flag = INS_transmigration_4
+								has_state_flag = INS_transmigration_1
 							}
 						}
 						AND = {
@@ -2909,123 +2887,260 @@ INS_category_ethical_policies = {
 								has_state_flag = INS_transmigration_3
 							}
 						}
+						AND = {
+							state = 1049 #Riau Islands
+							NOT = {
+								has_state_flag = INS_transmigration_4
+							}
+						}
+						AND = {
+							state = 1060 #Kedah
+							NOT = {
+								has_state_flag = INS_transmigration_6
+							}
+						}
+						AND = {
+							state = 668 #South Maluku
+							NOT = {
+								has_state_flag = INS_transmigration_6
+							}
+						}
+						AND = {
+							state = 1023 #Brunei
+							NOT = {
+								has_state_flag = INS_transmigration_7
+							}
+						}
+						AND = {
+							state = 1024 #Sabah
+							NOT = {
+								has_state_flag = INS_transmigration_8
+							}
+						}
+						AND = {
+							state = 737 #Bismarck
+							NOT = {
+								has_state_flag = INS_transmigration_9
+							}
+						}
+						AND = {
+							state = 1055 #North Maluku
+							NOT = {
+								has_state_flag = INS_transmigration_9
+							}
+						}
+						AND = {
+							state = 979 #NE Papua
+							NOT = {
+								has_state_flag = INS_transmigration_10
+							}
+						}
+						AND = {
+							state = 721 #East Timor
+							NOT = {
+								has_state_flag = INS_transmigration_12
+							}
+						}
+						AND = {
+							state = 1059 #Kedah
+							NOT = {
+								has_state_flag = INS_transmigration_12
+							}
+						}
+						AND = {
+							state = 1047 #Aceh
+							NOT = {
+								has_state_flag = INS_transmigration_13
+							}
+						}
+						AND = {
+							state = 1053 #Dutch Timor
+							NOT = {
+								has_state_flag = INS_transmigration_13
+							}
+						}
+						AND = {
+							state = 724 #Pattani
+							NOT = {
+								has_state_flag = INS_transmigration_14
+							}
+						}
+						AND = {
+							state = 1058 #Johor
+							NOT = {
+								has_state_flag = INS_transmigration_14
+							}
+						}
+						AND = {
+							state = 333 #Sarawak
+							NOT = {
+								has_state_flag = INS_transmigration_16
+							}
+						}
+						AND = {
+							state = 523 #SE Papua
+							NOT = {
+								has_state_flag = INS_transmigration_19
+							}
+						}
+						AND = {
+							state = 1050 #West Kalimantan
+							NOT = {
+								has_state_flag = INS_transmigration_26
+							}
+						}
+						AND = {
+							state = 336 #Malaya
+							NOT = {
+								has_state_flag = INS_transmigration_29
+							}
+						}
+						AND = {
+							state = 334 #East Kalimantan
+							NOT = {
+								has_state_flag = INS_transmigration_32
+							}
+						}
 					}
 				}
 				add_manpower = 7500
 				if = {
 					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 334
+						has_state_flag = INS_transmigration_32
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 1050
+						has_state_flag = INS_transmigration_26
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 333
+						has_state_flag = INS_transmigration_16
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 979
+						has_state_flag = INS_transmigration_10
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						OR = {
+							state = 737
+							state = 1055
+						}
+						has_state_flag = INS_transmigration_9
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 1024
+						has_state_flag = INS_transmigration_8
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
 				if = {
 					limit = {
+						state = 1049
 						has_state_flag = INS_transmigration_4
-						NOT = { state = 668 }
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-						NOT = { state = 1050 }
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-						NOT = { state = 1057 }
-					}
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-						NOT = { state = 669 }
-					}
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-						NOT = { state = 334 }
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
 				if = {
 					limit = {
-						has_state_flag = INS_transmigration_3
-						NOT = { state = 1055 }
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-						NOT = { state = 1056 }
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-						NOT = { state = 1053 }
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-						NOT = {	state = 738 }
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
+						OR = {
+							state = 1057
+							state = 669
 						}
+						has_state_flag = INS_transmigration_3
 					}
-					set_state_flag = INS_transmigration_1
+					add_extra_state_shared_building_slots = 1
 				}
+				if = {
+					limit = {
+						OR = {
+							state = 1057
+							state = 669
+						}
+						has_state_flag = INS_transmigration_2
+					}
+					add_to_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						state = 1056
+						has_state_flag = INS_transmigration_1
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						OR = {
+							state = 738
+							state = 712
+							state = 711
+						}
+						NOT = { has_state_flag = INS_transmigration_1 }
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				INS_add_transmigrant_wave = yes
 			}
 			if = {
 				limit = {
@@ -3160,7 +3275,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1047
+			1047 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_13
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -3236,174 +3356,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1047 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-					add_compliance = 5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-					add_compliance = 5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-					add_compliance = 5
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -3422,7 +3387,9 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 672
+			672 = {
+				is_fully_controlled_by = ROOT
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -3492,171 +3459,49 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			672 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -3745,171 +3590,49 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1048 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -3928,7 +3651,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1049
+			1049 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_4
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -3940,9 +3668,6 @@ INS_category_ethical_policies = {
 		visible = {
 			1049 = {
 				is_owned_by = INS
-				NOT = {
-					has_state_flag = INS_transmigration_4
-				}
 			}
 		}
 
@@ -4007,154 +3732,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1049 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_3
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_1
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
 				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -4173,7 +3763,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1050
+			1050 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_26
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -4249,171 +3844,31 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1050 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -4432,13 +3887,24 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 334
+			334 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_32
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
 				has_country_flag = INS_agrarian_reform_enacted
 			}
 			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			334 = {
+				is_owned_by = INS
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -4502,171 +3968,37 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			334 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -4685,6 +4017,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
+			333 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_16
+				}
+			}
 			has_full_control_of_state = 333
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
@@ -4696,7 +4034,7 @@ INS_category_ethical_policies = {
 
 		visible = {
 			333 = {
-				is_owned_by = INS
+				is_core_of = ROOT
 			}
 		}
 
@@ -4761,171 +4099,25 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			333 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_15
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -4944,6 +4136,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
+			1023 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_7
+				}
+			}
 			has_full_control_of_state = 1023
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
@@ -4955,7 +4153,7 @@ INS_category_ethical_policies = {
 
 		visible = {
 			1023 = {
-				is_owned_by = INS
+				is_core_of = INS
 			}
 		}
 
@@ -5020,171 +4218,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1023 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
-						has_state_flag = INS_transmigration_5
+						has_state_flag = INS_transmigration_6
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_3
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -5203,7 +4249,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1024
+			1024 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_8
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -5279,171 +4330,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1024 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
-						has_state_flag = INS_transmigration_5
+						has_state_flag = INS_transmigration_7
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_3
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -5532,197 +4431,49 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			667 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -5741,7 +4492,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1053
+			1053 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_13
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -5817,171 +4573,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1053 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -6000,7 +4604,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 721
+			721 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_12
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -6011,7 +4620,7 @@ INS_category_ethical_policies = {
 
 		visible = {
 			721 = {
-				is_owned_by = INS
+				is_core_of = ROOT
 			}
 		}
 
@@ -6076,171 +4685,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			721 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_12
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -6329,171 +4786,49 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			673 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -6582,171 +4917,49 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1054 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_39
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_35
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_29
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_23
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_17
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -6765,7 +4978,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1055
+			1055 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_9
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -6841,171 +5059,25 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1055 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_8
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
 				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -7024,7 +5096,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 668
+			668 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_6
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -7094,171 +5171,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			668 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
 				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -7277,7 +5202,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 738
+			738 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -7289,9 +5219,6 @@ INS_category_ethical_policies = {
 		visible = {
 			738 = {
 				is_owned_by = INS
-				NOT = {
-					has_state_flag = INS_transmigration_1
-				}
 			}
 		}
 
@@ -7356,123 +5283,8 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			738 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				add_extra_state_shared_building_slots = 1
-				if = {
-					limit = {
-						NOT = {
-							has_state_flag = INS_transmigration_1
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -7491,7 +5303,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1056 
+			1056 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_2
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -7570,130 +5387,13 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1056 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_1
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
 				}
-				if = {
-					limit = {
-						NOT = {
-							has_state_flag = INS_transmigration_1
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -7712,21 +5412,22 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 669
+			669 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
 				has_country_flag = INS_agrarian_reform_enacted
 			}
-			NOT = { has_country_flag = INS_transmigration_flag }
 		}
 
 		visible = {
 			669 = {
 				is_owned_by = INS
-				NOT = {
-					has_state_flag = INS_transmigration_3
-				}
 			}
 		}
 
@@ -7791,146 +5492,13 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			669 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-					add_compliance = 5
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -7949,7 +5517,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 1057
+			1057 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -7961,9 +5534,6 @@ INS_category_ethical_policies = {
 		visible = {
 			1057 = {
 				is_owned_by = INS
-				NOT = {
-					has_state_flag = INS_transmigration_3
-				}
 			}
 		}
 
@@ -8028,146 +5598,13 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			1057 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-					add_compliance = 5
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -8186,7 +5623,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 979
+			979 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_10
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -8197,7 +5639,7 @@ INS_category_ethical_policies = {
 
 		visible = {
 			979 = {
-				is_owned_by = INS
+				is_core_of = ROOT
 			}
 		}
 
@@ -8262,171 +5704,25 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			979 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_9
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
 				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
 				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -8445,7 +5741,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 523
+			523 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_19
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -8521,171 +5822,25 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			523 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_18
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_11
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -8704,7 +5859,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 737
+			737 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_9
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -8780,171 +5940,19 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			737 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_8
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_5
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_5
-					set_state_flag = INS_transmigration_6
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_4
-					}
-					clr_state_flag = INS_transmigration_4
-					set_state_flag = INS_transmigration_5
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_3
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_3
-					set_state_flag = INS_transmigration_4
-					add_to_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 1
-					}
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_2
-					}
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
-				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -8963,7 +5971,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 870
+			870 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -8974,10 +5987,7 @@ INS_category_ethical_policies = {
 
 		visible = {
 			870 = {
-				is_core_of = INS
-				NOT = {
-					has_state_flag = INS_transmigration_1
-				}
+				is_core_of = ROOT
 			}
 		}
 
@@ -9044,139 +6054,14 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			870 = {
 				add_manpower = 7500
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
+				INS_add_transmigrant_wave = yes
+				add_extra_state_shared_building_slots = 1
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
 	}
 
-	INS_transmigration_to_naus = { #Can handle 1 wave only
+	INS_transmigration_to_naus = { #Can handle only 1 wave
 
 		icon = GFX_decision_hol_engelandvaarders
 
@@ -9189,7 +6074,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 520
+			520 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -9201,9 +6091,6 @@ INS_category_ethical_policies = {
 		visible = {
 			520 = {
 				is_core_of = INS
-				NOT = {
-					has_state_flag = INS_transmigration_1
-				}
 			}
 		}
 
@@ -9270,133 +6157,8 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			520 = {
 				add_manpower = 7500
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
+				INS_add_transmigrant_wave = yes
+				add_extra_state_shared_building_slots = 1
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -9415,7 +6177,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 635
+			635 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -9494,137 +6261,8 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			635 = {
 				add_manpower = 7500
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
-				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-								has_state_flag = INS_transmigration_4
-								has_state_flag = INS_transmigration_5
-								has_state_flag = INS_transmigration_6
-							}
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = INS_transmigration_1
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
+				INS_add_transmigrant_wave = yes
+				add_extra_state_shared_building_slots = 1
 			}
 			clr_country_flag = INS_transmigration_flag
 		}
@@ -9643,7 +6281,12 @@ INS_category_ethical_policies = {
 		}
 
 		available = {
-			has_full_control_of_state = 872
+			872 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_3
+				}
+			}
 			num_of_civilian_factories_available_for_projects > 3
 			has_war_support > 0.25
 			NOT = {
@@ -9722,142 +6365,580 @@ INS_category_ethical_policies = {
 		remove_effect = {
 			872 = {
 				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
 				if = {
 					limit = {
 						has_state_flag = INS_transmigration_2
 					}
 					add_extra_state_shared_building_slots = 1
-					clr_state_flag = INS_transmigration_2
-					set_state_flag = INS_transmigration_3
 				}
-				if = {
-					limit = {
-						has_state_flag = INS_transmigration_1
-					}
-					clr_state_flag = INS_transmigration_1
-					set_state_flag = INS_transmigration_2
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_sulu = { #Can handle 8 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			1025 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_8
 				}
-				if = {
-					limit = {
-						NOT = {
-							OR = {
-								has_state_flag = INS_transmigration_1
-								has_state_flag = INS_transmigration_2
-								has_state_flag = INS_transmigration_3
-							}
+			}
+			has_full_control_of_state = 1025
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1025 = {
+				is_core_of = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1025 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
 						}
 					}
-					add_extra_state_shared_building_slots = 1
-					set_state_flag = INS_transmigration_1
 				}
+				add_manpower = -7500
 			}
 			if = {
 				limit = {
 					NOT = {
 						check_variable = {
-							var = INS_agriculture_upgrade
+							var = INS_transmigration_upgrade
 							value = 1
 							compare = greater_than_or_equals
 						}
 					}
 				}
 				set_variable = {
-					var = INS_agriculture_upgrade
+					var = INS_transmigration_upgrade
 					value = 0
 				}
 			}
 			add_to_variable = {
-				var = INS_agriculture_upgrade
+				var = INS_transmigration_upgrade
 				value = 1
 			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1025 = {
+				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_7
 					}
+					add_extra_state_shared_building_slots = 1
 				}
-				set_country_flag = INS_agrarian_reforms_1_flag
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_3
+					}
+					add_extra_state_shared_building_slots = 1
+				}
 			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_smindanao = { #Can handle 22 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			627 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_22
 				}
-				set_country_flag = INS_agrarian_reforms_2_flag
 			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
 			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			627 = {
+				is_core_of = INS
+				NOT = {
+					has_state_flag = INS_transmigration_22
 				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
 			}
-			if = {
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 627 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
 				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
 					}
 				}
-				set_country_flag = INS_transmigration_2_done_flag
+				add_manpower = -7500
 			}
 			if = {
 				limit = {
 					NOT = {
 						check_variable = {
-							var = INS_transmigration_3_upgrade
+							var = INS_transmigration_upgrade
 							value = 1
 							compare = greater_than_or_equals
 						}
 					}
 				}
 				set_variable = {
-					var = INS_transmigration_3_upgrade
+					var = INS_transmigration_upgrade
 					value = 0
 				}
 			}
-			if = {
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			627 = {
+				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_21
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_15
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_10
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_5
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_nmindanao = { #Can handle 20 waves
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			1026 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_20
+				}
+			}
+			has_full_control_of_state = 1026
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			1026 = {
+				is_core_of = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 1026 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
 				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
 					}
 				}
-				set_country_flag = INS_transmigration_3_done_flag
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			1026 = {
+				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_19
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_14
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_9
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				if = {
+					limit = {
+						has_state_flag = INS_transmigration_4
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_christmas = { #Can handle 1 wave only
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			711 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			711 = {
+				is_core_of = ROOT
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 711 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			711 = {
+				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				add_extra_state_shared_building_slots = 1
+			}
+			clr_country_flag = INS_transmigration_flag
+		}
+	}
+
+	INS_transmigration_to_cocos = { #Can handle 1 wave only
+
+		icon = GFX_decision_hol_engelandvaarders
+
+		days_remove = 90
+
+		cost = 25
+
+		allowed = {
+			original_tag = INS
+		}
+
+		available = {
+			712 = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					has_state_flag = INS_transmigration_1
+				}
+			}
+			num_of_civilian_factories_available_for_projects > 3
+			has_war_support > 0.25
+			NOT = {
+				has_country_flag = INS_agrarian_reform_enacted
+			}
+			NOT = { has_country_flag = INS_transmigration_flag }
+		}
+
+		visible = {
+			712 = {
+				is_core_of = INS
+			}
+		}
+
+		cancel_if_not_visible = yes
+
+		highlight_states = {
+ 			highlight_state_targets = { state = 712 } 
+		}
+
+		on_map_mode = map_only
+
+		modifier = {
+			civilian_factory_use = 2
+			neutrality_drift = -0.05
+			monthly_population = 0.05
+		}
+
+		complete_effect = {
+			random_owned_state = { #reduce population at Java
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					OR = {
+						AND = {
+							state = 335
+							state_population_k > 3500
+						}
+						AND = {
+							state = 1051
+							state_population_k > 10000
+						}
+						AND = {
+							state = 1052
+							state_population_k > 7500
+						}
+					}
+				}
+				add_manpower = -7500
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = INS_transmigration_upgrade
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+				}
+				set_variable = {
+					var = INS_transmigration_upgrade
+					value = 0
+				}
+			}
+			add_to_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+			}
+			set_country_flag = INS_transmigration_flag
+		}
+
+		remove_effect = {
+			712 = {
+				add_manpower = 7500
+				INS_add_transmigrant_wave = yes
+				add_extra_state_shared_building_slots = 1
 			}
 			clr_country_flag = INS_transmigration_flag
 		}

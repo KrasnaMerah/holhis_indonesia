@@ -963,3 +963,468 @@ play_sorakbergembira_effect = {
 play_nirom_speech_effect = {
 	hidden_effect = { play_song = "niromclosingspeech" }  
 }
+
+INS_add_transmigrant_wave = {
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_39
+		}
+		clr_state_flag = INS_transmigration_39
+		set_state_flag = INS_transmigration_40
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_38
+		}
+		clr_state_flag = INS_transmigration_38
+		set_state_flag = INS_transmigration_39
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_37
+		}
+		clr_state_flag = INS_transmigration_37
+		set_state_flag = INS_transmigration_38
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_36
+		}
+		clr_state_flag = INS_transmigration_36
+		set_state_flag = INS_transmigration_37
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_35
+		}
+		clr_state_flag = INS_transmigration_35
+		set_state_flag = INS_transmigration_36
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_34
+		}
+		clr_state_flag = INS_transmigration_34
+		set_state_flag = INS_transmigration_35
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_33
+		}
+		clr_state_flag = INS_transmigration_33
+		set_state_flag = INS_transmigration_34
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_32
+			NOT = { state = 334 }
+		}
+		clr_state_flag = INS_transmigration_32
+		set_state_flag = INS_transmigration_33
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_31
+		}
+		clr_state_flag = INS_transmigration_31
+		set_state_flag = INS_transmigration_32
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_30
+		}
+		clr_state_flag = INS_transmigration_30
+		set_state_flag = INS_transmigration_31
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_29
+			NOT = { state = 336 }
+		}
+		clr_state_flag = INS_transmigration_29
+		set_state_flag = INS_transmigration_30
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_28
+		}
+		clr_state_flag = INS_transmigration_28
+		set_state_flag = INS_transmigration_29
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_27
+		}
+		clr_state_flag = INS_transmigration_27
+		set_state_flag = INS_transmigration_28
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_26
+			NOT = { state = 1050 }
+		}
+		clr_state_flag = INS_transmigration_26
+		set_state_flag = INS_transmigration_27
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_25
+		}
+		clr_state_flag = INS_transmigration_25
+		set_state_flag = INS_transmigration_26
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_24
+		}
+		clr_state_flag = INS_transmigration_24
+		set_state_flag = INS_transmigration_25
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_23
+		}
+		clr_state_flag = INS_transmigration_23
+		set_state_flag = INS_transmigration_24
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_22
+		}
+		clr_state_flag = INS_transmigration_22
+		set_state_flag = INS_transmigration_23
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_21
+		}
+		clr_state_flag = INS_transmigration_21
+		set_state_flag = INS_transmigration_22
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_20
+		}
+		clr_state_flag = INS_transmigration_20
+		set_state_flag = INS_transmigration_21
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_19
+			NOT = { state = 523 }
+		}
+		clr_state_flag = INS_transmigration_19
+		set_state_flag = INS_transmigration_20
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_18
+		}
+		clr_state_flag = INS_transmigration_18
+		set_state_flag = INS_transmigration_19
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_17
+		}
+		clr_state_flag = INS_transmigration_17
+		set_state_flag = INS_transmigration_18
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_16
+			NOT = { state = 333 }
+		}
+		clr_state_flag = INS_transmigration_16
+		set_state_flag = INS_transmigration_17
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_15
+		}
+		clr_state_flag = INS_transmigration_15
+		set_state_flag = INS_transmigration_16
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_14
+			NOT = {
+				OR = {
+					state = 724
+					state = 1058
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_14
+		set_state_flag = INS_transmigration_15
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_13
+			NOT = {
+				OR = {
+					state = 1047
+					state = 1053
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_13
+		set_state_flag = INS_transmigration_14
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_12
+			NOT = {
+				OR = {
+					state = 721
+					state = 1059
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_12
+		set_state_flag = INS_transmigration_13
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_11
+		}
+		clr_state_flag = INS_transmigration_11
+		set_state_flag = INS_transmigration_12
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_10
+			NOT = { state = 979 }
+		}
+		clr_state_flag = INS_transmigration_10
+		set_state_flag = INS_transmigration_11
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_9
+			NOT = {
+				OR = {
+					state = 737
+					state = 1055
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_9
+		set_state_flag = INS_transmigration_10
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_8
+			NOT = { state = 1024 }
+		}
+		clr_state_flag = INS_transmigration_8
+		set_state_flag = INS_transmigration_9
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_7
+			NOT = { state = 1023 }
+		}
+		clr_state_flag = INS_transmigration_7
+		set_state_flag = INS_transmigration_8
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_6
+			NOT = {
+				OR = {
+					state = 1060
+					state = 668
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_6
+		set_state_flag = INS_transmigration_7
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_5
+		}
+		clr_state_flag = INS_transmigration_5
+		set_state_flag = INS_transmigration_6
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_4
+			NOT = { state = 1049 }
+		}
+		clr_state_flag = INS_transmigration_4
+		set_state_flag = INS_transmigration_5
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_3
+			NOT = {
+				OR = {
+					state = 1057
+					state = 669
+				}
+			}
+		}
+		add_to_variable = {
+			var = INS_transmigration_3_upgrade
+			value = 1
+		}
+		clr_state_flag = INS_transmigration_3
+		set_state_flag = INS_transmigration_4
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_2
+			NOT = { state = 1056 }
+		}
+		clr_state_flag = INS_transmigration_2
+		set_state_flag = INS_transmigration_3
+	}
+	if = {
+		limit = {
+			has_state_flag = INS_transmigration_1
+			NOT = {
+				OR = {
+					state = 738
+					state = 712
+					state = 711
+				}
+			}
+		}
+		clr_state_flag = INS_transmigration_1
+		set_state_flag = INS_transmigration_2
+	}
+	if = {
+		limit = {
+			NOT = {
+				INS_has_any_transmigrant_waves = yes
+			}
+		}
+		set_state_flag = INS_transmigration_1
+	}
+	if = {
+		limit = {
+			NOT = { is_core_of = ROOT }
+		}
+		add_compliance = 5
+	}
+	if = {
+		limit = {
+			NOT = {
+				check_variable = {
+					var = INS_agriculture_upgrade
+					value = 1
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		set_variable = {
+			var = INS_agriculture_upgrade
+			value = 0
+		}
+	}
+	add_to_variable = {
+		var = INS_agriculture_upgrade
+		value = 1
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = INS_agriculture_upgrade
+				value = 4
+				compare = equals
+			}
+		}
+		ROOT = { set_country_flag = INS_agrarian_reforms_1_flag }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = INS_agriculture_upgrade
+				value = 11
+				compare = equals
+			}
+		}
+		ROOT = { set_country_flag = INS_agrarian_reforms_2_flag }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = INS_agriculture_upgrade
+				value = 16
+				compare = equals
+			}
+		}
+		ROOT = { set_country_flag = INS_agrarian_reforms_3_flag }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = INS_transmigration_upgrade
+				value = 1
+				compare = equals
+			}
+		}
+		ROOT = {
+			set_country_flag = INS_transmigration_1_done_flag
+			country_event = { id = holhis_indonesia.57 }
+		}
+	}
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = INS_transmigration_1_done_flag
+				any_owned_state = {
+					has_state_flag = INS_transmigration_4
+				}
+				check_variable = {
+					var = INS_transmigration_upgrade
+					value = 4
+					compare = equals
+				}
+			}
+		}
+		ROOT = { set_country_flag = INS_transmigration_2_done_flag }
+	}
+	if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					check_variable = {
+						var = INS_transmigration_3_upgrade
+						value = 1
+						compare = greater_than_or_equals
+					}
+				}
+			}
+		}
+		ROOT = {
+			set_variable = {
+				var = INS_transmigration_3_upgrade
+				value = 0
+			}
+		}
+	}
+	if = {
+		limit = {
+			ROOT = {
+				has_country_flag = INS_transmigration_2_done_flag
+				any_owned_state = {
+					has_state_flag = INS_transmigration_6
+				}
+				check_variable = {
+					var = INS_transmigration_upgrade
+					value = 6
+					compare = equals
+				}
+				check_variable = {
+					var = INS_transmigration_3_upgrade
+					value = 3
+					compare = equals
+				}
+			}
+		}
+		ROOT = { set_country_flag = INS_transmigration_3_done_flag }
+	}
+}

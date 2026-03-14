@@ -3473,8 +3473,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_research_slot = 1
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					NOT = {
@@ -3485,6 +3483,8 @@ focus_tree = {
 					}
 				}
 				add_political_power = 50
+
+				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = INS_new_schools_tt
 				hidden_effect = {
 					unlock_decision_category_tooltip = INS_category_ethical_policies
@@ -5956,7 +5956,7 @@ focus_tree = {
 
 		available = {
 			HOL = {
-				NOT = { has_government = communism}
+				NOT = { has_government = communism }
 				has_capitulated = yes
 			}
 			OR = {
@@ -9377,7 +9377,7 @@ focus_tree = {
 			}
 			any_other_country = {
 				custom_trigger_tooltip = {
-					tooltip = INS_any_soutwest_pacific_tags
+					tooltip = INS_any_southwest_pacific_tags
 					is_southwest_pacific_state = yes
 				}
 				is_in_faction_with = INS
@@ -19266,19 +19266,62 @@ focus_tree = {
 	}
 
 	focus = {
+		id = INS_civil_affairs_agreement
+		icon = GFX_focus_INS_support_van_mook
+		prerequisite = { focus = INS_relay_news_focus }
+		prerequisite = { focus = INS_promote_cause }
+		
+		relative_position_id = INS_promote_cause
+		x = -1
+		y = 1
+
+		available = {
+			has_legitimacy > 65
+			OR = {
+				AND = {
+					has_completed_focus = INS_appease_dutch
+					HOL = {
+						has_opinion = { target = ROOT value > 59 }
+					}
+				}
+				AND = {
+					has_completed_focus = INS_appease_americans
+					USA = {
+						has_opinion = { target = ROOT value > 49 }
+					}
+				}
+			}
+		}
+
+		cost = 5
+		
+		bypass = {
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			add_ideas = INS_nica
+		}
+	}
+
+	focus = {
 		id = INS_stepping_stone
 		icon = GFX_focus_hol_prepare_the_inundation_lines
 		prerequisite = { focus = INS_relay_news_focus }
 		prerequisite = { focus = INS_promote_cause }
 		
 		relative_position_id = INS_relay_news_focus
-		x = 2
+		x = 1
 		y = 1
 
 		cost = 5
 
 		available = {
-			has_legitimacy > 65
 			custom_trigger_tooltip = {
 				tooltip = INS_stepping_stone_tt
 				any_owned_state = {
@@ -19289,6 +19332,38 @@ focus_tree = {
 		}
 		
 		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = INS_control_capital_island_tt
+				if = {
+					limit = {
+						has_country_flag = INS_choose_banjarmasin
+					}
+					has_full_control_of_state = 334
+					has_full_control_of_state = 1050
+				}
+				else_if = {
+					limit = {
+						has_country_flag = INS_choose_makassar
+					}
+					has_full_control_of_state = 673
+					has_full_control_of_state = 1054
+				}
+				else_if = {
+					limit = {
+						has_country_flag = INS_choose_palembang
+					}
+					has_full_control_of_state = 1048
+					has_full_control_of_state = 672
+				}
+				else = {
+					custom_trigger_tooltip = {
+						tooltip = INS_control_java
+						controls_state = 335
+						controls_state = 1051
+						controls_state = 1052
+					}
+				}
+			}
 		}
 
 		cancel_if_invalid = no
@@ -19320,6 +19395,7 @@ focus_tree = {
 					set_state_flag = INS_stepping_stone_state_flag
 				}
 			}
+			custom_effect_tooltip = generic_current_effects
 			set_capital = {
 				state = var:ROOT.INS_stepping_stone_state
 			}
@@ -19384,6 +19460,8 @@ focus_tree = {
 				}
 				add_core_of = INS
 			}
+			custom_effect_tooltip = INS_stepping_stone_effect_tt
+			custom_effect_tooltip = generic_current_effects
 			every_owned_state = {
 				limit = {
 					state = var:ROOT.INS_stepping_stone_state
@@ -19407,8 +19485,10 @@ focus_tree = {
 		id = INS_homecoming
 		icon = GFX_focus_hol_liberation
 		prerequisite = { focus = INS_stepping_stone }
+		prerequisite = { focus = INS_civil_affairs_agreement }
 		
 		relative_position_id = INS_stepping_stone
+		x = 1
 		y = 1
 
 		cost = 10
@@ -19468,14 +19548,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_stability = 0.075
-			add_war_support = 0.03
-			add_autonomy_ratio = {
-				value = 0.25
-				localization = INS_homecoming
-			}
-			
-			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = {
 					has_country_flag = INS_choose_bandung
@@ -19502,6 +19574,19 @@ focus_tree = {
 			}
 			else = {
 				set_capital = { state = 335 }
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			swap_ideas = {
+				remove_idea = INS_nica
+				add_idea = INS_nica_2
+			}
+
+			add_stability = 0.025
+			add_war_support = 0.03
+			add_autonomy_ratio = {
+				value = 0.25
+				localization = INS_homecoming
 			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt

@@ -8086,11 +8086,17 @@ focus_tree = {
 		available = {
 			OR = {
 				any_other_country = {
-					is_asean_state = yes
+					custom_trigger_tooltip = {
+						tooltip = INS_any_southwest_pacific_tags
+						is_southwest_pacific_state = yes
+					}
 					is_puppet_of = HOL
 				}
 				any_other_country = {
-					is_asean_state = yes
+					custom_trigger_tooltip = {
+						tooltip = INS_any_southwest_pacific_tags
+						is_southwest_pacific_state = yes
+					}
 					is_in_faction_with = HOL
 				}
 				has_full_control_of_state = 335
@@ -8159,7 +8165,7 @@ focus_tree = {
 						is_puppet_of = HOL
 					}
 				}
-				country_event = { id = holhis_indonesia.21 hours = 6 }
+				country_event = { id = holhis_swpa.1 hours = 6 }
 			}
 		}
 	}
