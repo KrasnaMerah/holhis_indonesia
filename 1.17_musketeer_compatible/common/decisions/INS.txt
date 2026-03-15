@@ -2942,7 +2942,7 @@ INS_category_ethical_policies = {
 							}
 						}
 						AND = {
-							state = 1059 #Kedah
+							state = 1059 #Kelantan
 							NOT = {
 								has_state_flag = INS_transmigration_12
 							}
@@ -3142,114 +3142,6 @@ INS_category_ethical_policies = {
 				}
 				INS_add_transmigrant_wave = yes
 			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_agriculture_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_agriculture_upgrade
-					value = 0
-				}
-			}
-			add_to_variable = {
-				var = INS_agriculture_upgrade
-				value = 1
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_1_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 11
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_2_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_agriculture_upgrade
-						value = 16
-						compare = equals
-					}
-				}
-				set_country_flag = INS_agrarian_reforms_3_flag
-			}
-			if = {
-				limit = {
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 1
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_1_done_flag
-				country_event = { id = holhis_indonesia.57 }
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_1_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_4
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 4
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_2_done_flag
-			}
-			if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							var = INS_transmigration_3_upgrade
-							value = 1
-							compare = greater_than_or_equals
-						}
-					}
-				}
-				set_variable = {
-					var = INS_transmigration_3_upgrade
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					has_country_flag = INS_transmigration_2_done_flag
-					any_owned_state = {
-						has_state_flag = INS_transmigration_6
-					}
-					check_variable = {
-						var = INS_transmigration_upgrade
-						value = 6
-						compare = equals
-					}
-					check_variable = {
-						var = INS_transmigration_3_upgrade
-						value = 3
-						compare = equals
-					}
-				}
-				set_country_flag = INS_transmigration_3_done_flag
-			}
 			clr_country_flag = INS_transmigration_flag
 		}
 
@@ -3262,7 +3154,7 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_transmigration_to_aceh = { #Can handle 13 waves
+	INS_transmigration_to_aceh = { #Can handle 13 waves at 20%, 16 at 25%
 
 		icon = GFX_decision_hol_engelandvaarders
 
@@ -3374,7 +3266,7 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_transmigration_to_nsumatra = { #Can handle 117 waves
+	INS_transmigration_to_nsumatra = { #Can handle 117 waves at 20%, 147 at 25%
 
 		icon = GFX_decision_hol_engelandvaarders
 
@@ -3874,7 +3766,7 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_transmigration_to_ekalimantan = { #Can handle 32 waves
+	INS_transmigration_to_ekalimantan = { #Can handle 32 waves at 20%, 40 at 25%
 
 		icon = GFX_decision_hol_engelandvaarders
 
@@ -4004,7 +3896,7 @@ INS_category_ethical_policies = {
 		}
 	}
 
-	INS_transmigration_to_sarawak = { #Can handle 16 waves
+	INS_transmigration_to_sarawak = { #Can handle 16 waves at 20%, 20 at 25%
 
 		icon = GFX_decision_hol_engelandvaarders
 
