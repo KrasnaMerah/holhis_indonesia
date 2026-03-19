@@ -1013,10 +1013,17 @@
  WPG_karel_van_eechoud:0 "Jan Pieter Karel van Eechoud" #1904, 31 yo in 1936, Police Resident in Manokwari and first Governor-General of Papua
 
  #Kalimantan
- INS_mohammad_yusuf_alqadri:0 "Syarif Mohammad Alkadrie" #1872, 64 yo in 1936,Pontianak Royal KNIL
+ INS_mohammad_yusuf_alqadri:0 "Syarif Mohammad Alkadrie" #1872, 64 yo in 1936, Pontianak Royal KNIL
  INS_hamid_mohammad_alqadri:0 "Syarif Hamid II Alkadrie"  #1913, 23 yo in 1936, Pontianak Royal KNIL
  INS_mohammad_noor:0 "Pangeran Mohammad Noor" #1901, 35 yo in 1936, Banjar Prince
  KLM_ahmad_tajuddin_waddien:0 "Ahmad Tajuddin Waddien" #1913, 23 yo in 1936, Brunei Sultan since 1924
+
+ #Timor Leste
+ TML_aleixo_corte_real:0 "Dom Aleixo Corte-Real" #1886, 47 yo in 1936, guerilla leader
+ TML_alvaro_da_fontoura:0 "Alvaro Neves da Fontoura" #1891, 44 yo in 1936, GG 1937-1940
+ TML_manuel_carrascalao:0 "Manuel Viegas Carrascalão" #1901, 34 yo in 1936, father of UDT leaders
+ TML_manuel_carvalho:0 "Manuel de Abreu Ferreira de Carvalho" #1893, 43 yo in 1936, GG 1940-1945
+ TML_raul_mendes_cruz:0 "Raul de Antas Mendes Cruz" #1893, 43 yo in 1936, GG 1934-1936
 
  #MALAYSIA
  MAL_tuanku_abdul_rahman:0 "Tuanku Abdul Rahman"

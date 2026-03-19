@@ -3754,6 +3754,43 @@ country_event = { #Navair 7 - KKH protested, seize NV Merbabu?
 	}
 }
 
+country_event = { #Navair 8 - Arrival of Rear-Admiral Furstner
+	id = holhis_navair.8
+	title = holhis_navair.8.t
+	desc = holhis_navair.8.d
+
+	is_triggered_only = yes
+
+	option = { #Welcome!
+		name = holhis_navair.8.a
+		HOL = {
+			HOL_johannes_theodorus_furstner = {
+				set_nationality = INS
+			}
+		}
+	}
+}
+
+country_event = { #Navair 9 - Recall of Admiral Helfrich
+	id = holhis_navair.9
+	title = holhis_navair.9.t
+	desc = holhis_navair.9.d
+
+	is_triggered_only = yes
+
+	option = { #Okay
+		name = holhis_navair.9.a
+		HOL_conrad_helfrich = {
+			set_nationality = HOL
+		}
+		HOL = {
+			HOL_abraham_vromans = {
+				set_nationality = INS
+			}
+		}	
+	}
+}
+
 country_event = { #SWPA 1 - asking TAG to join SWPA initiative
 	id = holhis_swpa.1
 	title = holhis_swpa.1.t
@@ -10661,6 +10698,7 @@ country_event = { #Commies 37 - 6th PKI National Congress - 1950-1955
 				}
 			}
 			date > 1953.07.30
+			has_dlc = "No Step Back"
 		}
 
 		if = {
@@ -10979,6 +11017,7 @@ country_event = { #Commies 38 - 7th PKI National Congress - 1955-1960
 					ruling_only = yes
 				}
 			}
+			has_dlc = "No Step Back"
 		}
 
 		if = {
@@ -11013,6 +11052,7 @@ country_event = { #Commies 38 - 7th PKI National Congress - 1955-1960
 			INS_dipa_nusantara = {
 				has_character_flag = INS_first_term_flag
 			}
+			has_dlc = "No Step Back"
 		}
 
 		if = {

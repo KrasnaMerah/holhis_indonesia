@@ -4463,19 +4463,7 @@ focus_tree = {
 		completion_reward = {
 			navy_experience = 25
 			INS = {
-				HOL_conrad_helfrich = {
-					set_nationality = HOL
-				}
-			}
-			if = {
-				limit = {
-					INS = {
-						is_subject_of = HOL
-					}
-				}
-				HOL_abraham_vromans = {
-					set_nationality = INS
-				}
+				country_event = { id = holhis_navair.9 hours = 6 }
 			}
 			random_owned_controlled_state = {
 				limit = {

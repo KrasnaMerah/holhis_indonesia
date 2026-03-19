@@ -1,0 +1,72 @@
+characters = {
+	TML_aleixo_corte_real = {
+		name = TML_aleixo_corte_real
+		portraits = {
+			civilian = {
+				large = GFX_portrait_africa_generic_land_7
+			}
+			army = {
+				small = GFX_portrait_africa_generic_land_7_small
+			}
+		}
+		country_leader = {
+			ideology = fascism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	TML_alvaro_da_fontoura = {
+		name = TML_alvaro_da_fontoura
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_Europe_Generic_land_1
+			}
+			army = {
+				small = GFX_Portrait_Europe_Generic_land_1_small
+			}
+		}
+	}
+	TML_manuel_carrascalao = {
+		name = TML_manuel_carrascalao
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_Europe_Generic_land_19
+			}
+			army = {
+				small = GFX_Portrait_Europe_Generic_land_19_small
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	TML_manuel_carvalho = {
+		name = TML_manuel_carvalho
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_Europe_Generic_land_3
+			}
+			army = {
+				small = GFX_Portrait_Europe_Generic_land_3_small
+			}
+		}
+	}
+	TML_raul_mendes_cruz = {
+		name = TML_raul_mendes_cruz
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_Europe_Generic_land_2
+			}
+			army = {
+				small = GFX_Portrait_Europe_Generic_land_2_small
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+}

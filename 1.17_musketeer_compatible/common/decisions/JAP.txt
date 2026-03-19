@@ -354,13 +354,6 @@ JAP_intervene_in_china = {
 
 		icon = jap_conquer_china
 
-		available = {	
-			event_target:WTT_current_china_leader = {
-				has_capitulated = no
-				exists = yes
-			}
-		}
-
 		visible = {
 			has_completed_focus = JAP_strategic_offensives #JAP_secure_china
 			any_enemy_country = {
@@ -368,6 +361,13 @@ JAP_intervene_in_china = {
 			}
 			event_target:WTT_current_china_leader = {
 				NOT = { is_puppet_of = JAP }
+			}
+		}
+
+		available = {	
+			event_target:WTT_current_china_leader = {
+				has_capitulated = no
+				exists = yes
 			}
 		}
 
@@ -383,9 +383,21 @@ JAP_intervene_in_china = {
 			}
 		}
 
-		cost = 50
+		custom_cost_trigger = {
+			has_political_power > 74 
+			command_power > 99
+		}
+		custom_cost_text = decision_cost_CP_100_pp_75
+
+		ai_hint_pp_cost = 75 
 
 		complete_effect = {
+
+			hidden_effect = {
+				add_political_power = -75
+				add_command_power = -100
+			}
+
 			IF = {
 				limit = {
 					USA = {
@@ -393,6 +405,7 @@ JAP_intervene_in_china = {
 					}
 				}
 				USA = { add_war_support = 0.1 }
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			IF = {
 				limit = {
@@ -410,6 +423,7 @@ JAP_intervene_in_china = {
 				}
 			}
 				
+			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission_tooltip = JAP_conquer_china
 			set_country_flag = JAP_conquer_china_activate
 		}
@@ -447,7 +461,7 @@ JAP_intervene_in_china = {
 		days_mission_timeout = 365
 		
 		timeout_effect = {
-			add_stability = -0.05
+			add_stability = -0.1 
 			add_war_support = -0.15
 		}
 
@@ -4457,6 +4471,11 @@ prospect_for_resources = {
 				has_completed_focus = JAP_sea_establish_the_northern_resource_area
 				has_completed_focus = JAP_transformation_of_nature
 			}
+			655 = {
+				NOT = {
+					has_state_flag = north_sakhalin_oil_developed
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -4482,6 +4501,7 @@ prospect_for_resources = {
 					type = oil
 					amount = 12
 				}
+				set_state_flag = north_sakhalin_oil_developed
 			}
 		}
 	}
@@ -8517,7 +8537,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -8578,7 +8598,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -8651,7 +8671,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -11194,30 +11214,43 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 			custom_effect_tooltip = if_they_accept_tt
 
-			effect_tooltip = {
-				FROM = {
+			FROM = {
+				effect_tooltip = {
 					add_tech_bonus = {
 						bonus = 0.5
 						uses = 2
 						category = industry
 					}
 				}
-				random_state = {
+				random_core_state = {
 					limit = {
 						is_owned_and_controlled_by = FROM
 						is_core_of = FROM
 						free_building_slots = {
 							building = industrial_complex
-							size > 2
+							size > 1
 							include_locked = yes
 						}	
 					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}	
+					set_state_flag = JAP_state_development_target
+					effect_tooltip = {
+						add_extra_state_shared_building_slots = 2
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}	
+						IF = {
+							limit = {
+								infrastructure < 5
+							}
+							add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+							}	
+						}
+					}
 				}		 
 			}
 		}
@@ -11951,11 +11984,19 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 671
-				state = 1017
-				state = 670
-				state = 741
-				state = 286
+				state = 671 #Tonkin
+				state = 1017 #Northern Annam
+				state = 1068 #Montagnards
+				state = 1069 #Central Annam
+				state = 1070 #Southern Annam
+				state = 286 #Cochinchina
+				state = 670 #Vientiane
+				state = 1072 #Pakse
+				state = 1073 #Savannakhet
+				state = 1075 #Luang Prabang
+				state = 741 #Phnom Penh
+				state = 1067 #Stung Treng
+				state = 1068 #Trung Phan
 			}
 		}
 
@@ -12008,9 +12049,29 @@ JAP_the_co_prosperity_sphere_decisions = {
 				every_state = {
 					limit = {
 						OR = {
-							state = 671
-							state = 1017
-							state = 670
+							state = 671 #Tonkin
+							state = 1017 #N Annam
+							state = 1068 #Montagnards
+							state = 1069 #C Annam
+							state = 1070 #S Annam
+							state = 670 #Vientiane
+							state = 1072 #Pakse
+							state = 1073 #Savannakhet
+							state = 1075 #Luang Prabang
+						}
+					}
+					transfer_state_to = VIN
+					add_core_of = VIN
+				}
+
+				every_state = { #Laotian states not owned by SIA
+					limit = {
+						OR = {
+							state = 1074 #Xaignabouli
+							state = 1071 #Champassak
+						}
+						NOT = {
+							is_owned_by = SIA
 						}
 					}
 					transfer_state_to = VIN
@@ -12021,12 +12082,27 @@ JAP_the_co_prosperity_sphere_decisions = {
 				every_state = {
 					limit = {
 						OR = {
-							state = 741
-							state = 286
+							state = 741 #Phnom Penh
+							state = 286 #Cochinchina
+							state = 1067 #Stung Treng
 						}
 					}
 					transfer_state_to = CAM
 					add_core_of = CAM
+				}
+
+				if = { #Battambang
+					limit = {
+						1066 = {
+							NOT = {
+								is_owned_by = SIA
+							}
+						}
+					}
+					1066 = {
+						transfer_state_to = CAM
+						add_core_of = CAM
+					}
 				}
 
 				set_autonomy = {
@@ -12058,8 +12134,8 @@ JAP_the_co_prosperity_sphere_decisions = {
 				}
 
 				set_country_flag = JAP_went_with_initial_sea_land_disposition_plan_flag
-				
 			}
+			
 		}
 
 		ai_will_do = {
@@ -12067,6 +12143,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 			modifier = {
 				add = -500
 				is_historical_focus_on = yes # This was the initial but discarded plan for division
+			}
+			modifier = {
+				factor = 0
+				date < 1945.01.01 # Don't click this immediatly 
 			}
 		}
 	}
@@ -12083,6 +12163,9 @@ JAP_the_co_prosperity_sphere_decisions = {
 			highlight_state_targets = {
 				state = 671
 				state = 1017
+				state = 1068
+				state = 1069
+				state = 1070
 				state = 286
 			}
 		}
@@ -12108,6 +12191,15 @@ JAP_the_co_prosperity_sphere_decisions = {
 			1017 = {
 				is_controlled_by_ROOT_or_subject = yes
 			}
+			1068 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1069 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1070 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
 			286 = {
 				is_controlled_by_ROOT_or_subject = yes
 			}
@@ -12126,6 +12218,9 @@ JAP_the_co_prosperity_sphere_decisions = {
 						OR = {
 							state = 671
 							state = 1017
+							state = 1068
+							state = 1069
+							state = 1070
 							state = 286
 						}
 					}
@@ -12163,6 +12258,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1945.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -12178,6 +12277,7 @@ JAP_the_co_prosperity_sphere_decisions = {
 		highlight_states = {
 			highlight_state_targets = {
 				state = 741
+				state = 1067
 			}
 		}
 
@@ -12195,11 +12295,12 @@ JAP_the_co_prosperity_sphere_decisions = {
 		}
 
 		available = {
-			
 			741 = {
 				is_controlled_by_ROOT_or_subject = yes
 			}
-
+			1067 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
 		}
 
 		complete_effect = {
@@ -12210,6 +12311,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 				# Cambodian States
 				741 = {
+					transfer_state_to = CAM
+					add_core_of = CAM
+				}
+				1067 = {
 					transfer_state_to = CAM
 					add_core_of = CAM
 				}
@@ -12240,6 +12345,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1945.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -12254,7 +12363,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 670
+				state = 670 #Vientiane
+				state = 1075 #Luang Prabang
+				state = 1073 #Savannakhet
+				state = 1072 #Pakse
 			}
 		}
 
@@ -12279,6 +12391,15 @@ JAP_the_co_prosperity_sphere_decisions = {
 			670 = {
 				is_controlled_by_ROOT_or_subject = yes
 			}
+			1073 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1075 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
+			1072 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
 
 		}
 
@@ -12292,6 +12413,32 @@ JAP_the_co_prosperity_sphere_decisions = {
 				670 = {
 					transfer_state_to = LAO
 					add_core_of = LAO
+				}
+				1072 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+				1073 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+				1075 = {
+					transfer_state_to = LAO
+					add_core_of = LAO
+				}
+
+				every_state = { #Laotian states not owned by SIA
+					limit = {
+						OR = {
+							state = 1074 #Xaignabouli
+							state = 1071 #Champassak
+						}
+						NOT = {
+							is_owned_by = SIA
+						}
+					}
+					transfer_state_to = VIN
+					add_core_of = VIN
 				}
 
 				set_autonomy = {
@@ -12320,6 +12467,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1945.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -15791,6 +15942,13 @@ JAP_west_pacific_treaty_org_economic_integration_cat = {
 				}	
 				FROM = {
 					every_core_state = {
+						limit = {
+							OR = {
+								is_on_continent = asia 
+								is_on_continent = australia 
+								is_on_continent = middle_east 
+							}
+						}
 						add_core_of = ROOT
 					}
 				}

@@ -1159,30 +1159,95 @@ characters={
 	}
 
 	PHI_paulino_santos = {
-		name = PHI_paulino_santos
-
-		portraits = {
-			army = {
-				small = GFX_portrait_PHI_paulino_santos_small
-			}
-		}
-
-		advisor = {
-			slot = army_chief
-			allowed  = {
+		instance = {
+			allowed = {
 				has_dlc = "No Compromise, No Surrender"
 			}
-			available = {
-				has_completed_focus = PHI_self_reliance_defense
+
+			name = PHI_paulino_santos
+
+			portraits = {
+				army = {
+					small = GFX_portrait_PHI_paulino_santos_small
+				}
 			}
-			idea_token = PHI_paulino_santos
-			ledger = army
-			traits = {
-				PHI_self_reliance_defense_character
+
+			advisor = {
+				slot = army_chief
+				allowed  = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				available = {
+					has_completed_focus = PHI_self_reliance_defense
+				}
+				idea_token = PHI_paulino_santos
+				ledger = army
+				traits = {
+					PHI_self_reliance_defense_character
+				}
+				cost = 100
+				ai_will_do = {
+					base = 1
+				}
 			}
-			cost = 100
-			ai_will_do = {
-				base = 1
+		}
+		instance = {
+			allowed = {
+				NOT = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+			}
+
+			name = PHI_paulino_santos
+			
+			portraits = {
+				army = {
+					small = GFX_idea_philippines_paulino_santos
+					large = GFX_portrait_phi_paulino_santos
+				}
+			}
+			advisor = {
+				slot = army_chief
+				idea_token = PHI_paulino_santos_army_chief
+				allowed = {
+					original_tag = PHI
+				}
+				available = {
+					NOT = { has_idea = PHI_paulino_santos_high_command }
+				}
+				traits = {
+					army_chief_organizational_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+			}
+			advisor = {
+				slot = high_command
+				idea_token = PHI_paulino_santos_high_command
+				ledger = army
+				allowed = {
+					original_tag = PHI
+				}
+				available = {
+					NOT = { has_idea = PHI_paulino_santos_army_chief }
+				}
+				traits = {
+					army_logistics_2
+				}
+				cost = 100
+					ai_will_do = {
+					factor = 1.000
+				}
+			}
+			field_marshal = {
+				traits = { infantry_officer }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
 			}
 		}
 	}
@@ -1495,16 +1560,16 @@ characters={
 				slot = high_command
 				idea_token = PHI_vicente_p_lim
 				ledger = army
-					allowed  = {
-						has_dlc = "No Compromise, No Surrender"
-					}
-					traits = {
-						army_regrouping_2
-					}
-					cost = 100
-					ai_will_do = {
-						factor = 1.000
-					}
+				allowed  = {
+					original_tag = PHI
+				}
+				traits = {
+					army_regrouping_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 			}
 			corps_commander = {
 				traits = { offensive_doctrine }

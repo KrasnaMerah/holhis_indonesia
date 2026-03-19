@@ -9,6 +9,32 @@ set_technology = {
 	infantry_weapons = 1
 }
 
+recruit_character = TML_aleixo_corte_real
+recruit_character = TML_alvaro_da_fontoura
+recruit_character = TML_manuel_carrascalao
+recruit_character = TML_manuel_carvalho
+recruit_character = TML_raul_mendes_cruz
+
+set_convoys = 10
+
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1934.7.14"
+	election_frequency = 48
+	elections_allowed = yes
+}
+
+set_popularities = {
+	democratic = 20
+	fascism = 25
+	communism = 5
+	neutrality = 50
+}
+
+add_ideas = {
+	ASEAN_agrarian_society_2
+}
+
 1939.1.1 = {
 	
 	#generic focuses
@@ -54,24 +80,4 @@ set_technology = {
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}
-}
-
-set_convoys = 10
-
-set_politics = {
-	ruling_party = neutrality
-	last_election = "1934.7.14"
-	election_frequency = 48
-	elections_allowed = yes
-}
-
-set_popularities = {
-	democratic = 20
-	fascism = 10
-	communism = 10
-	neutrality = 60
-}
-
-add_ideas = {
-	ASEAN_agrarian_society_2
 }

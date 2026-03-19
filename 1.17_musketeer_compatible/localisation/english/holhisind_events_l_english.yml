@@ -1095,6 +1095,14 @@
  INS_merbabu_quits_flag:0 "§YNaamloze Venootschap Merbabu§! has been closed"
  INS_seize_merbabu_flag:0 "§YNaamloze Venootschap Merbabu§! has been seized by the government"
 
+ holhis_navair.8.t:0 "Arrival of Rear-Admiral Furstner"
+ holhis_navair.8.d:0 "We have received a report from the Naval Headquarters that Rear-Admiral Johannes Theodorus Furstner has assigned from the Fatherland to the East Indies Squadron"
+ holhis_navair.8.a:0 "Welcome!"
+
+ holhis_navair.9.t:0 "Recalling of Admiral Helfrich"
+ holhis_navair.9.d:0 "We have received a report from the Naval Headquarters that Admiral Conrad Helfrich has been recalled to the Fatherland due to the increasing tensions in Europe"
+ holhis_navair.9.a:0 "Vaarwel!"
+
  holhis_sabotage.1.t:0 "Arms Factory Sabotaged"
  holhis_sabotage.1.d:0 "Reports have come in from one of our factories, reporting that a major fire broke out last night. Local firefighters are still tackling the blaze, but are confident that they will have the fire under control by the end of the day. The damage to the factory appears to be significant, as the fire appears to have started in the storage area for highly flammable chemicals.\n\nMilitary Intelligence has started a thorough investigation to find out how the fire could break out despite the strictest safety measures. First leads indicate arson as a strong possibility."
  holhis_sabotage.1.a:0 "Who would do such a thing?"
@@ -1129,6 +1137,24 @@
  mtg_netherlands.83.t:0 "The Second Indonesian Rebellion"
  mtg_netherlands.83.d:0 "Despite our efforts on quelling the Indonesian nationalists, a few of them has managed to rally themselves behind Sukarno, who has unexpectedly freed from his exile by a traitorous element inside the colonial administration. Nevertheless, the Eastern Indonesia has decided to keep their loyalty towards our government, with promised reforms as their due for now."
  mtg_netherlands.83.a:0 "We will crush them down"
+
+ mtg_netherlands.84.t:0 "America Embargoes Japan"
+ mtg_netherlands.84.d:0 "Following much deliberation, the American Congress has passed a motion of putting embargo of exports towards [JAP.GetName]. The recent aggressions undertaken by the Japanese Empire in the Southwest Pacific region has clearly put the American government into a highly alerted state, as their recent conquests put themselves closer to the American bases in the Phillipines. Our government has recently asked by the American diplomats to put a similar pressure towards the Japanese government."
+ mtg_netherlands.84.a:0 "We will follow their decision"
+ mtg_netherlands.84.b:0 "We will not play a second fiddle for them!"
+
+ mtg_netherlands.85.t:0 "[From.GetName] Moves to Secure the Colony"
+ mtg_netherlands.85.d:0 "The new [From.GetAdjective] government has announced their intention to speeding up the colonization process with military force, if necessary. Though their army would be stretched too thinly to do this all throughout the archipelago, they clearly intend to try."
+ mtg_netherlands.85.a:0 "They may be coming for us."
+
+ mtg_netherlands.86.t:0 "Fanny Schoonheyt Returned from Spain"
+ mtg_netherlands.86.d:0 "After the conclusion of Spanish Civil War, Fanny Schoonheyt, a famous Dutch reporter who has decided to volunteer herself for the Republicans has returned to [HOL.GetNameDef]."
+ mtg_netherlands.86.a:0 "Welcome home, Comrade!" 
+
+ mtg_netherlands.87.t:0 "Rear-Admiral Furstner is assigned to the East Indies Squadron"
+ mtg_netherlands.87.d:0 "The routine command rotation has expected Rear-Admiral Johannes Theodorus Furstner to be assigned to the East Indies Squadron alongside Rear-Admiral Hendrikus Ferwerda to replace the retired Vice-Admiral Maarten van Dulm."
+ mtg_netherlands.87.a:0 "Bon voyage!"
+ mtg_netherlands.87.b:0 "Ferwerda is already enough"
 
  holhis_burma.1.t:0 "The Burmese Question"
  holhis_burma.1.d:0 "Since 1862, Burma has been ruled as a part of the larger [RAJ.GetNameDef], but not without protests and riots which would not be quelled until 1890. A major rebellion has been occured in 1930 when thousands were killed in an attempt to restore the kingdom of Burma. Questions has been asked whether to keep them incorporated into [RAJ.GetNameDef] proper or parted as a separate colony."
@@ -1393,7 +1419,7 @@
  holhis_history.7.d:0 "There is no need to move the seat of government for now."
 
  holhis_history.10.t:0 "Thank You / Terima Kasih / Dank U Wel"
- holhis_history.10.desc:0 "With the subscriber count has passed 2200 and the release of Patch 1.7 "Palembang", i thanked you all for your support for me since December 2022. Not bad for a minor country which often got overlooked in the grand scheme of things in WW2.... This mod is born out of my love for Indonesian history, especially the nonviolent phase of the Indonesian Movements (Pergerakan) between 1927 and 1942, and also as a nice and healthy way to occupy myself between study sessions at my college, from which i have been graduated at the end of August 2025 after successfully defended my undergraduate thesis the month before.\n\nBut sadly, due to time limitations as i would go to find a job after graduation, i cannot spend as much time as i would have loved to before. This does not mean that mod is entirely dead, but just slowing down its development cycle with major updates only come after a major patch, like the recently-released 1.17 "Musketeer" update for December 2025 as part of "No Compromise, No Surrender" DLC.\n\nAs i have always said in my Discord server, please feel free to keep suggesting things, both on there and also this mod's Steam Workshop page, preferably the former so i can compile it better. And also, i hope that this mod can continue to be promoted to the wider populace, not just fellow HoI4 players, but for other historians (especially Indonesianists), and also Indonesians at large as a medium to learn about Indonesian history around the Second World War.\n\nVaarwel, tot betere tijden\nXoXo, Krasna Merah"
+ holhis_history.10.desc:0 "With the subscriber count has passed 2400 and the release of Patch 1.7 "Palembang", i thanked you all for your support for me since December 2022. Not bad for a minor country which often got overlooked in the grand scheme of things in WW2.... This mod is born out of my love for Indonesian history, especially the nonviolent phase of the Indonesian Movements (Pergerakan) between 1927 and 1942, and also as a nice and healthy way to occupy myself between study sessions at my college, from which i have been graduated at the end of August 2025 after successfully defended my undergraduate thesis the month before.\n\nBut sadly, due to time limitations as i would go to find a job after graduation, i cannot spend as much time as i would have loved to before. This does not mean that mod is entirely dead, but just slowing down its development cycle with major updates only come after a major patch, like the recently-released 1.17 "Musketeer" update for December 2025 as part of "No Compromise, No Surrender" DLC.\n\nAs i have always said in my Discord server, please feel free to keep suggesting things, both on there and also this mod's Steam Workshop page, preferably the former so i can compile it better. And also, i hope that this mod can continue to be promoted to the wider populace, not just fellow HoI4 players, but for other historians (especially Indonesianists), and also Indonesians at large as a medium to learn about Indonesian history around the Second World War.\n\nVaarwel, tot betere tijden\nXoXo, Krasna Merah"
  holhis_history.10.a:0 "I knew one and i would recommend it for them"
  holhis_history.10.b:0 "I did not know anyone, but i'll tell them if i've found any"
  holhis_history.10.c:0 "Well, let me play already."
@@ -1424,19 +1450,6 @@
  usa.66.d:0 "Two days ago, the forces of Imperial Japanese Army has entered Indochina after an undeclared war. As the French forces was weakened after the swift capitulation of the Paris government, the local French Indochinese government has signed an agreement of handover of the region towards Japan. Some portion of our own public has reacted with discontent upon yet another Japanese aggression, but others remained apathetic."
  usa.66.a:0 "An embargo would put their war machine in halt."
  usa.66.b:0 "Let them be"
-
- mtg_netherlands.84.t:0 "America Embargoes Japan"
- mtg_netherlands.84.d:0 "Following much deliberation, the American Congress has passed a motion of putting embargo of exports towards [JAP.GetName]. The recent aggressions undertaken by the Japanese Empire in the Southwest Pacific region has clearly put the American government into a highly alerted state, as their recent conquests put themselves closer to the American bases in the Phillipines. Our government has recently asked by the American diplomats to put a similar pressure towards the Japanese government."
- mtg_netherlands.84.a:0 "We will follow their decision"
- mtg_netherlands.84.b:0 "We will not play a second fiddle for them!"
-
- mtg_netherlands.85.t:0 "[From.GetName] Moves to Secure the Colony"
- mtg_netherlands.85.d:0 "The new [From.GetAdjective] government has announced their intention to speeding up the colonization process with military force, if necessary. Though their army would be stretched too thinly to do this all throughout the archipelago, they clearly intend to try."
- mtg_netherlands.85.a:0 "They may be coming for us."
-
- mtg_netherlands.86.t:0 "Fanny Schoonheyt Returned from Spain"
- mtg_netherlands.86.d:0 "After the conclusion of Spanish Civil War, Fanny Schoonheyt, a famous Dutch reporter who has decided to volunteer herself for the Republicans has returned to [HOL.GetNameDef]."
- mtg_netherlands.86.a:0 "Welcome home, Comrade!" 
 
  holhis_juliana.1.t:0 "A Proposal from the Duchy of Mangkunegaran"
  holhis_juliana.1.d:0 "Within the days of the announcement of Princess Juliana's marriage with Prince Bernhard of Lippe-Biesterfeld, numerous sultans, kings, and dukes from across the archipelago has brought gemstones, incenses, and other valuable objects as tributes for the marriage. But today, the Duke of Mangkunegaran has brought a rather interesting proposal for the Governor-General.\n\nInstead of gemstones or incenses, he proposes that his daughter, Princess Gusti Nurul of Mangkunegaran, would presented the Serimpi dance (a Javanese traditional dance from Yogyakarta) in front of the bride and the groom, as live performance of a sacred Javanese dance in Europe would surely be as precious as the gemstones and properly showed the social advancement of the Dutch Empire."
