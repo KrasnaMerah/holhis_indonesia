@@ -3685,6 +3685,73 @@ ideas = {
 			}
 		}
 
+		INS_naval_commitment_1 = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_navy_bonus
+
+			equipment_bonus = {
+				ship_hull_cruiser = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				ship_hull_submarine = {
+					build_cost_ic = -0.25 instant = yes
+				}
+			}
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+
+		INS_naval_commitment_2 = {
+
+			name = INS_naval_commitment_1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_coastal_defense_ships2
+
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				ship_hull_submarine = {
+					build_cost_ic = -0.25 instant = yes
+				}
+			}
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+
 		INS_navy_1 = {
 
 			allowed = {

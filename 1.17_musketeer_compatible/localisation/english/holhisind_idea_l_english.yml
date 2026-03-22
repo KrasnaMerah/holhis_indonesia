@@ -231,6 +231,7 @@ INS_navy_4_green_desc:0 "While not much, our lighter fleet would be more advanta
 INS_navy_4_blue_desc:0 "With our ships are specialized on oceanic operations, they should be our first line of defense of the archipelago. We shall sank them all before they even entering our seas, but should the worst has come, we must be ready for that too."
 INS_navy_5:0 "Jalesveva Jayamahe"
 INS_navy_5_desc:0 "Our Glory is at The Seas, the desire to travel the seas like our forefathers shall not be quenchable, and our will to protect this vast archipelago shall be unbeatable!"
+INS_naval_commitment_1:0 "Commitment for Naval Rebuilding"
 
 #Air ideas
 INS_airforce_1:0 "Outdated Airforce"
