@@ -186,8 +186,18 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_modifier_regional_west_java"
+		texturefile = "gfx/state_modifiers/INS_west_java_modifier.dds"
+	}
+
+	spriteType = {
 		name = "GFX_modifier_regional_central_java"
 		texturefile = "gfx/state_modifiers/INS_central_java_modifier.dds"
+	}
+
+	spriteType = {
+		name = "GFX_modifier_regional_east_java"
+		texturefile = "gfx/state_modifiers/INS_east_java_modifier.dds"
 	}
 
 	spriteType = {
@@ -213,11 +223,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_modifier_regional_south_sumatra"
 		texturefile = "gfx/state_modifiers/INS_south_sumatra_modifier.dds"
-	}
-
-	spriteType = {
-		name = "GFX_modifier_regional_west_java"
-		texturefile = "gfx/state_modifiers/INS_west_java_modifier.dds"
 	}
 
 	spriteType = {

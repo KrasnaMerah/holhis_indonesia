@@ -1249,7 +1249,10 @@ characters = {
 
 	INS_charles_van_der_plas = {
 		instance = {
-			allowed = { has_dlc = "La Resistance" }
+			allowed = {
+				has_dlc = "La Resistance"
+				NOT = { has_country_flag = INS_covdp_east_java_gov_flag }
+			}
 			name = INS_charles_van_der_plas
 			portraits = {
 				army = {
@@ -1311,7 +1314,10 @@ characters = {
 			}
 		}
 		instance = {
-			allowed = { NOT = { has_dlc = "La Resistance" } }
+			allowed = {
+				NOT = { has_dlc = "La Resistance" }
+				NOT = { has_country_flag = INS_covdp_east_java_gov_flag }
+			}
 			name = INS_charles_van_der_plas
 			portraits = {
 				army = {
@@ -1370,6 +1376,64 @@ characters = {
 				traits = {
 					indonesian_expertise_no_lar
 				}
+			}
+		}
+		instance = {
+			allowed = {
+				has_country_flag = INS_covdp_east_java_gov_flag
+			}
+			name = INS_charles_van_der_plas
+			portraits = {
+				army = {
+					small = GFX_idea_indonesia_charles_van_der_plas
+				}
+			}
+			advisor = {
+				slot = political_advisor
+				idea_token = INS_governor_van_der_plas
+				allowed = {
+					OR = {
+						original_tag = INS
+						original_tag = HOL
+					}
+				}
+				available = {
+					has_country_flag = INS_covdp_east_java_gov_flag
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+					NOT = {
+						has_idea = INS_group_stuwgroep
+					}
+					NOT = {
+						has_completed_focus = INS_prepare_flight
+					}
+				}
+				visible = {
+					AND = {
+						has_completed_focus = INS_continue_reform
+						has_country_flag = INS_de_jonge_resigned
+					}
+				}
+				traits = {
+					friend_of_the_clergy
+				}
+				on_add = {
+					1052 = {
+						add_dynamic_modifier = {
+							modifier = INS_east_java_covdp_modifier
+						}
+					}
+				}
+				on_remove = {
+					1052 = {
+						remove_dynamic_modifier = {
+							modifier = INS_east_java_covdp_modifier
+						}
+					}
+				}
+				cost = 135
 			}
 		}
 	}
@@ -3715,6 +3779,7 @@ characters = {
 						}
 						has_idea = INS_jan_jonkman
 						has_idea = INS_charles_van_der_plas
+						has_idea = INS_governor_van_der_plas
 					}
 				}
 			}

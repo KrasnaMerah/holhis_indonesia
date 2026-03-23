@@ -1,6 +1,7 @@
 ﻿l_english:
  ##### INDONESIAN FOCUS #####
 
+#Economic Branch
 INS_address_malaise:0 "Address the Malaise"
 INS_address_malaise_desc:0 "The Great Depression of 1929, or has been known here as The Malaise, has affected our lands and our people thoroughly, resulting in the development stunting of Bandoeng and even a communist rebellion. Now, well into the seventh year of the economic crisis, proper management needs to be undertaken lest we would experience yet another rebellion."
 INS_limit_exports:0 "Limit Our Exports"
@@ -148,6 +149,8 @@ INS_rapid_industry:0 "Support the Growing Industry"
 INS_rapid_industry_desc:0 "We must support the growing industry if we want to keep expanding at this rate. Otherwise we might reach a point of stagnation, which would be fatal to our war efforts."
 INS_rapid_dockyards:0 "Invest in Dockyards"
 INS_rapid_dockyards_desc:0 "It would be wise to also invest in the dockyard sector. We should make sure that it grows with our economy so that we can capably both secure our trade and defend our lands too."
+
+#Colonial Branches
 INS_continue_reform:0 "Continue the Reforms"
 INS_continue_reform_desc:0 "Despite many hardships befell us after the Great War, there are good things that can be done more in the East Indies. Political reforms must be continued to ensure we can withstand the next one."
 INS_attend_capac_itl_expo:0 "Attend the California-Pacific Expo"

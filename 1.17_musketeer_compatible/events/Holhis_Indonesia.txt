@@ -14876,6 +14876,10 @@ country_event = { #Council 2 - Van Kan retires
 		}
 
 		set_country_flag = INS_raad_member_kuneman
+		set_country_flag = INS_covdp_east_java_gov_flag
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = INS_governor_van_der_plas
+
 		hidden_effect = {
 			country_event = { id = holhis_council.3 days = 7 random_days = 7 }
 		}
@@ -14922,6 +14926,9 @@ country_event = { #Council 3 - New member on the council?
 			}
 		}
 		set_country_flag = INS_raad_member_kuneman
+		set_country_flag = INS_covdp_east_java_gov_flag
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = INS_governor_van_der_plas
 
 		hidden_effect = {
 			country_event = { id = holhis_council.5 days = 548 random_days = 182 }

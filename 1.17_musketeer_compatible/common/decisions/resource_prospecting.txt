@@ -12577,13 +12577,8 @@ prospect_for_resources = {
 	}
 
 	develop_west_papuan_oil_deposits = { #1056
+		
 		icon = oil
-
-		highlight_states = {
- 			highlight_state_targets = {
-				state = 1056
-			} 
-		}
 
 		allowed = {
 

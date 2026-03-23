@@ -138,7 +138,17 @@ leader_traits = {
 		}
 	}
 
-	indonesian_expertise = { #Van Der Plas
+	friend_of_the_clergy = { #Van Der Plas
+		sprite = 13
+		random = no
+
+		autonomy_gain = 0.1
+		compliance_gain = 0.05
+		democratic_drift = 0.05
+		political_power_cost = 0.05
+	}
+
+	indonesian_expertise = { #Exiled van der Plas
 		sprite = 13
 		random = no
 
@@ -150,7 +160,7 @@ leader_traits = {
 		navy_intel_factor = 0.1
 	}
 
-	indonesian_expertise_no_lar = { #Van Der Plas
+	indonesian_expertise_no_lar = {
 		sprite = 13
 		random = no
 
@@ -570,12 +580,11 @@ leader_traits = {
 
 		political_power_factor = -0.1
 		autonomy_gain = 0.2
+		democratic_drift = 0.03
 		production_speed_industrial_complex_factor = 0.06
 		production_speed_infrastructure_factor = 0.06
 		improve_relations_maintain_cost_factor = -0.25
-		drift_defence_factor = 0.1
-		resistance_growth_on_our_occupied_states = 0.15
-		compliance_growth_on_our_occupied_states = -0.06
+		compliance_gain = 0.03
 		political_advisor_cost_factor = -0.05
 	}
 

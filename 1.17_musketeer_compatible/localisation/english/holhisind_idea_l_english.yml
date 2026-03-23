@@ -331,6 +331,8 @@ INS_west_java_di_nata_modifier:0 "Placated Populace"
 INS_west_java_di_nata_modifier_desc:0 "The people of West Java are now placated, with their representative being included in the day-to-day governance by the central government."
 INS_central_java_sutarjo_modifier:0 "Placated Populace"
 INS_central_java_sutarjo_modifier_desc:0 "The people of Central Java are now placated, with their representative being included in the day-to-day governance by the central government."
+INS_east_java_covdp_modifier:0 "Placated Populace"
+INS_east_java_covdp_modifier_desc:0 "The people of East Java are now placated, with their representative being included in the day-to-day governance by the central government."
 INS_north_sulawesi_ratulangi_modifier:0 "Placated Populace"
 INS_north_sulawesi_ratulangi_modifier_desc:0 "The people of Minahasa are now placated, with their representative being included in the day-to-day governance by the central government."
 INS_west_kalimantan_alkadrie_modifier:0 "Placated Populace"
@@ -410,6 +412,7 @@ HOL_support_decol:0 "§RThe Netherlands Promised Decolonisation§!\n"
 INS_exiled_flag:0 "Is currently in exile (§Gcharacters cannot be executed while in exile§!)"
 INS_imprisoned_flag:0 "Is currently in prison (§Rcharacters can be executed while in prison§!)"
 INS_evacuated_flag:0 "Is currently evacuated (§Rcharacters can't be serving in our government while evacuated§!)"
+INS_van_der_plas_surabaya_gov_flag:0 "§YCharles Olke van der Plas§! has been appointed §GGovernor of East Java§!"
 
 INS_stuwgroep_flag:0 "Member of the §CStuwgroep§!"
 INS_pki_member_flag:0 "Member of the §RCommunist Party of Indonesia§!"
@@ -450,7 +453,8 @@ coi_hart:0 "Director of Economic Affairs" #Hart overworked
 coi_mook:0 "Director of Economic Affairs" #Van Mook
 coi_verboom:0 "Director of Economic Affairs" #Jan Verboom
 INS_has_a_coi_tt:0 "Did not already has an advisor with trait §YDirector of Economic Affairs§! or §YCaptain of Industry§!"
-indonesian_expertise:0 "Indonesian Expert" #Charles van der Plas
+friend_of_the_clergy:0 "Friend of the Clergy" #Charles Van der Plas
+indonesian_expertise:0 "Indonesian Expert" #Exiled van der Plas
 indonesian_expertise_no_lar:0 "Indonesian Expert"
 indologist:0 "Indologist" #Abdulkadir Wijoyoatmojo
 parindra_leader:0 "Leader of Parindra" #Sutomo
