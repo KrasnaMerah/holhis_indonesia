@@ -290,6 +290,8 @@ INS_SWPA_PHILIPPINES_FREE:0 "Invite the Philippines"
 INS_SWPA_PHILIPPINES_FREE_desc:0 "Situated at the northernmost expanse of the Southwest Pacific area, the Philippines Archipelago would bear the brunt of any attack coming from the northern seas. With their participation in the SWPA Initiative, we can help them to bear the burden."
 INS_invite_swpa_india:0 "Invite the Indians"
 INS_invite_swpa_india_desc:0 "The Indians has similar situation as us, rife with royalists and nationalists, and many loyalists too. They would be also the ones who would guard us from any attack coming from the west. We hope that their participation in the SWPA Initiative would be useful."
+
+#Althistory Branches
 INS_discourage_democratic_reforms:0 "Discourage Democratic Reforms"
 INS_discourage_democratic_reforms_desc:0 "We must halt the current reforms made by the Bumiputras within the Volksraad! Too much freedom would led them to rise up again like what happened at the 1926 Rebellion. De Graeff has certainly mistaken there. We were already here for three hundred years, and for three hundred years more shall we rule!"
 INS_de_jonge_resigned:0 "§YGovernor-General De Jonge§! has been retired"
@@ -546,6 +548,8 @@ INS_break_raj:0 "Break the Raj"
 INS_break_raj_desc:0 "The British Raj is a horrible mesh of different cultures united only by the British rule. We should encourage their regional communalist sentiments so that when the British yoke were overthrown, they can manage themselves better than before, just like what us did."
 INS_middle_east_revolution:0 "Middle Eastern Revolution"
 INS_middle_east_revolution_desc:0 "The once united Arabia has been divided by warlords, petty reactionaries, and colonialists, leaving their proletarians suffer with only religion as their last means of luxury. No longer. Religion itself is about unified struggle for liberation from the shackle of power, and so we must utilize it for them to regain their ultimate freedom!"
+
+#Political Focus
 INS_exploit_resources:0 "Exploit Deep Resources"
 INS_exploit_resources_desc:0 "In Java there is currently unused bauxite and iron deposits under the surface. This would greatly contribute to the economy of our people as well to fuel our war machine."
 INS_war_industry_effort:0 "Fight For Our Cause"
@@ -556,6 +560,8 @@ INS_finish_decol:0 "Finish the Decolonisation Process"
 INS_finish_decol_desc:0 "Now the process is almost complete. It is time to remind the Dutch of their promise and let them leave our homes."
 INS_our_path_forward:0 "Our Path Forward"
 INS_our_path_forward_desc:0 "With the end of Dutch Imperialism in our nation, we are free to take our own path and leave our mark in the history."
+
+#Army Branch
 INS_address_military_issues:0 "Address Military Issues"
 INS_address_military_issues_desc:0 "The realities of the modern world means that Koninklijke Nederlands-Indische Leger needs to be thoroughly reformed to both deal with potential revolutionaries inside and foreign invaders outside."
 INS_increase_military_training:0 "Increase Military Training"
@@ -618,6 +624,8 @@ INS_soldiers_from_fatherland:0 "Soldiers From The Fatherland"
 INS_soldiers_from_fatherland_desc:0 "Since the KNIL does not allow suspected groups to enlist, we are in need of some KL divisions from the Mainland to bolster our forces. Luckily, or unfortunately, with the fall of the Fatherland, we have no shortages of patriots who wanted to partake in the liberation of our Fatherland!"
 INS_introduce_mechanised_vehicles:0 "Introduce Mechanized Vehicles"
 INS_introduce_mechanised_vehicles_desc:0 "With limited built-up areas in the archipelago negates the advantage of the armors, we can still employ mechanized vehicles as the golden option to traverse the rural areas. Our army is currently lacking these basic modern capabilities, so either we can procure a license from our ally or devote a significant amount of resources to catch up with other powers."
+
+#Naval Branch
 INS_pave_the_way_for_a_navy:0 "Pave the Way For a Navy"
 INS_pave_the_way_for_a_navy_desc:0 "Since we do not have the capabilities to produce modern ships, we do not posses a powerful navy. We must create one if we ever wish to defend our vast archipelago, or even becoming a regional power in the future."
 INS_ask_indies_fleet:0 "Request Control of the East Indies Fleet"
@@ -659,6 +667,8 @@ INS_copy_dutch_navair:0 "Copy Dutch Designs"
 INS_copy_dutch_navair_desc:0 "With our total lack of comprehensive knowledge about naval and air technologies, it is inevitable that we must rely on the Mainland to provide theirs to be produced locally."
 INS_streamline_air_transport:0 "Streamline Air Transport Designs"
 INS_streamline_air_transport_desc:0 "The current transport plane-making technology is still cumbersome and expensive. By streamlining it, we can create much better transport planes to both connecting our numerous islands to each other and to Europe, and also providing logistical advantages in the times of war."
+
+#Airforce Branch
 INS_expand_the_airforce:0 "[Root.getinsairforce]"
 INS_AIRFORCE_DUTCH:0 "Fund the Luchtvaartafdeling"
 INS_AIRFORCE_ELSE:0 "Fund the Indonesian Airforce"
@@ -687,6 +697,8 @@ INS_jet_effort:0 "Jet Effort"
 INS_jet_effort_desc:0 "Scientists in Germany and Britain are developing a new kind of engine, which offers high-speed travels when applied for aeronautical engines with fewer fuel consumption. This would surely useful for the future of third-dimensional warfare."
 INS_steel_garuda:0 "The Steel Garudas"
 INS_steel_garuda_desc:0 "The Mythical Garuda, one of Lord Vishnu's ride, has said to protect the lands know to mankind back then. While we can't exactly replicate His feats, let the world know that our own Garudas are here, ready to protect our lands and our people from any form of aggression!"
+
+#Exile Branch
 INS_prepare_flight:0 "Prepare for Our Exile"
 INS_prepare_flight_desc:0 "While the idea itself is a bit detestable, despite our army is strong and well-fed, and despite our navy and planes are ready to guard the Indies, we have to prepare for the inevitable when all of them had failed us.\nBy establishing contracts with our more powerful allies nearby, our comparative advantages with our would-be occupiers may not be as disparate as right now."
 INS_build_exile_port:0 "Build the Exile Ports"
