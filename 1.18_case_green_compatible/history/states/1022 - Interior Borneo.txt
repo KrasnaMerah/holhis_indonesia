@@ -1,0 +1,21 @@
+state={
+	id=1022
+	name="STATE_1022"
+
+	impassable = yes 
+	force_link_ownership_to = 1050 # West Kalimantan
+	
+	history={
+		owner = INS
+		add_core_of = INS
+	}
+
+	provinces={
+		1230 2047 2170 2222 4335 5176 5226 7424 
+	}
+
+	manpower=8600
+	buildings_max_level_factor=1
+	state_category=wasteland
+	local_supplies=0
+}

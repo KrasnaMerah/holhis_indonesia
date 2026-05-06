@@ -1,0 +1,17 @@
+version="1.7.5 Sungsang"
+tags={
+	"Alternative History"
+	"Events"
+	"Historical"
+	"Map"
+	"Fixes"
+	"Balance"
+	"National Focuses"
+	"Sound"
+	"Indonesia"
+	"Dutch East Indies"
+}
+picture="thumbnail.png"
+name="Hollandia Historica: East Indies Reworked"
+supported_version="1.18.*"
+remote_file_id="2898713030"
