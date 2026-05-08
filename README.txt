@@ -1,8 +1,8 @@
-East Indies Reworked Development Team
+East Indies Reworked Development Team, est 2023
 
 Lead: "KrasnaMerah"
 Researcher: "KrasnaMerah", "BrotherKakang F"
-Artists: "Abbey", "Dafisha", "McDyron", VolunteersProject"
+Artists: "Abbey", "Dafisha", "McDyron", "VolunteersProject"
 
 How to install this mod through Github
 - Download the appropriate version from your game from the repository
