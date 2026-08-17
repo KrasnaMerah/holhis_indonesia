@@ -106,28 +106,23 @@ characters = {
 			allowed = {
 				OR = {
 					original_tag = INS
-					tag = ATJ
+					original_tag = ATJ
 				}
-				has_dlc = "Man the Guns"
 			}
 			available = {
-				is_subject = no
-				NOT = {
-					has_government = fascism
-				}
 				if = {
 					limit = {
-						has_character_flag = INS_imprisoned_flag
+						has_dlc = "Man the Guns"
 					}
 					NOT = {
-						has_character_flag = INS_imprisoned_flag
+						has_autonomy_state = autonomy_supervised_state
 					}
 				}
 			}
 			visible = {
 			}
 			traits = {
-				revolutionary_author
+				communist_revolutionary 
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 ATJ = "countries/Atjeh.txt"
 DFS = "countries/Hollandia.txt"
-KLM = "countries/Kalimantan.txt"
+KLM = "countries/Pontianak.txt"
+KUT = "countries/Kutai.txt"
 MLK = "countries/Maluku.txt"
 EIS = "countries/Lesser_Sunda.txt"
 SLU = "countries/Sulu.txt"

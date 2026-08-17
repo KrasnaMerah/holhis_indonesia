@@ -1,0 +1,37 @@
+characters = {
+	BRN_ahmad_tajuddin_waddien = {
+		name = BRN_ahmad_tajuddin_waddien
+		portraits = {
+			civilian = {
+				large = GFX_portrait_Onn_Jaafar
+			}
+		}
+		country_leader = {
+			ideology = despotism
+			expire="1953.3.1.1"
+			id=-1
+		}
+		country_leader = {
+			ideology = rexism
+			expire="1953.3.1.1"
+			id=-1
+		}
+	}
+	BRN_pki_committee = {
+		name = INA_cc_pki
+		portraits = {
+			civilian = {
+				large = GFX_portrait_indonesia_pki
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = {
+				dysfunctional_assembly
+				divided_interests
+			}
+			expire = "1966.3.12.1"
+			id = -1
+		}
+	}
+}

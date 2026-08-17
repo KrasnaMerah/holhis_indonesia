@@ -1015,8 +1015,10 @@
  #Kalimantan
  INS_mohammad_yusuf_alqadri:0 "Syarif Mohammad Alkadrie" #1872, 64 yo in 1936, Pontianak Royal KNIL
  INS_hamid_mohammad_alqadri:0 "Syarif Hamid II Alkadrie"  #1913, 23 yo in 1936, Pontianak Royal KNIL
- INS_mohammad_noor:0 "Pangeran Mohammad Noor" #1901, 35 yo in 1936, Banjar Prince
- KLM_ahmad_tajuddin_waddien:0 "Ahmad Tajuddin Waddien" #1913, 23 yo in 1936, Brunei Sultan since 1924
+ KUT_mohammad_noor:0 "Pangeran Mohammad Noor" #1901, 35 yo in 1936, Banjar Prince
+ BRN_ahmad_tajuddin_waddien:0 "Ahmad Tajuddin Waddien" #1913, 23 yo in 1936, Brunei Sultan since 1924
+ KUT_fachrul_baraqbah:0 "Fachrul Baraqbah" #1925, 11 yo in 1936, PKI leader in East Kalimantan since 1945
+ INA_cc_pki:0 "Central Committee"
 
  #Timor Leste
  TML_aleixo_corte_real:0 "Dom Aleixo Corte-Real" #1886, 47 yo in 1936, guerilla leader

@@ -1,18 +1,5 @@
 characters = {
-	KLM_ahmad_tajuddin_waddien = {
-		name = KLM_ahmad_tajuddin_waddien
-		portraits = {
-			civilian = {
-				large = GFX_portrait_Onn_Jaafar
-			}
-		}
-		country_leader = {
-			ideology = despotism
-			expire="1953.3.1.1"
-			id=-1
-		}
-	}
-	INS_mohammad_yusuf_alqadri = {
+	KLM_mohammad_yusuf_alqadri = {
 		name = INS_mohammad_yusuf_alqadri
 		portraits = {
 			civilian = {
@@ -22,8 +9,18 @@ characters = {
 				small = GFX_idea_indonesia_yusuf_alkadrie
 			}
 		}
+		country_leader = {
+			ideology = despotism
+			expire="1953.3.1.1"
+			id=-1
+		}
+		country_leader = {
+			ideology = rexism
+			expire="1953.3.1.1"
+			id=-1
+		}
 	}
-	INS_hamid_mohammad_alqadri = {
+	KLM_hamid_mohammad_alqadri = {
 		name = INS_hamid_mohammad_alqadri
 		portraits = {
 			civilian = {
@@ -34,15 +31,21 @@ characters = {
 			}
 		}
 	}
-	INS_mohammad_noor = {
-		name = INS_mohammad_noor
+	KLM_pki_committee = {
+		name = INA_cc_pki
 		portraits = {
 			civilian = {
-				large = GFX_portrait_Onn_Jaafar
+				large = GFX_portrait_indonesia_pki
 			}
-			army = {
-				small = GFX_idea_indonesia_yusuf_alkadrie
+		}
+		country_leader = {
+			ideology = marxism
+			traits = {
+				dysfunctional_assembly
+				divided_interests
 			}
+			expire = "1966.3.12.1"
+			id = -1
 		}
 	}
 }

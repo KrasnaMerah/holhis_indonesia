@@ -8508,15 +8508,72 @@ form_majapahit_empire_category = {
 		}
 	}
 
+	form_north_kalimantan = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			OR = {
+				original_tag = SAR
+				original_tag = SAB
+				original_tag = BRN
+			}
+		}
+
+		highlight_states = { 
+			highlight_state_targets = {
+				state = 1023
+				state = 333
+				state = 1024
+			}
+		}
+
+		available = {
+			controls_state = 1023
+			controls_state = 333
+			controls_state = 1024
+		}
+
+		visible = {
+			OR = {
+				original_tag = SAR
+				original_tag = SAB
+				original_tag = BRN
+			}
+			NOT = { has_global_flag = form_north_kalimantan_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = NBR
+			1023 = { add_core_of = ROOT }
+			333 = { add_core_of = ROOT }
+			1024 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = form_north_kalimantan_flag
+			}
+		}
+
+		ai_will_do = {
+			base = 200
+		}
+	}
+
 	form_borneo = {
 
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = KLM
-			original_tag = SAR
-			original_tag = SAB
-			original_tag = BRN
+			OR = {
+				original_tag = KLM
+				AND = {
+					OR = {
+						original_tag = SAR
+						original_tag = SAB
+						original_tag = BRN
+					}
+					has_global_flag = form_north_kalimantan_flag
+				}
+			}
 			has_dlc = "Waking the Tiger"
 		}
 
@@ -8540,7 +8597,17 @@ form_majapahit_empire_category = {
 		}
 
 		visible = {
-			original_tag = KLM
+			OR = {
+				original_tag = KLM
+				AND = {
+					OR = {
+						original_tag = SAR
+						original_tag = SAB
+						original_tag = BRN
+					}
+					has_global_flag = form_north_kalimantan_flag
+				}
+			}
 			NOT = { has_global_flag = form_kalimantan_flag }
 		}
 
@@ -18153,6 +18220,93 @@ latin_africa_category = {
 	}
 }
 
+raj_formable_cat = {
+	
+	unite_bengalis = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = BAN
+			has_dlc = "Graveyard of Empires"
+		}
+
+		available = {
+			controls_state = 430
+			controls_state = 431
+		}
+
+		visible = {
+			original_tag = BAN
+			NOT = { has_global_flag = unite_bengalis_flag }
+		}
+
+		complete_effect = {
+			430 = { add_core_of = ROOT }
+			431 = { add_core_of = ROOT }
+			hidden_effect = {
+				set_global_flag = unite_bengalis_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	}
+
+	unite_dravidians = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			OR = {
+				original_tag = MYS
+				original_tag = RAS
+				original_tag = KOL
+				original_tag = SRL
+			}
+			has_dlc = "Graveyard of Empires"
+		}
+
+		available = {
+			controls_state = 982
+			controls_state = 423
+			controls_state = 320
+			controls_state = 425
+			controls_state = 424
+			controls_state = 983
+		}
+		
+		visible = {
+			OR = {
+				original_tag = MYS
+				original_tag = RAS
+				original_tag = KOL
+				original_tag = SRL
+			}
+			NOT = { has_global_flag = form_dravida_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = DRV
+			982 = { add_core_of = ROOT }
+			423 = { add_core_of = ROOT }
+			320 = { add_core_of = ROOT }
+			425 = { add_core_of = ROOT }
+			424 = { add_core_of = ROOT }
+			983 = { add_core_of = ROOT }
+			984 = { add_claim_by = ROOT }
+			426 = { add_claim_by = ROOT }
+			427 = { add_claim_by = ROOT }
+			422 = { add_claim_by = ROOT }
+			1012 = { add_claim_by = ROOT }
+			321 = { add_claim_by = ROOT }
+			hidden_effect = {
+				set_global_flag = form_dravida_flag
+			}
+		}
+	}
+}
 
 germany_formable_category = {
 	

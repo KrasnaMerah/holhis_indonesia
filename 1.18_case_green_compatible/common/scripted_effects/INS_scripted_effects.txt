@@ -1428,3 +1428,14 @@ INS_add_transmigrant_wave = {
 		ROOT = { set_country_flag = INS_transmigration_3_done_flag }
 	}
 }
+
+INS_add_5_compliance_effect = {
+	if = {
+		limit = {
+			NOT = {
+				is_core_of = ROOT
+			}
+		}
+		add_compliance = 5
+	}
+}

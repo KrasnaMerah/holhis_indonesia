@@ -30,11 +30,10 @@ add_ideas = {
 	ASEAN_agrarian_society_1
 }
 
-set_convoys = 30
+set_convoys = 25
 set_stability = 0.46
 set_war_support = 0.35
 
-recruit_character = INS_mohammad_yusuf_alqadri
-recruit_character = INS_hamid_mohammad_alqadri
-recruit_character = INS_mohammad_noor
-recruit_character = KLM_ahmad_tajuddin_waddien
+recruit_character = KLM_mohammad_yusuf_alqadri
+recruit_character = KLM_hamid_mohammad_alqadri
+recruit_character = KLM_pki_committee

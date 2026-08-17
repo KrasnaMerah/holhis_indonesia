@@ -4233,18 +4233,13 @@ on_actions = {
 					}
 				}
 				KLM = {
-					add_ideas = INS_agrarian_society_2
 					set_country_flag = INS_de_jonge_resigned
-					334 = { add_core_of = PREV }
 					1022 = { add_core_of = PREV }
-					1050 = { add_core_of = PREV }
-					set_cosmetic_tag = KLM
 				}
 				MAL = {
 					release = BRN
 					release = SAB
 					release = SAR
-					release = SNG
 				}
 				BRN = {
 					division_template = {
@@ -4276,10 +4271,10 @@ on_actions = {
 					}
 				}
 				INS = {
+					release = KUT
 					release = KLM
 				}
 				KLM = {
-					set_capital = { state = 1050 }
 					division_template = {
 						name = "Bornean Jungle Division"
 						priority = 1
@@ -4320,11 +4315,6 @@ on_actions = {
 						name = MAL_neutrality_party_independent
 					}
 					set_party_name = { 
-						ideology = fascism 
-						long_name = MAL_fascism_party_long 
-						name = MAL_fascism_party 
-					}
-					set_party_name = { 
 						ideology = democratic
 						long_name = INS_democratic_party_united_front_long 
 						name = INS_democratic_party_united_front
@@ -4333,6 +4323,47 @@ on_actions = {
 						ideology = communism
 						long_name = KLM_communism_party_long 
 						name = KLM_communism_party
+					}
+				}
+				KUT = {
+					division_template = {
+						name = "Bornean Jungle Division"
+						priority = 1
+						division_names_group = INS_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }
+
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 1 y = 2 }
+					
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+						}
+						support = {
+							engineer = { x = 0 y = 0 }
+						}
+					}
+					random_owned_controlled_state = {
+						limit = { PREV = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Kalimantan 1st Division\" division_template = \"Bornean Jungle Division\" start_experience_factor = 0.5" 
+							owner = PREV
+						}
+					}
+					random_owned_controlled_state = {
+						limit = { PREV = { has_full_control_of_state = PREV } }
+						create_unit = {
+							division = "name = \"Kalimantan 2nd Division\" division_template = \"Bornean Jungle Division\" start_experience_factor = 0.5" 
+							owner = PREV
+						}
+					}
+					set_party_name = { 
+						ideology = communism
+						long_name = KUT_communism_party_long 
+						name = KUT_communism_party
 					}
 				}
 				MLK = {
